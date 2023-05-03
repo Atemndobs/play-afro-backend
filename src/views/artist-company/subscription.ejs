@@ -1,0 +1,123 @@
+<%- include('layouts/header') %>
+
+<section class="subscriptions-section">
+  <div class="container">
+    <div class="row">
+      <div class="in-review text-center mb-3 mt-5">
+        <h2>
+          <a id="header-back-redirect" href="/dashboard" class="back-btn">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.57 5.92969L3.5 11.9997L9.57 18.0697"
+                stroke="black"
+                stroke-width="1.5"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M20.4999 12H3.66992"
+                stroke="black"
+                stroke-width="1.5"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            Back </a
+          >Subscription
+        </h2>
+        <p>Please select plan</p>
+      </div>
+      <div class="subscription-cover">
+        <div class="row justify-content-center">
+          <div class="card text-center">
+            <div class="card-header card-head">
+              <h3>Monthly</h3>
+            </div>
+            <div class="card-body card-content">
+              <span class="sub-ammount"> $50 </span>
+              <%if (typeof (isPremium) != "undefined" && isPremium==1 &&
+              typeof(subscriptionInfo)!="undefined" &&
+              subscriptionInfo.plan_id==1) { %> Expire At:
+              <p class="discount">
+                <%= moment(subscriptionInfo.expiry_date).format( 'MMM-DD-YYYY')
+                %>
+              </p>
+
+              <% } %>
+              <ul>
+                <li>
+                  <p>Upload unlimited songs</p>
+                </li>
+                <li>
+                  <p>Lorem ipsum</p>
+                </li>
+                <li>
+                  <p>Lorem ipsum</p>
+                </li>
+              </ul>
+            </div>
+            <div class="card-footer">
+              <%if (typeof (isPremium) != "undefined" && isPremium==1 &&
+              typeof(subscriptionInfo)!="undefined" &&
+              subscriptionInfo.plan_id==1) { %>
+              <button class="buy_btn is_premium_buttnon" disabled>Subscribed</button>
+              <% }else{ %>
+              <a href="/payment/1" class="buy_btn">Buy</a>
+              <% } %>
+            </div>
+          </div>
+          <div class="card text-center">
+            <div class="card-header card-head">
+              <h3>Yearly</h3>
+            </div>
+            <div class="card-body card-content">
+              <span class="sub-ammount"> $500 </span>
+              <%if (typeof (isPremium) != "undefined" && isPremium==1 &&
+              typeof(subscriptionInfo)!="undefined" &&
+              subscriptionInfo.plan_id==2) { %> Expire At:
+              <p class="discount">
+                <%= moment(subscriptionInfo.expiry_date).format( 'MMM-DD-YYYY')
+                %>
+              </p>
+
+              <% } else{%>
+              <p class="discount">10% Discount</p>
+              <% }%>
+
+              <ul>
+                <li>
+                  <p>Upload unlimited songs</p>
+                </li>
+                <li>
+                  <p>Lorem ipsum</p>
+                </li>
+                <li>
+                  <p>Lorem ipsum</p>
+                </li>
+              </ul>
+            </div>
+            <div class="card-footer">
+              <%if (typeof (isPremium) != "undefined" && isPremium==1 &&
+              typeof(subscriptionInfo)!="undefined" &&
+              subscriptionInfo.plan_id==2) { %>
+              <button class="buy_btn is_premium_buttnon" disabled>Subscribed</button>
+              <% }else{ %>
+              <a href="/payment/2" class="buy_btn">Buy</a>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('layouts/footer') %>

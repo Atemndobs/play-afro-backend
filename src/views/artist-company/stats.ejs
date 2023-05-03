@@ -1,0 +1,329 @@
+<%- include('layouts/header') %>
+ <link rel="stylesheet" href="/css/stats.css" />
+<!-- profile info -->
+    
+    <section class="all-user-data">
+        <div class="container">
+            <div class="in-review text-center mb-3 mt-5">
+                <h2 class="mb-5 position-relative"><a href="/dashboard" class="back-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.57 5.92969L3.5 11.9997L9.57 18.0697" stroke="black" stroke-width="1.5"
+                                stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M20.4999 12H3.66992" stroke="black" stroke-width="1.5" stroke-miterlimit="10"
+                                stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        Back
+                    </a>Music Stats</h2>
+            </div>
+            <div class="details-album-cover final-review music-status">
+                <p class="">DJ Charts</p>
+                <div class="album-profile d-flex">
+                    <img src="<%= url('/' + musicDetail.cover_photo) %>" alt="">
+                    <div class="album-title position-relative">
+                        <h2 class="mb-0 mt-0 pb-2 text-start"><%= musicDetail.title %></h2>
+                        <p class="mb-2"><%= musicDetail.artist %></p>
+                        <ul class="d-flex view-buttons">
+                            <li>
+                                <a href="#!" class="d-flex align-items-center">
+                                    <svg width="20" height="13" viewBox="0 0 20 13" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M10 0C5.64706 0 1.88235 2.47063 0 6.09412C1.88239 9.71756 5.64706 12.1882 10 12.1882C14.3529 12.1882 18.1176 9.7176 20 6.09412C18.1176 2.47067 14.3529 0 10 0ZM10 11.2235C6.3058 11.2235 2.91765 9.27059 1.08235 6.07059C2.91765 2.89403 6.30588 0.941176 10 0.941176C13.6941 0.941176 17.0824 2.89412 18.9176 6.09412C17.0824 9.2705 13.6941 11.2235 10 11.2235Z"
+                                            fill="white" />
+                                        <path
+                                            d="M10.0002 2.02344C7.76493 2.02344 5.95312 3.83524 5.95312 6.0705C5.95312 8.30575 7.76493 10.1176 10.0002 10.1176C12.2354 10.1176 14.0472 8.30575 14.0472 6.0705C14.0472 3.83524 12.2354 2.02344 10.0002 2.02344ZM10.0002 9.17638C8.28258 9.17638 6.89422 7.78818 6.89422 6.07041C6.89422 4.35281 8.28258 2.96445 10.0002 2.96445C11.7178 2.96445 13.1061 4.35281 13.1061 6.07041C13.1061 7.78802 11.7178 9.17638 10.0002 9.17638Z"
+                                            fill="white" />
+                                    </svg>
+                                    <p class="d-flex">View :<span><%= musicDetail.views %></span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" class="d-flex align-items-center">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M10 0C4.48301 0 0 4.48301 0 10C0 15.517 4.48301 20 10 20C15.517 20 20 15.517 20 10C20 4.48301 15.517 0 10 0ZM10 0.975523C14.99 0.975523 19.0244 5.01023 19.0244 9.99991C19.0244 14.9899 14.9899 19.0243 10 19.0243C5.01015 19.0243 0.97561 14.9898 0.97561 9.99991C0.97561 5.01006 5.01015 0.975523 10 0.975523ZM8.07173 4.87805C7.80514 4.884 7.54364 4.96107 7.32487 5.09905C6.88711 5.375 6.59774 5.88063 6.58545 6.46334C6.58528 6.46844 6.58528 6.47354 6.58545 6.47865V13.5135C6.58528 13.516 6.58528 13.5186 6.58545 13.5211C6.5977 14.1039 6.88761 14.6156 7.32487 14.8931C7.76211 15.1706 8.3608 15.1985 8.86459 14.9082H8.86442L8.87208 14.9006L14.6112 11.3717C15.0661 11.091 15.3657 10.5726 15.3657 9.99209C15.3657 9.41178 15.0661 8.90085 14.6112 8.62014L8.87208 5.09126L8.86442 5.08361C8.61297 4.93883 8.33838 4.87179 8.07178 4.87775L8.07173 4.87805ZM8.08705 5.84612C8.16939 5.84391 8.2633 5.86892 8.36147 5.92234C8.36726 5.92541 8.37083 5.9266 8.37678 5.93L14.1011 9.45143C14.2707 9.55606 14.3907 9.74525 14.3907 9.99263C14.3907 10.2398 14.2707 10.4367 14.1011 10.5415L8.37678 14.0629C8.371 14.0663 8.36726 14.0673 8.36147 14.0704C8.16003 14.1801 7.9916 14.1647 7.84326 14.0704C7.69218 13.9745 7.56952 13.7895 7.56118 13.5141V6.47925C7.56952 6.20381 7.69269 6.01767 7.84326 5.92294C7.91931 5.87496 7.99996 5.8491 8.08724 5.84672L8.08705 5.84612Z"
+                                            fill="white" />
+                                    </svg>
+                                    <p class="d-flex">Plays :<span><%= musicDetail.plays %></span></p>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" class="d-flex align-items-center">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M9.54102 0V11.278L6.09628 7.83329L5.38184 8.57316L10.0512 13.2426L14.7207 8.57316L14.0062 7.83329L10.5615 11.278V0H9.54102Z"
+                                            fill="white" />
+                                        <path
+                                            d="M16.7118 1.63281L15.9973 2.34726L16.3545 2.70447V2.70465C17.6018 3.9491 18.4521 5.53587 18.7974 7.2638C19.1425 8.99186 18.9673 10.7834 18.294 12.4116C17.6205 14.0398 16.4791 15.4318 15.0143 16.4113C13.5495 17.3907 11.827 17.9135 10.0651 17.9135C8.30289 17.9135 6.58052 17.3907 5.1155 16.4113C3.6507 15.4318 2.50927 14.0398 1.83593 12.4116C1.16244 10.7833 0.987295 8.99163 1.33258 7.2638C1.67769 5.53591 2.52791 3.94919 3.77523 2.70465L4.13244 2.34744L3.418 1.63299L3.06078 1.9902C1.7848 3.21187 0.858212 4.75216 0.376235 6.45193C-0.10556 8.15152 -0.124971 9.94898 0.31999 11.6585C0.764773 13.3682 1.65789 14.9281 2.90717 16.1774C4.15644 17.4267 5.71629 18.3198 7.42603 18.7646C9.13574 19.2095 10.9332 19.1901 12.6326 18.7082C14.3324 18.2264 15.8725 17.2996 17.0944 16.0238C18.9549 14.1624 20 11.6384 20 9.00693C20 6.37524 18.9549 3.85135 17.0944 1.99005L16.7118 1.63281Z"
+                                            fill="white" />
+                                    </svg>
+                                    <p class="d-flex">Download :<span><%= musicDetail.download %></span></p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- All User data End -->
+
+
+    <!-- Rating Review -->
+
+
+    <section class="rating-review-section mt-5 pb-10">
+        <div class="container">
+            <div class="rating-cover">
+                <div class="rating-title">
+                    <h3>
+                        Rating & Reviews
+                    </h3>
+                    <p>Overall Rating</p>
+                    <div class="star-rating d-flex">
+                        <span><%= parseFloat(ratingData.avg).toFixed(2) %></span>
+                        <ul class="d-flex align-items-center">
+                            <% for(var i=1; i <= 5; i++) { %>
+                            <li>
+                                <a href="#!" class="active">
+                                    <%if(ratingData.avg>=i){%>
+                                    <i class="fa-solid fa-star"></i>
+                                    <%}else{%>
+                                        <i class="fa-regular fa-star"></i>
+                                    <%}%>
+                                </a>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <div class="review-rating">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-12">
+                                <div class="star-rating-cover">
+                                    <ul class="d-flex align-items-center">
+                                        <li>
+                                            <p>5<span>(<%=ratingData.Stars5%>) </span></p>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-solid fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-solid fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-solid fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-solid fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-solid fa-star"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="d-flex align-items-center">
+                                        <li>
+                                            <p>4<span>(<%=ratingData.Stars4%>) </span></p>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-solid fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-solid fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-solid fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-solid fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-regular fa-star"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="d-flex align-items-center">
+                                        <li>
+                                            <p>3<span>(<%=ratingData.Stars3%>) </span></p>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-solid fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-solid fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-solid fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-regular fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-regular fa-star"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="d-flex align-items-center">
+                                        <li>
+                                            <p>2<span>(<%=ratingData.Stars2%>) </span></p>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-solid fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-solid fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-regular fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-regular fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-regular fa-star"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="d-flex align-items-center">
+                                        <li>
+                                            <p>1<span>(<%=ratingData.Stars1%>) </span></p>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-solid fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-regular fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-regular fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-regular fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-regular fa-star"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <ul class="d-flex align-items-center">
+                                        <li>
+                                            <p>0<span>(<%=ratingData.Stars0%>) </span></p>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-regular fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-regular fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-regular fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-regular fa-star"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#!" class="active">
+                                                <i class="fa-regular fa-star"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-sm-12">
+                                <div class="progress-rate">
+                                    <div data-progress="<%=ratingData.Stars5>0?ratingData.Stars5/ratingData.total*100:0%>"></div>
+                                    <div data-progress="<%=ratingData.Stars4>0?ratingData.Stars4/ratingData.total*100:0%>"></div>
+                                    <div data-progress="<%=ratingData.Stars3>0?ratingData.Stars3/ratingData.total*100:0%>"></div>
+                                    <div data-progress="<%=ratingData.Stars2>0?ratingData.Stars2/ratingData.total*100:0%>"></div>
+                                    <div data-progress="<%=ratingData.Stars1>0?ratingData.Stars1/ratingData.total*100:0%>"></div>
+                                    <div data-progress="<%=ratingData.Stars0>0?ratingData.Stars0/ratingData.total*100:0%>"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- JS Links  -->
+<%- include('layouts/footer') %>
+<script>
+        window.onload = function () {
+            console.log("<%=ratingData.Stars5%>")
+            if (
+                document.querySelectorAll(".progress-rate").length > 0 &&
+                document.querySelectorAll(".progress-rate [data-progress]").length > 0
+            ) {
+                document
+                    .querySelectorAll(".progress-rate [data-progress]")
+                    .forEach((x) => AnimateProgress(x));
+            }
+        };
+
+        function AnimateProgress(el) {
+            el.className = "animate-progress";
+            el.setAttribute(
+                "style",
+                `--animate-progress:${el.getAttribute("data-progress")}%;`
+            );
+        }
+
+    </script>

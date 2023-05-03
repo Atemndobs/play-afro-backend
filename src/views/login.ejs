@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Public+Sans:ital,wght@1,100&display=swap"
+      rel="stylesheet"
+    />
+    <title>DJ-Chart Login</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <div class="back-drop"></div>
+    <div class="register-popup">
+      <div class="popup-video login-step2">
+        <div class="profile-name">
+          <div class="modal-header">
+            <h3 class="d-flex">
+              <span>Choose your preference for registration </span>
+            </h3>
+            <a href="#!" class="modal-close"><i class="fa-solid fa-x"></i></a>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div class="form-check my-3">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="artist_music"
+                  value="artistmusic"
+                />
+                <label
+                  class="light-white form-check-label checked"
+                  for="artist_music"
+                >
+                  Artist or Music release company
+                </label>
+              </div>
+              <div class="form-check my-3">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="djs_music"
+                  value="djs-music"
+                />
+                <label class="light-white form-check-label" for="djs_music">
+                  DJs
+                </label>
+              </div>
+              <a href="#!" class="w-100 btn submit-form">Ok</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="login-header text-center">
+      <a href="/" class="d-flex align-items-center justify-content-center">
+        <img src="images/logo-icon-black.svg" alt="" class="icon-rotate mx-3" />
+        <img src="images/logo-content-black.svg" alt="" />
+      </a>
+    </div>
+
+    <div class="loginform">
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="form-cover">
+              <h2>Log in</h2>
+              <form action="post-login" method="post">
+                <div class="mb-3">
+                  <label for="exampleInputEmail" class="form-label"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    name="email"
+                    value="<%= (typeof email !== 'undefined') ? email : '' %>"
+                    class="form-control"
+                    placeholder="Email"
+                  />
+                </div>
+                <div class="mb-3 position-relative">
+                  <label for="basic-url" class="form-label">Password</label>
+                  <div class="password-wrapper mb-3">
+                    <input
+                      type="password"
+                      name="password"
+                      class="form-control"
+                      placeholder="Password"
+                      id="password"
+                    />
+                    <i
+                      class="fa fa-fw fa-eye-slash toggle-password"
+                      id="eye_login"
+                      style="color: #9c9b9b"
+                    ></i>
+                  </div>
+                </div>
+                <% if(typeof error !=='undefined' ) { %> <% for(var i in
+                error.details) { if(error.details[i].context.key=='email' ) { %>
+                <small
+                  class="text-danger"
+                  id="error-email"
+                  style="color: #9f0606"
+                >
+                  <%= error.details[i].message %>
+                </small>
+                <% } %> <% } %> <% } %> <% if(typeof message !=='undefined' ) {
+                %>
+                <small
+                  class="text-danger"
+                  id="error-email"
+                  style="color: #9f0606"
+                >
+                  <%= message %>
+                </small>
+                <% } %>
+                <div class="text-center pb-5">
+                  <a
+                    href="/user/forget-password"
+                    class="forgot-password text-center"
+                    >Forgot Password?</a
+                  >
+                </div>
+                <button type="submit" class="btn btn-primary login-btn">
+                  Log in
+                </button>
+                <!-- <a href="/" class="btn btn-primary login-btn">Log in</a> -->
+                <p class="text-center py-3 register-link">
+                  Don’t have an account?
+                  <a href="#!" class="apply-btn register-btn">Register</a>
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS Links  -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="js/common.js"></script>
+    <script>
+      $(function () {
+        $("#eye_login").click(function () {
+          if ($(this).hasClass("fa-eye-slash")) {
+            $(this).removeClass("fa-eye-slash");
+
+            $(this).addClass("fa-eye");
+
+            $("#password").attr("type", "text");
+          } else {
+            $(this).removeClass("fa-eye");
+
+            $(this).addClass("fa-eye-slash");
+
+            $("#password").attr("type", "password");
+          }
+        });
+      });
+
+      $(".submit-form").click(function () {
+        const radio = $('input[name="flexRadioDefault"]:checked').val();
+        if (radio == "artistmusic") {
+          $(".download-popup").hide();
+          window.location.href = "/register";
+        } else {
+          $(".download-popup").hide();
+          window.location.href = "/dj/register";
+        }
+      });
+    </script>
+
+    <!-- /Js Links -->
+  </body>
+</html>

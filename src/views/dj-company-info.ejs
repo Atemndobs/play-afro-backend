@@ -1,0 +1,385 @@
+<%- include('artist-company/layouts/header') %>
+
+
+<div class="register-form" id="company_register2">
+  <div class="container-fluid">
+    <div class="register-cover-color company">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="form-cover">
+            <h2 class="mb-5">
+              Company Details
+            </h2>
+            <form method="post" action="" id="dj-company">
+              <div class="row">
+                <label for="exampleInputName" class="form-label"
+                  >Disco or booking agency data</label
+                >
+                <div class="col-xl-4 col-lg-6">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="disco"
+                      name="agency"  <% if(userData.agency.split(',').indexOf('disco')!==-1){ %> checked <% } %>
+                      id="flexCheckDefault1"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault1">
+                      disco
+                    </label>
+                  </div>
+                </div>
+                <div class="col-xl-4 col-lg-6">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="booking agency"  <% if(userData.agency.split(',').indexOf('booking agency')!==-1){ %> checked <% } %>
+                      name="agency" 
+                      id="flexCheckDefault2"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault2">
+                      booking agency
+                    </label>
+                  </div>
+                </div>
+                <div class="col-xl-4 col-lg-6">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="Mobildeejay"  <% if(userData.agency.split(',').indexOf('Mobildeejay')!==-1){ %> checked <% } %>
+                      name="agency"
+                      id="flexCheckDefault3"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault3">
+                      Mobildeejay
+                    </label>
+                  </div>
+                </div>
+                <small id="error-agency"></small>
+                <div class="line"></div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Company Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="name" value="<%= userData.name %>"
+                  id="copmanyname"
+                  placeholder="Company Name"
+                />
+                <small></small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Street, No.</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="street" value="<%= userData.street %>"
+                  id="companystreet"
+                  placeholder="Street, No."
+                />
+                <small></small>
+              </div>
+              <div class="row">
+                <div class="col-lg-4 col-md-6">
+                  <div class="mb-3">
+                    <label for="exampleInputName" class="form-label"
+                      >Postcode</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="postcode" value="<%= userData.postcode %>"
+                      id="companypostcode"
+                      placeholder="Postcode"
+                    />
+                    <small></small>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                  <div class="mb-3">
+                    <label for="exampleInputName" class="form-label"
+                      >Location</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="location" value="<%= userData.location %>"
+                      id="companylocation"
+                      placeholder="Location"
+                    />
+                    <small></small>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="company-name" class="form-label">Country</label>
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  name="country"
+                  id="companycountry"
+                >
+                  <option selected="" disabled="">Select Country</option>
+                  <% countries.forEach(function(country){ %>
+                  <option
+                    value="<%= country.id %>"
+                    data-code="+<%= country.phonecode %>" <% if(country.id==userData.country){ %> selected <% } %>
+                  >
+                    <%= country.name %>
+                  </option>
+                  <% }); %>
+                </select>
+                <small></small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Contact No.</label
+                >
+                <div class="number-input d-flex">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="+01"
+                    id="company_country_code"
+                    name="company_country_code"
+                    disabled
+                  />
+                  <input
+                    type="text"
+                    class="form-control w-100"
+                    placeholder="Contact No."
+                    name="contact"
+                    value="<%= userData.contact %>"
+                    id="companycontact"
+                  />
+                  <small></small>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Telephone No. (Optional)</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Telephone No. (Optional)"
+                  name="telephone"
+                  value="<%= userData.telephone %>"
+                  id="comapnytelephone"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label">Booker</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Booker"
+                  name="booker"
+                  value="<%= userData.booker %>"
+                  id="comapnybooker"
+                />
+                <small></small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Contact Person</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Contact  Person"
+                  name="contactPerson"
+                  value="<%= userData.contactPerson %>"
+                  id="comapnycontactperson"
+                />
+                <small></small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label">Email</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Email"
+                  name="email"
+                  value="<%= userData.email %>"
+                  id="comapnyemail"
+                />
+                <small></small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Managing Director</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Managing Director"
+                  name="director"
+                  value="<%= userData.director %>"
+                  id="comapnydirector"
+                />
+                <small></small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Opening Days</label
+                >
+                <ul>
+                  <li>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value="Monday"  <% if(userData.openingDay.split(',').indexOf('Monday')!==-1){ %> checked <% } %>
+                        name="companyday"
+                        id="Mon"
+                      />
+                      <label class="form-check-label" for="Mon"> Mon </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value="Tuesday"  <% if(userData.openingDay.split(',').indexOf('Tuesday')!==-1){ %> checked <% } %>
+                        name="companyday"
+                        id="Tue"
+                      />
+                      <label class="form-check-label" for="Tue"> Tue </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value="wednesday"  <% if(userData.openingDay.split(',').indexOf('wednesday')!==-1){ %> checked <% } %>
+                        name="companyday"
+                        id="Wed"
+                      />
+                      <label class="form-check-label" for="Wed"> Wed </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value="thursday"  <% if(userData.openingDay.split(',').indexOf('thursday')!==-1){ %> checked <% } %>
+                        name="companyday"
+                        id="Thu"
+                      />
+                      <label class="form-check-label" for="Thu"> Thu </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value="friday"  <% if(userData.openingDay.split(',').indexOf('friday')!==-1){ %> checked <% } %>
+                        name="companyday"
+                        id="Fri"
+                      />
+                      <label class="form-check-label" for="Fri"> Fri </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value="saturday"  <% if(userData.openingDay.split(',').indexOf('saturday')!==-1){ %> checked <% } %>
+                        name="companyday"
+                        id="Sat"
+                      />
+                      <label class="form-check-label" for="Sat"> Sat </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value="sunday"  <% if(userData.openingDay.split(',').indexOf('sunday')!==-1){ %> checked <% } %>
+                        name="companyday"
+                        id="Sun"
+                      />
+                      <label class="form-check-label" for="Sun"> Sun </label>
+                    </div>
+                  </li>
+                </ul>
+                <small id="error-companyday"></small>
+              </div><div class="col-lg-12 col-12 d-flex my-5">
+                            <button type="button" class="btn btn-prev">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.56982 18.0699L3.49983 11.9999L9.56983 5.92995" stroke="black"
+                                        stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path d="M20.5 12L3.67 12" stroke="black" stroke-width="2" stroke-miterlimit="10"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                                Go Back
+                            </button>
+                            <button type="submit" class="btn btn-next">
+                        Submit
+                            <svg width=" 24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14.4302 5.92993L20.5002 11.9999L14.4302 18.0699" stroke="white"
+                                    stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                                <path d="M3.5 12H20.33" stroke="white" stroke-width="2" stroke-miterlimit="10"
+                                    stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </button>
+                        </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('artist-company/layouts/footer') %>
+<!-- <script src="/js/validations/dj-register.js"></script> -->
+<script src="/js/validations/dj-register.js"></script>
+<script>
+  $("small").css("color", "red");
+  // $("#next_companyflow").click(function () {
+  // $("#company_register").fadeIn();
+  // $("#register_form").fadeOut();
+  // });
+
+  $("#back").click(function () {
+    $("#register_form").fadeIn();
+    $("#company_register").fadeOut();
+  });
+
+  $(".submit-form").click(function () {
+    const radio = $('input[name="flexRadioDefault"]:checked').val();
+    if (radio == "artistmusic") {
+      window.location.href = "/register";
+    } else {
+      window.location.href = "/dj/register";
+    }
+  });
+
+  $("#companycountry").on("change", function () {
+    var value = $("option:selected", this).attr("data-code");
+    $("#company_country_code").val(value);
+  });
+
+  $("#countries").on("change", function () {
+    var value = $("option:selected", this).attr("data-code");
+    $("#countries_code").val(value);
+  });
+</script>

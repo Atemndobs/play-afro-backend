@@ -1,0 +1,143 @@
+<%- include('common_header') %>
+
+<!-- Logout Popup -->
+
+<div class="log_out">
+  <div class="back-drop"></div>
+  <div class="container">
+    <div class="row">
+      <div class="popup-info">
+        <div class="col-12">
+          <p>Are you sure you want to log out?</p>
+          <div class="line"></div>
+        </div>
+        <div class="row">
+          <div class="col-6 d-flex justify-content-center">
+            <a class="btn close-log" href="#" role="button">Cancel</a>
+          </div>
+          <div class="col-6 d-flex justify-content-center">
+            <a class="btn" href="/login" role="button">Log Out</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--  -->
+
+<!-- Register Popup -->
+<div class="back-drop"></div>
+<div class="register-popup">
+  <div class="popup-video login-step2">
+    <div class="profile-name">
+      <div class="modal-header">
+        <h3 class="d-flex">
+          <span>Choose your preference for registration </span>
+        </h3>
+        <a href="#!" class="modal-close"><i class="fa-solid fa-x"></i></a>
+      </div>
+      <div class="modal-body">
+        <div>
+          <div class="form-check my-3">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              id="artist_music"
+              value="artistmusic"
+            />
+            <label class="light-white form-check-label" for="artist_music">
+              Artist or Music release company
+            </label>
+          </div>
+          <div class="form-check my-3">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="flexRadioDefault"
+              id="djs_music"
+              value="djs-music"
+            />
+            <label class="light-white form-check-label" for="djs_music">
+              DJs
+            </label>
+          </div>
+          <a href="#!" class="w-100 btn submit-form">Ok</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--  -->
+
+<!-- Header -->
+<section class="header-section header-main">
+  <div class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img src="/images/logo-icon.svg" alt="" class="icon-rotate mx-2" />
+        <img src="/images/logo-content.svg" alt="" />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="upload-files d-flex ms-auto me-auto">
+          <!-- for login users -->
+          <!-- <a href="#!" class="dashboard-btn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10.74V13.94" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M12 9V15.68" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M17 10.74V13.94" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z"
+                                    stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <span>Dashboard</span>
+                        </a> -->
+          <div class="d-flex position-relative upload-music">
+            <!-- <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 12H16" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M12 16V8" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z"
+                                    stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <a href="uploadmusic.html" class="uploadmusic-btn">Upload Music</a> -->
+
+            <!-- for login users -->
+          </div>
+        </div>
+        <div class="user-profile position-relative d-flex flex-row-reverse">
+          <div class="apply-login">
+            <a href="#!" class="apply-btn register-btn">Registration</a>
+            <a href="/login" class="Login-btn">Log In</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<link
+  href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.min.css"
+  rel="stylesheet"
+/>
+<!-- \Header -->
+
+<!-- All user data -->

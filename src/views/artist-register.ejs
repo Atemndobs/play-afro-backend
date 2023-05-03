@@ -1,0 +1,333 @@
+<%- include('layouts/common_header') %>
+<style>
+  #signup label.form-label b {
+    color: #de0000;
+  }
+</style>
+
+<div class="register-header text-center">
+  <a href="/" class="d-flex align-items-center justify-content-center">
+    <img src="images/logo-icon.svg" alt="" class="icon-rotate mx-2" />
+    <img src="images/logo-icon-black.svg" alt="" class="icon-rotate mx-3" />
+    <img src="images/logo-content-black.svg" alt="" />
+  </a>
+</div>
+
+<div class="register-form">
+  <div class="container-fluid">
+    <div class="register-cover-color">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="form-cover">
+            <h2>Artist / Label Registration Form</h2>
+            <form method="post" action="post-register" id="signup">
+              <label class="form-label">Choose Your Preference</label>
+              <div class="d-flex mb-3">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="type"
+                    value="1"
+                    id="lableselect"
+                    value="lableselect"
+                  />
+                  <label class="form-check-label" for="lableselect">
+                    Label
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="type"
+                    value="0"
+                    id="soloselect"
+                    value="soloselect"
+                  />
+                  <label class="form-check-label" for="soloselect">
+                    Solo
+                  </label>
+                </div>
+              </div>
+              <div class="mb-3 companys-name">
+                <label for="exampleInputName" class="form-label"
+                  >Company Name <b>*</b></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="companyname"
+                  id="companyname"
+                  placeholder="Company Name"
+                />
+                <small></small>
+              </div>
+              <div class="mb-3 contact-person">
+                <label for="exampleInputName" class="form-label"
+                  >Contact Person <b>*</b></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="contactperson"
+                  id="contactperson"
+                  placeholder="Contact person"
+                />
+                <small></small>
+              </div>
+              <div class="mb-3 companys-website">
+                <label for="exampleInputName" class="form-label"
+                  >Company Website <b>*</b></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="companywebsite"
+                  id="companywebsite"           
+                  placeholder="Company Website"
+                />
+                <small></small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Artist Name <b>*</b></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Artist Name"
+                  id="fullname"
+                  name="fullname"
+                />
+                <small></small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail" class="form-label"
+                  >Email <b>*</b></label
+                >
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  class="form-control"
+                  placeholder="Email"
+                />
+                <small></small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label"
+                  >Address <b>*</b></label
+                >
+                <textarea
+                  class="form-control"
+                  id="address"
+                  rows="3"
+                  placeholder="Address"
+                  name="address"
+                ></textarea>
+                <small></small>
+              </div>
+              <div class="mb-3">
+                <label for="company-name" class="form-label"
+                  >Country <b>*</b></label
+                >
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  id="countries"
+                  name="country"
+                >
+                  <option selected="" disabled="">Select Country</option>
+                  <% countries.forEach(function(country){ %>
+                  <option
+                    value="<%= country.id %>"
+                    data-code="+<%= country.phonecode %>"
+                  >
+                    <%= country.name %>
+                  </option>
+                  <% }); %>
+                </select>
+                <small></small>
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Contact No. <b>*</b></label
+                >
+                <div class="number-input d-flex">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="+01"
+                    id="country_code"
+                    name="country_code"
+                    disabled
+                  />
+                  <input
+                    type="text"
+                    class="form-control w-100"
+                    placeholder="Contact No."
+                    id="contact_num"
+                    name="contact"
+                  />
+                  <small></small>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="inputPassword" class="form-label w-100"
+                  >Telephone No. (Optional)</label
+                >
+                <input
+                  type="number"
+                  name="telephone"
+                  class="form-control"
+                  placeholder="Telephone No. (Optional)"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Social Media
+                </label>
+                <div class="d-flex align-items-center mb-3">
+                  <span>
+                    <img class="me-3" src="/icons/instagram.png" alt="" />
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="instagram_link"
+                    id="instagram_link"
+                    placeholder="Instagram Link"
+                  />
+                  <small class="d-block" style="margin-left: 5px;;"></small>
+                </div>
+                <div class="line"></div>
+                <div class="d-flex align-items-center mb-3">
+                  <svg
+                    class="me-3"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect width="40" height="40" rx="20" fill="#1877F2" />
+                    <path
+                      d="M27.7852 25.7812L28.6719 20H23.125V16.25C23.125 14.668 23.8984 13.125 26.3828 13.125H28.9062V8.20312C28.9062 8.20312 26.6172 7.8125 24.4297 7.8125C19.8594 7.8125 16.875 10.582 16.875 15.5938V20H11.7969V25.7812H16.875V39.7578C17.8945 39.918 18.9375 40 20 40C21.0625 40 22.1055 39.918 23.125 39.7578V25.7812H27.7852Z"
+                      fill="white"
+                    />
+                  </svg>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="facebook_link"
+                    id="facebook_link"
+                    placeholder="Facebook Link"
+                  />
+                </div>
+                <div class="line"></div>
+                <div class="d-flex align-items-center mb-3">
+                  <span>
+                    <svg
+                      class="me-3"
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M35.095 11.9679C35.1105 12.3199 35.1105 12.6559 35.1105 13.0079C35.1259 23.68 27.2851 36 12.9464 36C8.7173 36 4.56539 34.736 1 32.368C1.61738 32.448 2.23477 32.48 2.85215 32.48C6.35581 32.48 9.76686 31.264 12.5297 29.008C9.19578 28.944 6.2632 26.688 5.24452 23.392C6.41755 23.632 7.62145 23.584 8.76361 23.248C5.13647 22.512 2.52803 19.1999 2.51259 15.3439C2.51259 15.3119 2.51259 15.2799 2.51259 15.2479C3.59301 15.8719 4.81235 16.2239 6.04712 16.2559C2.63607 13.8879 1.57108 9.16791 3.63932 5.4719C7.60601 10.5279 13.4403 13.5839 19.7067 13.9199C19.0739 11.1199 19.9383 8.17591 21.9602 6.1919C25.0934 3.13589 30.0325 3.2959 32.9959 6.54391C34.7401 6.1919 36.4224 5.5199 37.9504 4.5759C37.3639 6.44791 36.1446 8.03191 34.524 9.03991C36.0674 8.84791 37.58 8.41591 39 7.77591C37.9504 9.40792 36.6231 10.8159 35.095 11.9679Z"
+                        fill="#1D9BF0"
+                      />
+                    </svg>
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="twitter_link"
+                    id="twitter_link"
+                    placeholder="Twitter Link"
+                  />
+                </div>
+                <div class="line"></div>
+              </div>
+              <div class="mb-3 position-relative">
+                <label for="basic-url" class="form-label"
+                  >Password <b>*</b></label
+                >
+                <div class="password-wrapper mb-3">
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Enter your password"
+                    id="password"
+                    name="password"
+                  />
+                  <i
+                    class="fa fa-fw fa-eye-slash toggle-password"
+                    id="eye"
+                    style="color: #9c9b9b"
+                  ></i>
+                  <small></small>
+                </div>
+              </div>
+              <div class="mb-3 position-relative">
+                <label for="basic-url" class="form-label"
+                  >Confirm Password <b>*</b></label
+                >
+                <div class="password-wrapper mb-3">
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Confirm Password"
+                    id="confirm_password"
+                  />
+                  <i
+                    class="fa fa-fw fa-eye-slash toggle-password"
+                    id="eye_confirm"
+                    style="color: #9c9b9b"
+                  ></i>
+                  <small></small>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary login-btn">
+                Submit
+              </button>
+              <!-- <a href="/login" class="btn btn-primary login-btn">Submit</a> -->
+            </form>
+            <div class="footer-contents text-center">
+              <p>
+                By clicking submit, you agree to DJ chart’s
+                <a href="#!"><b>Terms & Conditions</b></a> and
+                <a href="#!"><b>Privacy Policy.</b></a>
+              </p>
+              <span class="login-link">
+                Already have an account? <a href="/login">Login</a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('layouts/footer') %>
+<script src="/js/validations/register.js?1.9"></script>
+<script>
+  $(".submit-form").click(function () {
+    const radio = $('input[name="flexRadioDefault"]:checked').val();
+    if (radio == "artistmusic") {
+      window.location.href = "/register";
+    } else {
+      window.location.href = "/register";
+    }
+  });
+
+  $("#countries").on("change", function () {
+    var value = $("option:selected", this).attr("data-code");
+    $("#country_code").val(value);
+  });
+</script>

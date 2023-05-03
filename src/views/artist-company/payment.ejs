@@ -1,0 +1,299 @@
+
+<%- include('layouts/header') %>
+
+    <section class="payment-view section5 pt-2" id="section5">
+        <div class="container">
+            <div class="details-album-cover final-review">
+                <h2>Payment</h2>
+            </div>
+            <table class="table text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">Subscription</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><%= plan.plan_name %> Subscription</td>
+                        <td class="green-uparrow">
+                            <input type="hidden" id="plan_id" name="plan_id" value="<%= plan.id %>">
+                            1 <%= plan.duration %>
+                        </td>
+                        <td>$ <%= plan.amount %></td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <div class="total-ammount">
+                                <span class="d-block">
+                                    Subtotal: $ <%= plan.amount %>
+                                </span>
+                                <span class="d-block">
+                                    Tax: $ 0.00
+                                </span>
+                                <span class="d-block">
+                                    Total: $ <%= plan.amount %>
+                                </span>
+
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="choose-pay-method">
+                <h3 class="text-center">Choose a payment method</h3>
+                <div class="payment-cover">
+                    <div class="row mb-3">
+                        <div class="col-lg-6 col-12">
+                            <div class="payment-method-wrap mb-2">
+                                <div class="form-check mb-0">
+                                    <input class="form-check-input checking" type="radio" name="flexRadioDefault"
+                                        value="djs-music" id="credit" checked>
+                                    <label class="light-white form-check-label" for="credit">
+                                        Credit / Debit Card
+                                    </label>
+                                    <svg width="42" height="28" viewBox="0 0 42 28" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M1 3.38168C1 2.06631 2.06631 1 3.38168 1H38.8001C40.1155 1 41.1818 2.06631 41.1818 3.38168V24.6183C41.1818 25.9337 40.1155 27 38.8001 27H3.38168C2.06632 27 1 25.9337 1 24.6183V3.38168Z"
+                                            fill="#2666AC" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M3.3814 0.404297H38.7999C40.4441 0.404297 41.777 1.73719 41.777 3.3814V24.618C41.777 26.2623 40.4441 27.5951 38.7999 27.5951H3.3814C1.73719 27.5951 0.404297 26.2623 0.404297 24.618V3.3814C0.404297 1.73719 1.73719 0.404297 3.3814 0.404297ZM3.3814 0.999717C2.06603 0.999717 0.999717 2.06603 0.999717 3.3814V24.618C0.999717 25.9334 2.06603 26.9997 3.3814 26.9997H38.7999C40.1152 26.9997 41.1815 25.9334 41.1815 24.618V3.3814C41.1815 2.06603 40.1152 0.999717 38.7999 0.999717H3.3814Z"
+                                            fill="black" fill-opacity="0.1" />
+                                        <path
+                                            d="M7.70508 8.84863H9.3797L11.0109 15.4355L14.54 8.84863H16.3821L11.5009 17.9722H9.96891L7.70508 8.84863Z"
+                                            fill="white" />
+                                        <path d="M17.5357 8.84863H19.2103L17.9513 17.9722H16.3077L17.5357 8.84863Z"
+                                            fill="white" />
+                                        <path
+                                            d="M25.8158 10.1201L24.5691 11.2241C24.0564 10.5625 23.5788 10.2317 23.1364 10.2317C22.9172 10.2317 22.7353 10.2979 22.5906 10.4302C22.4459 10.5584 22.3735 10.7134 22.3735 10.8954C22.3735 11.0649 22.4397 11.253 22.572 11.4598C22.7043 11.6665 23.1054 12.1234 23.7752 12.8305C24.1308 13.2068 24.3644 13.4735 24.4761 13.6306C24.7448 13.9945 24.9371 14.3356 25.0529 14.654C25.1728 14.9682 25.2327 15.2887 25.2327 15.6153C25.2327 16.3472 24.9723 16.9612 24.4513 17.4574C23.9303 17.9536 23.2625 18.2017 22.4479 18.2017C21.2075 18.2017 20.1965 17.6125 19.415 16.434L20.7299 15.3734C21.2591 16.1797 21.8318 16.5829 22.4479 16.5829C22.7415 16.5829 22.9875 16.4878 23.186 16.2976C23.3886 16.1074 23.4899 15.8779 23.4899 15.6091C23.4899 15.3982 23.4279 15.1832 23.3038 14.9641C23.1839 14.7449 22.8366 14.3314 22.2619 13.7236C21.654 13.0827 21.255 12.5989 21.0648 12.2723C20.8084 11.8299 20.6803 11.3957 20.6803 10.9698C20.6803 10.4075 20.8643 9.90301 21.2323 9.45645C21.6954 8.89824 22.3197 8.61914 23.1054 8.61914C24.1846 8.61914 25.088 9.11946 25.8158 10.1201Z"
+                                            fill="white" />
+                                        <path
+                                            d="M30.8954 8.84863H32.3406L34.6106 17.9722H32.9484L32.4646 16.0309H28.8611L27.8129 17.9722H25.9708L30.8954 8.84863ZM32.0491 14.4183L31.3172 11.4226L29.7108 14.4183H32.0491Z"
+                                            fill="white" />
+                                        <path d="M4.79688 8.74023H9.32718L9.91809 11.1039L4.79688 8.74023Z"
+                                            fill="#EEA84D" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <div class="payment-method-wrap mb-2">
+                                <div class="form-check mb-0">
+                                    <input class="form-check-input checking" type="radio" name="flexRadioDefault"
+                                        value="djs-music" id="paypal">
+                                    <label class="light-white form-check-label" for="paypal">
+                                        PayPal
+                                    </label>
+                                    <svg width="41" height="26" viewBox="0 0 41 26" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="40.1818" height="26" rx="3" fill="#478FBE" />
+                                        <path
+                                            d="M18.6788 7.87891L15.9551 20.8789H20.5959L21.4633 16.22C23.0545 16.6302 26.5815 16.4935 27.9604 12.6648C29.3394 8.83608 26.8555 7.87891 25.4411 7.87891H18.6788Z"
+                                            fill="white" />
+                                        <path
+                                            d="M14.8398 4.72656L11.8184 18.3175H16.5998L17.7087 13.0677C19.348 13.4779 22.9819 13.3411 24.4027 9.51244C25.8234 5.68374 23.2642 4.72656 21.807 4.72656H14.8398Z"
+                                            fill="white" stroke="#478FBE" stroke-width="0.549618" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="visacard">
+                        <%if(typeof(cardInfo) !="undefined" && cardInfo) { %>
+                            <div class="credit-card mb-3">
+                                <div class="form-check mb-0">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault1">
+                                    <input type="hidden" name="payment_mode" id="payment_mode" value="0">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                        <%= cardInfo.card_type %> x-xxx-xxxx-<%= cardInfo.last4 %>
+                                    </label>
+                                    <a href="#!">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M13.7471 20.4428H20.9997" stroke="#130F26" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                                d="M12.78 3.79479C13.5557 2.86779 14.95 2.73186 15.8962 3.49173C15.9485 3.53296 17.6295 4.83879 17.6295 4.83879C18.669 5.46719 18.992 6.80311 18.3494 7.82259C18.3153 7.87718 8.81195 19.7645 8.81195 19.7645C8.49578 20.1589 8.01583 20.3918 7.50291 20.3973L3.86353 20.443L3.04353 16.9723C2.92866 16.4843 3.04353 15.9718 3.3597 15.5773L12.78 3.79479Z"
+                                                stroke="#130F26" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M11.0205 6.00098L16.4728 10.1881" stroke="#130F26"
+                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <% }else {%>
+                                <div class="mb-3">
+                                    <label for="exampleInputName" class="form-label fw-bold">
+                                        Card Number</label>
+                                    <input type="text" class="form-control" id="card_number" name="card_number"
+                                        placeholder="Card Number">
+                                    <small id="card_number_error"></small>
+                                    <input type="hidden" name="payment_mode" id="payment_mode" value="1">
+                                </div>
+
+                                <div class="row d-flex">
+                                    <div class="col-md-4 mb-3 position-relative">
+                                        <label for="exampleInputName" class="form-label fw-bold">
+                                            Expiry</label>
+                                        <input type="text" id="expiry_date" name="expiry_date" class="form-control"
+                                            placeholder="MM/YYYY">
+                                        <small id="card_expiry_error"></small>
+                                    </div>
+                                    <div class="col-md-4 mb-3 position-relative">
+                                        <label for="exampleInputName" class="form-label fw-bold">
+                                            Zipcode</label>
+                                        <input type="text" name="zipcode" id="zipcode" class="form-control"
+                                            placeholder="Zipcode">
+                                        <small id="card_zip_error"></small>
+                                    </div>
+                                    <div class="col-md-4 mb-3 position-relative">
+                                        <label for="exampleInputName" class="form-label fw-bold">
+                                            CVV</label>
+                                        <input type="text" name="cvv" id="cvv" class="form-control" placeholder="***">
+                                        <small id="card_cvv_error"></small>
+                                    </div>
+                                </div>
+                                <% } %>
+                    </div>
+                    <%if(typeof(cardInfo) !="undefined" && !cardInfo) { %>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label fw-bold">Address</label>
+                            <textarea class="form-control" name="address" id="address" rows="3"
+                                placeholder="Address"></textarea>
+                            <small id="card_address_error"></small>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="exampleInputName" class="form-label fw-bold">
+                                Name (Optional)</label>
+                            <input type="text" class="form-control" id="card_holder_name" name="card_holder_name"
+                                placeholder="Name">
+                        </div>
+                        <% } %>
+                    <div class="row justify-content-center">
+                        <div class="col-12 d-flex my-5 mb-200">
+                            <button type="button" class="btn btn-prev" >
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.56982 18.0699L3.49983 11.9999L9.56983 5.92995" stroke="black"
+                                        stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path d="M20.5 12L3.67 12" stroke="black" stroke-width="2" stroke-miterlimit="10"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                                Go Back
+                            </button>
+                            <button type="button" class="btn btns-next confirm_payment">
+                                        Continue
+                                <svg width=" 24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14.4302 5.92993L20.5002 11.9999L14.4302 18.0699" stroke="white"
+                                        stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path d="M3.5 12H20.33" stroke="white" stroke-width="2"
+                                        stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+     <div class="payment-popup">
+            <div class="popup-video login-step2">
+                <div class="profile-name">
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <svg width="162" height="162" viewBox="0 0 162 162" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <g filter="url(#filter0_b_689_5131)">
+                                    <circle cx="80.5547" cy="80.5547" r="80.5547" fill="white" />
+                                    <circle cx="80.5547" cy="80.5547" r="77.5547" stroke="#1ED760" stroke-width="6" />
+                                </g>
+                                <g clip-path="url(#clip0_689_5131)">
+                                    <path
+                                        d="M66.915 97.5439L48.1189 78.7478L41.8535 85.0132L66.915 110.075L120.618 56.3715L114.353 50.1061L66.915 97.5439Z"
+                                        fill="#1ED760" />
+                                </g>
+                                <defs>
+                                    <filter id="filter0_b_689_5131" x="-35.8021" y="-35.8021" width="232.714"
+                                        height="232.714" filterUnits="userSpaceOnUse"
+                                        color-interpolation-filters="sRGB">
+                                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                        <feGaussianBlur in="BackgroundImageFix" stdDeviation="17.901" />
+                                        <feComposite in2="SourceAlpha" operator="in"
+                                            result="effect1_backgroundBlur_689_5131" />
+                                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_689_5131"
+                                            result="shape" />
+                                    </filter>
+                                    <clipPath id="clip0_689_5131">
+                                        <rect x="27" y="27" width="107.406" height="107.406" fill="white" />
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                            <span class="d-block my-3" id="success_status">Done</span>
+                            <p class="my-3" id="success_message">Thank you, your subscription payment was successfully completed.</p>
+                            <a href="/dashboard" class="w-100 btn submit-payment-form">Ok</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<%- include('layouts/footer') %>
+
+<script src="/js/validations/music-upload.js?<%= new Date() %>"></script>
+<script>
+
+$(".confirm_payment").click(function () {
+                var checkcard=ValidateCreditCardNumber();
+                if(!checkcard){
+                    return false;
+                }
+                var card_number = $('#card_number').val();
+                var expiry_date = $('#expiry_date').val();
+                var zipcode = $('#zipcode').val();
+                var cvv = $('#cvv').val();
+                var address = $('#address').val();
+                var card_holder_name = $('#card_holder_name').val();
+                if (card_number && card_number != '') {
+                    var data = { card_number: card_number, expiry_date: expiry_date, zipcode: zipcode, cvv: cvv, address: address, card_holder_name: card_holder_name, plan_id: $('#plan_id').val() };
+                } else {
+                    var data = { plan_id: $('#plan_id').val() };
+                }
+                var plan_id=$('#plan_id').val();
+                $.ajax({
+                    type: "POST",
+                    url: "/subscription?plan_id="+plan_id,
+                    dataType: 'json',
+                    data: data,
+                }).then((res) => {
+                    console.log(res);
+                    if (res.status == true) {
+                        $(".payment-popup").fadeIn();
+                        $(".back-drop").fadeIn();
+                        $("html").css("overflow", "hidden");
+                    } else {
+                        $('#success_message').text(res.message);
+                        $('#success_status').text('Failed');
+                        $(".payment-popup").fadeIn();
+                        $(".back-drop").fadeIn();
+                        $("html").css("overflow", "hidden");
+
+                    }
+                });
+            });
+
+</script>

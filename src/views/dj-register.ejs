@@ -1,0 +1,1398 @@
+<%- include('layouts/common_header') %>
+<style>
+  #dj-register label.form-label b {
+    color: #de0000;
+  }
+  #company_register label.form-label b {
+    color: #de0000;
+  }
+
+  .refrence-cover .form-check label {
+    word-wrap: break-word !important;
+    display: inline !important;
+}
+  .form-check label {
+    word-wrap: break-word !important;
+    display: block;
+  }
+  .form-add-delete {
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    padding: 10px 25px;
+    background: #fff;
+  }
+
+  .form-add-delete input {
+    border: none;
+    background: transparent;
+    outline: none;
+  }
+
+  .form-add-delete button {
+    border-radius: 8px;
+    padding: 5px 10px;
+    background: transparent;
+    border: 1px solid #001ef0;
+    color: #001ef0;
+  }
+
+  .events-clubs .list .item .item-close,
+  .events-clubs .list-2 .item-2 .item-close,
+  .events-clubs .list-3 .item-3 .item-close {
+    background: linear-gradient(98.88deg, #4157e9 0%, #6d11b8 100%);
+    border-radius: 8px;
+    padding: 5px 10px;
+    color: #fff;
+    margin-right: 10px;
+  }
+
+  .list-3,
+  .list-2,
+  .list {
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+  }
+
+  .item-close:after {
+    background: transparent;
+    color: #fff;
+    border-radius: 10px;
+    content: "X";
+    padding: 5px;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+  }
+</style>
+
+<div class="register-form" id="register_form">
+  <div class="container-fluid">
+    <div class="register-cover-color register">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="form-cover">
+            <h2>Registration Form</h2>
+            <form method="post" action="" id="dj-register">
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >DJ Name <b>*</b></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="DJ Name"
+                  id="djname"
+                  name="djName"
+                />
+                <small></small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >First Name <b>*</b></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="First Name"
+                  name="firstname"
+                  id="firstname"
+                />
+                <small></small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Surname <b>*</b></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Surname"
+                  name="surname"
+                  id="surname"
+                />
+                <small></small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Street, No. <b>*</b></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Street, No."
+                  name="street"
+                  id="street"
+                />
+                <small></small>
+              </div>
+              <div class="row">
+                <div class="col-lg-4 col-md-6">
+                  <div class="mb-3">
+                    <label for="exampleInputName" class="form-label"
+                      >Postcode <b>*</b></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Postcode"
+                      name="postcode"
+                      id="postcode"
+                    />
+                    <small></small>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                  <div class="mb-3">
+                    <label for="exampleInputName" class="form-label"
+                      >Location <b>*</b></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Location"
+                      name="address"
+                      id="location"
+                    />
+                    <small></small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="company-name" class="form-label"
+                  >Country <b>*</b></label
+                >
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  name="country"
+                  id="countries"
+                >
+                  <option selected="" disabled="">Select Country</option>
+                  <% countries.forEach(function(country){ %>
+                  <option
+                    value="<%= country.id %>"
+                    data-code="+<%= country.phonecode %>"
+                  >
+                    <%= country.name %>
+                  </option>
+                  <% }); %>
+                </select>
+                <small></small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Contact No. <b>*</b></label
+                >
+                <div class="number-input d-flex">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="+01"
+                    id="countries_code"
+                    name="countries_code"
+                    disabled
+                  />
+                  <input
+                    type="text"
+                    class="form-control w-100"
+                    placeholder="Contact No."
+                    name="contact"
+                    id="contactno"
+                  />
+                  <small></small>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Telephone No. (Optional)</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Telephone No. (Optional)"
+                  name="telephone"
+                  id="telephoneno"
+                />
+                <small></small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Email <b>*</b></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Email"
+                  name="email"
+                  id="email"
+                />
+                <small></small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Date Birth (Optional)</label
+                >
+                <input
+                  type="date"
+                  class="form-control"
+                  placeholder="Birthday"
+                  name="birthDay"
+                  id="birthday"
+                />
+                <small></small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Website (Optional)</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Website"
+                  name="website"
+                  id="website"
+                />
+                <small></small>
+                <div class="line"></div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Social Media <b>*</b>
+                </label>
+                <div class="d-flex align-items-center">
+                  <span>
+                    <img class="me-3" src="/icons/instagram.png" alt="" />
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="instagram_link"
+                    id="instagram_link"
+                    placeholder="Instagram Link"
+                  />
+                  <small class="d-block" style="margin-left: 5px"></small>
+                </div>
+                <div class="line"></div>
+                <div class="d-flex align-items-center">
+                  <svg
+                    class="me-3"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect width="40" height="40" rx="20" fill="#1877F2" />
+                    <path
+                      d="M27.7852 25.7812L28.6719 20H23.125V16.25C23.125 14.668 23.8984 13.125 26.3828 13.125H28.9062V8.20312C28.9062 8.20312 26.6172 7.8125 24.4297 7.8125C19.8594 7.8125 16.875 10.582 16.875 15.5938V20H11.7969V25.7812H16.875V39.7578C17.8945 39.918 18.9375 40 20 40C21.0625 40 22.1055 39.918 23.125 39.7578V25.7812H27.7852Z"
+                      fill="white"
+                    />
+                  </svg>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="facebook_link"
+                    id="facebook_link"
+                    placeholder="Facebook Link"
+                  />
+                </div>
+                <div class="line"></div>
+                <div class="d-flex align-items-center">
+                  <span>
+                    <svg
+                      class="me-3"
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M35.095 11.9679C35.1105 12.3199 35.1105 12.6559 35.1105 13.0079C35.1259 23.68 27.2851 36 12.9464 36C8.7173 36 4.56539 34.736 1 32.368C1.61738 32.448 2.23477 32.48 2.85215 32.48C6.35581 32.48 9.76686 31.264 12.5297 29.008C9.19578 28.944 6.2632 26.688 5.24452 23.392C6.41755 23.632 7.62145 23.584 8.76361 23.248C5.13647 22.512 2.52803 19.1999 2.51259 15.3439C2.51259 15.3119 2.51259 15.2799 2.51259 15.2479C3.59301 15.8719 4.81235 16.2239 6.04712 16.2559C2.63607 13.8879 1.57108 9.16791 3.63932 5.4719C7.60601 10.5279 13.4403 13.5839 19.7067 13.9199C19.0739 11.1199 19.9383 8.17591 21.9602 6.1919C25.0934 3.13589 30.0325 3.2959 32.9959 6.54391C34.7401 6.1919 36.4224 5.5199 37.9504 4.5759C37.3639 6.44791 36.1446 8.03191 34.524 9.03991C36.0674 8.84791 37.58 8.41591 39 7.77591C37.9504 9.40792 36.6231 10.8159 35.095 11.9679Z"
+                        fill="#1D9BF0"
+                      />
+                    </svg>
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="twitter_link"
+                    id="twitter_link"
+                    placeholder="Twitter Link"
+                  />
+                </div>
+                <div class="line"></div>
+              </div>
+              <div class="row">
+                <label for="exampleInputName" class="form-label mb-0"
+                  >Which charts do you bet? <b>*</b></label
+                >
+                <div class="col-xl-4 col-lg-6">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="damusichits.com/afrobeats"
+                      name="charts"
+                      id="flexCheckDefault"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      damusichits.com
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="musicinafrica.net/magazine/top"
+                      name="charts"
+                      id="flexCheckDefault1"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault1">
+                      musicinafrica.net
+                    </label>
+                  </div>
+                </div>
+                <div class="col-xl-4 col-lg-6">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="officialcharts.com/charts/afrobeats-chart"
+                      name="charts"
+                      id="flexCheckDefault2"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault2">
+                      officialcharts.com
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="top-charts.com/r/afrobeats-dj-mix-major-lazer"
+                      name="charts"
+                      id="flexCheckDefault3"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault3">
+                      top-charts.com
+                    </label>
+                  </div>
+                </div>
+                <div class="col-xl-4 col-lg-6">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="afrobeats-songs-2022"
+                      name="charts"
+                      id="flexCheckDefault4"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault4">
+                      afrobeats-songs-2022
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="okayafrica.com/afrobeats-songs-best-2022/"
+                      name="charts"
+                      id="flexCheckDefault5"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault5">
+                      okayafrica.com
+                    </label>
+                  </div>
+                </div>
+                <small id="error-chart"></small>
+                <div class="line"></div>
+              </div>
+              <div class="row">
+                <label for="exampleInputName" class="form-label"
+                  >Which DJ pools do you sample from? <b>*</b></label
+                >
+                <div class="col-xl-4 col-lg-6">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="djcity.com"
+                      name="pools"
+                      id="flexCheckDefault6"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault6">
+                      djcity.com
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="digitalpool.com"
+                      name="pools"
+                      id="flexCheckDefault7"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault7">
+                      digitalpool.com
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="afrobeatdjpool.com"
+                      name="pools"
+                      id="flexCheckDefault8"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault8">
+                      afrobeatdjpool.com
+                    </label>
+                  </div>
+                </div>
+                <div class="col-xl-4 col-lg-6">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="africarecordpool.com"
+                      name="pools"
+                      id="flexCheckDefault9"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault9">
+                      africarecordpool.com
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="africandjspool.com"
+                      name="pools"
+                      id="flexCheckDefault10"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault10">
+                      africandjspool.com
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="dj2download.com"
+                      name="pools"
+                      id="flexCheckDefault11"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault11">
+                      dj2download.com
+                    </label>
+                  </div>
+                </div>
+                <div class="col-xl-4 col-lg-6">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="redefinedmediavideopool.com"
+                      name="pools"
+                      id="flexCheckDefault12"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault12">
+                      redefinedmediavideopool.com
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="xrprecordpool.com"
+                      name="pools"
+                      id="flexCheckDefault13"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault13">
+                      xrprecordpool.com
+                    </label>
+                  </div>
+                </div>
+                <small id="error-pool"></small>
+                <div class="line"></div>
+              </div>
+              <div class="row">
+                <label for="exampleInputName" class="form-label"
+                  >What kind of music do you Play? <b>*</b></label
+                >
+                <div class="col-xl-4 col-lg-6">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="Afrobeats"
+                      name="music"
+                      id="flexCheckDefault14"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault14">
+                      Afrobeats
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="Amapiano"
+                      name="music"
+                      id="flexCheckDefault16"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault16">
+                      Amapiano
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="West African Music"
+                      name="music"
+                      id="flexCheckDefault17"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault17">
+                      West African Music
+                    </label>
+                  </div>
+                </div>
+                <div class="col-xl-4 col-lg-6">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="Coupé Décalé"
+                      name="music"
+                      id="flexCheckDefault18"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault18">
+                      Coupé Décalé
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="Hip Life"
+                      name="music"
+                      id="flexCheckDefault19"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault19">
+                      Hip Life
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="African HipHop"
+                      name="music"
+                      id="flexCheckDefault20"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault20">
+                      African HipHop
+                    </label>
+                  </div>
+                </div>
+                <div class="col-xl-4 col-lg-6">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="Afropop"
+                      name="music"
+                      id="flexCheckDefault21"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault21">
+                      Afropop
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="Bongo Flava"
+                      name="music"
+                      id="flexCheckDefault22"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault22">
+                      Bongo Flava
+                    </label>
+                  </div>
+                </div>
+                <small id="error-music"></small>
+                <div class="line"></div>
+              </div>
+              <div class="mb-3 position-relative">
+                <label for="basic-url" class="form-label"
+                  >Password <b>*</b></label
+                >
+                <div class="password-wrapper mb-3">
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Password"
+                    name="password"
+                    id="password"
+                  />
+                  <i
+                    class="fa fa-fw fa-eye-slash toggle-password"
+                    id="eye"
+                    style="color: #9c9b9b"
+                  ></i>
+                  <small></small>
+                </div>
+              </div>
+              <div class="mb-3 position-relative">
+                <label for="basic-url" class="form-label"
+                  >Confirm Password <b>*</b></label
+                >
+                <div class="password-wrapper mb-3">
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Confirm Password"
+                    name="confirmpassword"
+                    id="confirmpassword"
+                  />
+                  <i
+                    class="fa fa-fw fa-eye-slash toggle-password"
+                    id="eye_confirm"
+                    style="color: #9c9b9b"
+                  ></i>
+                  <small></small>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary login-btn">
+                Next
+              </button>
+              <!-- <a
+                class="btn btn-primary login-btn"
+                id="next"
+                >Next</a
+              > -->
+              <p class="text-center py-3 register-link">
+                Already have an account ?<a href="/login">Login</a>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="register-form" id="company_register">
+  <div class="container-fluid">
+    <div class="register-cover-color company">
+      <!-- <div class="back-btn mt-5 mx-3">
+                    <a href="djs-register.html">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.57 5.92969L3.5 11.9997L9.57 18.0697" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M20.4999 12H3.66992" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        Back
+                    </a>
+                </div> -->
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="form-cover">
+            <h2 class="mb-5">
+              <a id="back" class="back-btn">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.57 5.92969L3.5 11.9997L9.57 18.0697"
+                    stroke="black"
+                    stroke-width="1.5"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    d="M20.4999 12H3.66992"
+                    stroke="black"
+                    stroke-width="1.5"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+                Back </a
+              >Verification page
+            </h2>
+            <form method="post" action="" id="dj-company">
+              <div class="row">
+                <label for="exampleInputName" class="form-label"
+                  >Disco or booking agency data <b>*</b></label
+                >
+                <div class="col-xl-4 col-lg-6">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="disco"
+                      name="agency"
+                      id="flexCheckDefault101"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault101">
+                      disco
+                    </label>
+                  </div>
+                </div>
+                <div class="col-xl-4 col-lg-6">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="booking agency"
+                      name="agency"
+                      id="flexCheckDefault201"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault201">
+                      booking agency
+                    </label>
+                  </div>
+                </div>
+                <div class="col-xl-4 col-lg-6">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value="Mobildeejay"
+                      name="agency"
+                      id="flexCheckDefault301"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault301">
+                      Mobildeejay
+                    </label>
+                  </div>
+                </div>
+                <small id="error-agency"></small>
+                <div class="line"></div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Company Name <b>*</b></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="name"
+                  id="copmanyname"
+                  placeholder="Company Name"
+                />
+                <small></small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Street, No. <b>*</b></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="street"
+                  id="companystreet"
+                  placeholder="Street, No."
+                />
+                <small></small>
+              </div>
+              <div class="row">
+                <div class="col-lg-4 col-md-6">
+                  <div class="mb-3">
+                    <label for="exampleInputName" class="form-label"
+                      >Postcode <b>*</b></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="postcode"
+                      id="companypostcode"
+                      placeholder="Postcode"
+                    />
+                    <small></small>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-md-6">
+                  <div class="mb-3">
+                    <label for="exampleInputName" class="form-label"
+                      >Location <b>*</b></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="location"
+                      id="companylocation"
+                      placeholder="Location"
+                    />
+                    <small></small>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="company-name" class="form-label"
+                  >Country <b>*</b></label
+                >
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  name="country"
+                  id="companycountry"
+                >
+                  <option selected="" disabled="">Select Country</option>
+                  <% countries.forEach(function(country){ %>
+                  <option
+                    value="<%= country.id %>"
+                    data-code="+<%= country.phonecode %>"
+                  >
+                    <%= country.name %>
+                  </option>
+                  <% }); %>
+                </select>
+                <small></small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Contact No. <b>*</b></label
+                >
+                <div class="number-input d-flex">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="+01"
+                    id="company_country_code"
+                    name="company_country_code"
+                    disabled
+                  />
+                  <input
+                    type="text"
+                    class="form-control w-100"
+                    placeholder="Contact No."
+                    name="contact"
+                    id="companycontact"
+                  />
+                  <small></small>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Telephone No. (Optional)</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Telephone No. (Optional)"
+                  name="telephone"
+                  id="comapnytelephone"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Booker <b>*</b></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Booker"
+                  name="booker"
+                  id="comapnybooker"
+                />
+                <small></small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Contact Person <b>*</b></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Contact  Person"
+                  name="contactPerson"
+                  id="comapnycontactperson"
+                />
+                <small></small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Email <b>*</b></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Email"
+                  name="email"
+                  id="comapnyemail"
+                />
+                <small></small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Managing Director <b>*</b></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Managing Director"
+                  name="director"
+                  id="comapnydirector"
+                />
+                <small></small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Opening Days</label
+                >
+                <ul>
+                  <li>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value="Monday"
+                        name="companyday"
+                        id="Mon"
+                      />
+                      <label class="form-check-label" for="Mon"> Mon </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value="Tuesday"
+                        name="companyday"
+                        id="Tue"
+                      />
+                      <label class="form-check-label" for="Tue"> Tue </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value="wednesday"
+                        name="companyday"
+                        id="Wed"
+                      />
+                      <label class="form-check-label" for="Wed"> Wed </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value="thursday"
+                        name="companyday"
+                        id="Thu"
+                      />
+                      <label class="form-check-label" for="Thu"> Thu </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value="friday"
+                        name="companyday"
+                        id="Fri"
+                      />
+                      <label class="form-check-label" for="Fri"> Fri </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value="saturday"
+                        name="companyday"
+                        id="Sat"
+                      />
+                      <label class="form-check-label" for="Sat"> Sat </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value="sunday"
+                        name="companyday"
+                        id="Sun"
+                      />
+                      <label class="form-check-label" for="Sun"> Sun </label>
+                    </div>
+                  </li>
+                </ul>
+                <small id="error-companyday"></small>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Website (Optional)</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Website"
+                  name="company_website"
+                  id="company_website"
+                />
+                <small></small>
+                <div class="line"></div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputName" class="form-label"
+                  >Social Media <b>*</b>
+                </label>
+                <div class="d-flex align-items-center">
+                  <span>
+                    <img class="me-3" src="/icons/instagram.png" alt="" />
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="company_instagram_link"
+                    id="company_instagram_link"
+                    placeholder="Instagram Link"
+                  />
+                  <small class="d-block" style="margin-left: 5px"></small>
+                </div>
+                <div class="line"></div>
+                <div class="d-flex align-items-center">
+                  <svg
+                    class="me-3"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect width="40" height="40" rx="20" fill="#1877F2" />
+                    <path
+                      d="M27.7852 25.7812L28.6719 20H23.125V16.25C23.125 14.668 23.8984 13.125 26.3828 13.125H28.9062V8.20312C28.9062 8.20312 26.6172 7.8125 24.4297 7.8125C19.8594 7.8125 16.875 10.582 16.875 15.5938V20H11.7969V25.7812H16.875V39.7578C17.8945 39.918 18.9375 40 20 40C21.0625 40 22.1055 39.918 23.125 39.7578V25.7812H27.7852Z"
+                      fill="white"
+                    />
+                  </svg>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="company_facebook_link"
+                    id="company_facebook_link"
+                    placeholder="Facebook Link"
+                  />
+                </div>
+                <div class="line"></div>
+                <div class="d-flex align-items-center">
+                  <span>
+                    <svg
+                      class="me-3"
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M35.095 11.9679C35.1105 12.3199 35.1105 12.6559 35.1105 13.0079C35.1259 23.68 27.2851 36 12.9464 36C8.7173 36 4.56539 34.736 1 32.368C1.61738 32.448 2.23477 32.48 2.85215 32.48C6.35581 32.48 9.76686 31.264 12.5297 29.008C9.19578 28.944 6.2632 26.688 5.24452 23.392C6.41755 23.632 7.62145 23.584 8.76361 23.248C5.13647 22.512 2.52803 19.1999 2.51259 15.3439C2.51259 15.3119 2.51259 15.2799 2.51259 15.2479C3.59301 15.8719 4.81235 16.2239 6.04712 16.2559C2.63607 13.8879 1.57108 9.16791 3.63932 5.4719C7.60601 10.5279 13.4403 13.5839 19.7067 13.9199C19.0739 11.1199 19.9383 8.17591 21.9602 6.1919C25.0934 3.13589 30.0325 3.2959 32.9959 6.54391C34.7401 6.1919 36.4224 5.5199 37.9504 4.5759C37.3639 6.44791 36.1446 8.03191 34.524 9.03991C36.0674 8.84791 37.58 8.41591 39 7.77591C37.9504 9.40792 36.6231 10.8159 35.095 11.9679Z"
+                        fill="#1D9BF0"
+                      />
+                    </svg>
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="company_twitter_link"
+                    id="company_twitter_link"
+                    placeholder="Twitter Link"
+                  />
+                </div>
+                <div class="line"></div>
+              </div>
+
+              <div class="events-clubs club-3 mb-3">
+                <label class="form-label" for="both">
+                  Residence Club (Optional)
+                </label>
+                <div class="form-add-delete d-flex">
+                  <input type="text" name="RecidenceClub" class="w-100" />
+                  <button type="button" class="c3 d-flex align-items-center">
+                    <svg
+                      class="me-2"
+                      width="15"
+                      height="15"
+                      viewBox="0 0 15 15"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M7.45 0C6.93576 0 6.51871 0.417027 6.51871 0.931291V6.51871H0.931292C0.417044 6.51871 0 6.93552 0 7.45C0 7.96425 0.417027 8.38129 0.931292 8.38129H6.51871V13.9687C6.51871 14.483 6.93574 14.9 7.45 14.9C7.96427 14.9 8.3813 14.483 8.3813 13.9687V8.38129H13.9687C14.483 8.38129 14.9 7.96426 14.9 7.45C14.9 6.93574 14.483 6.51871 13.9687 6.51871H8.3813V0.931291C8.3813 0.417044 7.96448 0 7.45 0Z"
+                        fill="#001EF0"
+                      />
+                    </svg>
+                    Add
+                  </button>
+                  <br />
+                </div>
+                <div id="note"></div>
+                <div class="list-3 d-flex mt-3"></div>
+              </div>
+
+              <div class="refrence-cover">
+                <ul class="px-0">
+                  <li>
+                    <div class="form-check my-3">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="club-1"
+                        id="ref_club"
+                        checked
+                        value="c1"
+                      />
+                      <label
+                        class="light-white form-check-label checked"
+                        for="ref_club"
+                      >
+                        Reference Club
+                      </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="form-check my-3">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="club-1"
+                        id="ref_events"
+                        value="c2"
+                      />
+                      <label
+                        class="light-white form-check-label"
+                        for="ref_events"
+                      >
+                        Reference Event
+                      </label>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="form-check my-3">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="club-1"
+                        id="both"
+                        value="c3"
+                      />
+                      <label
+                        class="light-white form-check-label checked"
+                        for="both"
+                      >
+                        Both
+                      </label>
+                    </div>
+                  </li>
+                  
+                </ul>
+                <small id="club-error"></small>
+                <div class="events-clubs club-1 mb-3">
+                  <label class="form-label" for="both"> Reference Clubs </label>
+                  <div class="form-add-delete d-flex">
+                    <input type="text" name="checkListClub" class="w-100" />
+                    <button type="button" class="c1 d-flex align-items-center">
+                      <svg
+                        class="me-2"
+                        width="15"
+                        height="15"
+                        viewBox="0 0 15 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M7.45 0C6.93576 0 6.51871 0.417027 6.51871 0.931291V6.51871H0.931292C0.417044 6.51871 0 6.93552 0 7.45C0 7.96425 0.417027 8.38129 0.931292 8.38129H6.51871V13.9687C6.51871 14.483 6.93574 14.9 7.45 14.9C7.96427 14.9 8.3813 14.483 8.3813 13.9687V8.38129H13.9687C14.483 8.38129 14.9 7.96426 14.9 7.45C14.9 6.93574 14.483 6.51871 13.9687 6.51871H8.3813V0.931291C8.3813 0.417044 7.96448 0 7.45 0Z"
+                          fill="#001EF0"
+                        />
+                      </svg>
+                      Add
+                    </button>
+                    <br />
+                  </div>
+                  <div id="note"></div>
+                  <div class="list d-flex mt-3"></div>
+                </div>
+                <div class="events-clubs club-2 mb-3">
+                  <label class="form-label" for="both">
+                    Reference Events
+                  </label>
+                  <div class="form-add-delete d-flex">
+                    <input type="text" name="checkListEvents" class="w-100" />
+                    <button type="button" class="c2 d-flex align-items-center">
+                      <svg
+                        class="me-2"
+                        width="15"
+                        height="15"
+                        viewBox="0 0 15 15"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M7.45 0C6.93576 0 6.51871 0.417027 6.51871 0.931291V6.51871H0.931292C0.417044 6.51871 0 6.93552 0 7.45C0 7.96425 0.417027 8.38129 0.931292 8.38129H6.51871V13.9687C6.51871 14.483 6.93574 14.9 7.45 14.9C7.96427 14.9 8.3813 14.483 8.3813 13.9687V8.38129H13.9687C14.483 8.38129 14.9 7.96426 14.9 7.45C14.9 6.93574 14.483 6.51871 13.9687 6.51871H8.3813V0.931291C8.3813 0.417044 7.96448 0 7.45 0Z"
+                          fill="#001EF0"
+                        />
+                      </svg>
+                      Add
+                    </button>
+                    <br />
+                  </div>
+                  <div id="note"></div>
+                  <div class="list-2 d-flex mt-3"></div>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary login-btn">
+                Submit
+              </button>
+              <p class="text-center py-2 register-link">
+                By clicking submit, you agree to DJ chart’s<a
+                  href="#!"
+                  class="mx-2"
+                  >Terms & Conditions</a
+                >and<a href="#!" class="mx-2">Privacy Policy.</a>
+              </p>
+              <p class="text-center py-1 register-link">
+                Already have an account ?<a href="login.html">Login</a>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('layouts/footer') %>
+<!-- <script src="/js/validations/dj-register.js"></script> -->
+<script src="/js/validations/dj-register.js?1.9"></script>
+<script>
+  $("small").css("color", "red");
+  // $("#next_companyflow").click(function () {
+  // $("#company_register").fadeIn();
+  // $("#register_form").fadeOut();
+  // });
+
+  $("#back").click(function () {
+    $("#register_form").fadeIn();
+    $("#company_register").fadeOut();
+  });
+
+  $(".submit-form").click(function () {
+    const radio = $('input[name="flexRadioDefault"]:checked').val();
+    if (radio == "artistmusic") {
+      window.location.href = "/register";
+    } else {
+      window.location.href = "/dj/register";
+    }
+  });
+
+  $("#companycountry").on("change", function () {
+    var value = $("option:selected", this).attr("data-code");
+    $("#company_country_code").val(value);
+  });
+
+  $("#countries").on("change", function () {
+    var value = $("option:selected", this).attr("data-code");
+    $("#countries_code").val(value);
+  });
+</script>
+
+<script>
+  $(".c1").click(function () {
+    if ($("input[name=checkListClub]").val().trim() == "") {
+      return true;
+    }
+    var $toAdd = $("input[name=checkListClub]").val();
+    $(".list").append(
+      '<div class="item"><div class="item-close">' + $toAdd + "</div></div>"
+    );
+    var $toAdd = $("input[name=checkListClub]").val("");
+  });
+  $(document).on("click", ".item", function () {
+    $(this).remove();
+  });
+
+  $(".c2").click(function () {
+    if ($("input[name=checkListEvents]").val().trim() == "") {
+      return true;
+    }
+    var $toAddmore = $("input[name=checkListEvents]").val();
+    $(".list-2").append(
+      '<div class="item-2"><div class="item-close">' +
+        $toAddmore +
+        "</div></div>"
+    );
+    $("input[name=checkListEvents]").val("");
+  });
+  $(document).on("click", ".item-2", function () {
+    $(this).remove();
+  });
+
+  $(".c3").click(function () {
+    if ($("input[name=RecidenceClub]").val().trim() == "") {
+      return true;
+    }
+    var $toRefrence = $("input[name=RecidenceClub]").val();
+    $(".list-3").append(
+      '<div class="item-3"><div class="item-close">' +
+        $toRefrence +
+        "</div></div>"
+    );
+    $("input[name=RecidenceClub]").val("");
+  });
+  $(document).on("click", ".item-3", function () {
+    $(this).remove();
+  });
+</script>
+
+<script>
+  $(document).ready(function () {
+    $("input[name='club-1']:radio").change(function () {
+      if ($(this).val() == "c1") {
+        $(".list-2 .item-close").remove();
+        $(".club-1").show();
+        $(".club-2").hide();
+      } else if ($(this).val() == "c2") {
+        $(".list .item-close").remove();
+        $(".club-2").show();
+        $(".club-1").hide();
+      } else if ($(this).val() == "c3") {
+        $(".club-2").show();
+        $(".club-1").show();
+      }
+    });
+  });
+
+  $(document).ready(function () {
+    const radio = $('input[name="club-1"]:checked').val();
+    if (radio == "c1") {
+      $(".club-1").show();
+      $(".club-2").hide();
+    } else if (radio == "c2") {
+      $(".club-1").hide();
+      $(".club-2").show();
+    } else {
+      $(".club-1").show();
+      $(".club-2").show();
+    }
+  });
+</script>

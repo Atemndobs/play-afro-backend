@@ -1,0 +1,130 @@
+.details-album-cover.final-review.music-status {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 30px;
+}
+
+.album-title ul li a {
+    background: #000;
+    margin-right: 28px;
+}
+
+.album-title ul li a {
+    background: #000;
+    margin-right: 28px;
+    border-radius: 12px;
+    padding: 10px 20px;
+}
+
+.album-title ul li a p span {
+    position: static;
+    color: #fff;
+    margin-left: 10px;
+}
+
+.album-title ul li a p {
+    color: #fff;
+    margin-left: 10px;
+}
+
+.progress-rate *:not([data-progress]) {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.progress-rate {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.progress-rate [data-progress] {
+    height: 15px;
+    border-radius: 2px;
+    margin: 5px 0 40px 0;
+}
+
+.progress-rate [data-progress]:last-child {
+    margin-bottom: 0;
+}
+
+[data-progress]::after {
+    content: "";
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: linear-gradient(98.88deg, #4157E9 0%, #6D11B8 100%);
+    width: 0;
+    height: 100%;
+    box-sizing: border-box;
+    font-size: 10px;
+    color: white;
+    padding: 12px 20px;
+    transition: 2s;
+    border-radius: 25px;
+}
+
+[data-progress].animate-progress::after {
+    content: attr(data-progress) "%";
+    width: var(--animate-progress);
+}
+
+.star-rating-cover {
+    border-right: 1px solid #ccc;
+}
+
+.star-rating-cover ul li p {
+    font-weight: 600;
+    font-size: 24px;
+    color: #000;
+    /* margin-right: 15px; */
+}
+.star-rating-cover ul li span {
+    font-weight: 300;
+    font-size: 24px;
+    color: #000;
+    margin-right: 15px;
+}
+
+.star-rating-cover ul li a i {
+    color: #FFE600;
+    font-size: 35px;
+    margin: 0 5px;
+}
+
+.review-rating {
+    border: 1px solid #000000;
+    border-radius: 8px;
+    padding: 20px 70px;
+    margin-bottom: 25px;
+}
+
+@media (max-width: 1199px) {
+    .star-rating-cover ul li a i {
+        font-size: 20px;
+    }
+
+    .review-rating {
+        padding: 20px 20px;
+    }
+}
+
+@media (max-width: 991px) {
+    ul.view-buttons {
+        display: block !important;
+    }
+
+    .album-title ul li a {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    .star-rating-cover {
+        border-right: none;
+    }
+}
+
+.pb-10 {
+    padding-bottom: 6rem !important;
+}

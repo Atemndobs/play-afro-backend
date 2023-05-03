@@ -1,0 +1,101 @@
+
+    <!-- Logout Popup -->
+
+    <div class="log_out">
+        <div class="back-drop"></div>
+        <div class="container">
+            <div class="row">
+                <div class="popup-info">
+                    <div class="col-12">
+                        <p>Are you sure you want to log out?</p>
+                        <div class="line"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 d-flex justify-content-center">
+                            <a class="btn close-log" href="#" role="button">Cancel</a>
+                        </div>
+                        <div class="col-6 d-flex justify-content-center">
+                            <a class="btn" href="/logout" role="button">Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--  -->
+
+
+    <!-- JS Links  -->
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+        <script src="/js/pwa.js"></script>
+    <script src="/js/common.js??version=1.0.0"></script>
+    <script>
+        $("#header-back-redirect").on('click', function() {
+            window.history.back()
+        });
+        $(document).ready(function(){
+            $.ajax({
+                type: "GET",
+                url: "/userinfo",
+                success: function(data){
+                    data=JSON.parse(data);
+                    console.log(data)
+                    $('.user-fullname').text(data.fullname);
+                    if(data.is_premium==1){
+                        $('.profile-icon').removeClass('d-none');
+                        $('.step-5').remove()
+                        $('#checkout-progress').addClass('progress-four');
+                    }
+                    if(!data.profileImage){
+                        $('.profile-menu img').attr('src','images/user-profile.png');
+                        $('.user-info img').attr('src','images/user-profile.png');
+                    }else{
+                        $('.profile-menu img').attr('src',data.profileImage);
+                        $('.user-info img').attr('src',data.profileImage)
+                    }
+                    if(data.role==2){
+                        // $('.update-anchor-tag').attr('href','#');
+                        $('.header-section label').addClass('d-none');
+                        $('.header-section .blue').removeClass('d-none');
+                        $('#notification_count').text(data.notification_count);
+                        $('.notify-icon').show()
+                         $('#upload-music-section').addClass('d-none');
+                         $('.edit_profile').hide();
+                         $('.dj-edit').show();
+                         $('.subscription_feature').hide();
+                    }else{
+                        if(data.role==1){
+                            $('.header-section label').addClass('d-none');
+                            $('.header-section .yellow').removeClass('d-none');
+                        }else{
+                            $('.header-section label').addClass('d-none');
+                            $('.header-section .magento').removeClass('d-none');
+                        }
+                        $('.notify-icon').hide()
+                         $('.edit_profile').show();
+                         $('.dj-edit').hide();
+                         $('.subscription_feature').show();
+                    }
+                }
+            });
+        });
+
+    </script>
+
+    <!-- /Js Links -->
+
+
+</body>
+
+</html>

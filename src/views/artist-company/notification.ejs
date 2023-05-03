@@ -1,0 +1,148 @@
+<%- include('layouts/header') %>
+<section class="notificaton-sections" style="margin-bottom: 100px">
+  <div class="container">
+    <!-- <div class="back-btn mt-5">
+                <a href="profile.html">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.57 5.92969L3.5 11.9997L9.57 18.0697" stroke="black" stroke-width="1.5"
+                            stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M20.4999 12H3.66992" stroke="black" stroke-width="1.5" stroke-miterlimit="10"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    Back
+                </a>
+            </div> -->
+    <div class="in-review text-center mb-3 mt-5">
+      <h2 class="mb-5 position-relative">
+        <a id="header-back-redirect" class="back-btn">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9.57 5.92969L3.5 11.9997L9.57 18.0697"
+              stroke="black"
+              stroke-width="1.5"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M20.4999 12H3.66992"
+              stroke="black"
+              stroke-width="1.5"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Back </a
+        >Notifications
+      </h2>
+    </div>
+    <div class="notifications">
+      <ul id="user-notification"></ul>
+    </div>
+  </div>
+</section>
+<%- include('layouts/footer') %>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    getData();
+  });
+
+  var page = 1;
+  var itemsPerPage = 10;
+  var isRunning = false;
+
+  $(window).scroll(function () {
+    if (
+      $(window).scrollTop() + $(window).height() >
+      $(".notifications").height()
+    ) {
+      action = "active";
+      start = start + limit;
+      setTimeout(function () {
+        load_country_data(limit, start);
+      }, 1000);
+    }
+  });
+
+  // if ($(window).scrollTop() + $(window).height() > $(document).height() - 1)
+
+  $(window).scroll(function () {
+    if ($(window).scrollTop() + $(window).height() > $(document).height() - 1) {
+      if (!isRunning) {
+        getData();
+      }
+    }
+  });
+
+  function getData() {
+    let htmlData = "";
+    isRunning = true;
+    $.ajax({
+      url: `<%= url('/dj-notification') %>`,
+      type: "GET",
+      data: {
+        page,
+        itemsPerPage: 10,
+      },
+      success: function (data) {
+        let resData = data.data;
+        for (let i = 0; i < resData.length; i++) {
+          let isActive = "active";
+          if (resData[i].readAt) {
+            isActive = "";
+          }
+          const dateStr = resData[i].createdAt;
+
+          // Convert the date string to a Date object
+          const date = new Date(dateStr);
+          const notificationDate = moment(
+            dateStr,
+            "YYYY-MM-DD HH:mm:ss"
+          ).format("MM/DD/YYYY");
+
+          const notificationTime = moment(
+            dateStr,
+            "YYYY-MM-DD HH:mm:ss"
+          ).format("hh:mm A");
+
+          htmlData += `<li>
+          <a
+            href="<%= url('/music?musicId=${resData[i].referenceId}') %>"
+            class="nofification-cover d-flex justify-content-between ${isActive}"
+          >
+            <div class="notification-contents d-flex align-items-center ">
+              <img
+                src="../images/user-profile.png"
+                alt=""
+                class="notify-profile"
+              />
+              <p> ${resData[i].message}
+              </p>
+            </div>
+            <div class="notification-time text-center">
+              <span>${notificationDate}</span>
+              <p>${notificationTime}</p>
+            </div>
+          </a>
+        </li>`;
+        }
+        page++;
+        $("#user-notification").append(htmlData);
+        isRunning = false;
+      },
+      error: function (err) {
+        console.log(err);
+      },
+    });
+  }
+</script>

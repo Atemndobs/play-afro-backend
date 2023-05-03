@@ -1,0 +1,83 @@
+<%- include('layouts/header') %>
+<section class="review-body">
+  <div class="container">
+    <div class="row">
+      <!-- <div class="back-btn mt-5">
+                    <a href="profile.html">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9.57 5.92969L3.5 11.9997L9.57 18.0697" stroke="black" stroke-width="1.5"
+                                stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M20.4999 12H3.66992" stroke="black" stroke-width="1.5" stroke-miterlimit="10"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Back
+                    </a>
+                </div> -->
+      <div class="in-review text-center mb-3 mt-5">
+        <h2 class="mb-5 position-relative">
+          <a id="header-back-redirect" class="back-btn">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.57 5.92969L3.5 11.9997L9.57 18.0697"
+                stroke="black"
+                stroke-width="1.5"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M20.4999 12H3.66992"
+                stroke="black"
+                stroke-width="1.5"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            Back </a
+          >In Review
+        </h2>
+      </div>
+      <div class="review-sections">
+        <div class="row">
+          <% for(var i=0 ; data.length > i ; i++) { %>
+          <div class="col-md-4 mb-4">
+            <div class="card position-relative">
+              <span>
+                <svg
+                  width="10"
+                  height="10"
+                  viewBox="0 0 10 10"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="5" cy="5" r="5" fill="#1ED760" />
+                </svg>
+                In Review
+              </span>
+              <a href="<%= url('/music?musicId=' + data[i].id) %>">
+                <img
+                  src="<%= url('/' + data[i].cover_photo) %>"
+                  alt=""
+                  class="mb-3 img-fluid"
+                />
+                <div class="card-body">
+                  <strong><%= data[i].title %></strong>
+                  <p>Publishing Date : <b><%= data[i].publish_date %></b></p>
+                </div>
+              </a>
+            </div>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<%- include('layouts/footer') %>

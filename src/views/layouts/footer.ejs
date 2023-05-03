@@ -1,0 +1,41 @@
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+ <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
+    <script src="/js/common.js"></script>
+    <script src="/js/pwa.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js"></script>
+<script>
+    $("#header-back-redirect").on('click', function() {
+        window.history.back()
+    });
+    function errorFireSweetAlert(message) {
+        Swal.fire({
+            icon: 'error',
+            title: message,
+        })
+    }
+//     if ('serviceWorker' in navigator) {
+// 	window.addEventListener('load', () => {
+// 		navigator.serviceWorker.register('service-worker.js').then(
+// 			registration => {
+// 				console.log(`ServiceWorker registration successful with scope: ${registration.scope}`);
+// 			},
+// 			error => {
+// 				console.log(`ServiceWorker registration failed: ${error}`);
+// 			}
+// 		);
+// 	});
+// }
+</script>
+</body>
+
+</html>

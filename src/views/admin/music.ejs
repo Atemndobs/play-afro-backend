@@ -1,0 +1,173 @@
+<%- include('layouts/header') %>
+
+<div class="main_content_iner">
+  <div class="container-fluid p-0">
+    <div class="row justify-content-center">
+      <!-- Data Table start here -->
+
+      <div class="col-lg-12">
+              <div class="white_card card_height_100 mb_30">
+                <div class="white_card_header">
+                  <div class="box_header m-0">
+                    <div class="main-title">
+                      <h3 class="m-0">Music List</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+      <div class="col-lg-12">
+        <div class="white_card card_height_100 mb_30 padding-25">
+          <table id="table_id" class="display">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Label</th>
+                <th>Music</th>
+                <th>Uploaded By</th>
+                <th>Payment Status</th>
+                <th>Downloads</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% musics.forEach(function(music){ %>
+              <tr>
+                <td><%= music.id %></td>
+                <td><%= music.title %></td>
+                <td><%= music.label %></td>
+                <td>
+                  <div class="player">
+                    <audio src="/<%= music.music%>" controls></audio>
+                    <!-- <audio id="myAudio" class="audio_file" controls controlsList="nodownload">
+                            <source src="/<%= music.music%>" />
+                            </audio> -->
+                  </div>
+                </td>
+                <td>
+                    <%= music.user.email %>
+                </td>
+
+                <td>
+                  <% if(music.is_paid==0){ %> Failed <% }else{ %> Paid <% } %>
+                </td>
+                <td>
+                    <%= music.download %>
+                </td>
+                <td>
+                  <% if(music.is_approved==0){ %>
+                  <button
+                    class="btn btn-success mr_5"
+                    onclick="acceptReject(<%= music.id %>,1)"
+                  >
+                    Accept</button
+                  ><button
+                    class="ml_5 btn btn-warning"
+                    onclick="acceptReject(<%= music.id %>,2)"
+                  >
+                    Reject
+                  </button>
+                </td>
+                <% }else{ %> Approved
+
+                  <button
+                    class="ml_5 btn btn-danger"
+                    onclick="acceptReject(<%= music.id %>,3)"
+                  >
+                    Delete
+                  </button>
+                  <% } %>
+              </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Data Table end here -->
+    </div>
+  </div>
+</div>
+
+<%- include('layouts/footer') %>
+<script>
+  $(document).ready(function () {
+    $("#table_id").DataTable();
+    jQuery.createEventCapturing = (function () {
+      var special = jQuery.event.special;
+      return function (names) {
+        if (!document.addEventListener) {
+          return;
+        }
+        if (typeof names == "string") {
+          names = [names];
+        }
+        jQuery.each(names, function (i, name) {
+          var handler = function (e) {
+            e = jQuery.event.fix(e);
+
+            return jQuery.event.dispatch.call(this, e);
+          };
+          special[name] = special[name] || {};
+          if (special[name].setup || special[name].teardown) {
+            return;
+          }
+          jQuery.extend(special[name], {
+            setup: function () {
+              this.addEventListener(name, handler, true);
+            },
+            teardown: function () {
+              this.removeEventListener(name, handler, true);
+            },
+          });
+        });
+      };
+    })();
+
+    jQuery.createEventCapturing(["play"]);
+
+    jQuery(function () {
+      jQuery("body").on("play", "audio", function (e) {
+        jQuery("audio")
+          .not(this)
+          .each(function (index, audio) {
+            audio.pause();
+          });
+      });
+
+      // create dynamic element
+      jQuery("body").append(jQuery(".container").clone());
+    });
+  });
+
+  function acceptReject(id, status) {
+    var msg = "Music to approve.";
+    if (status == 2) {
+      msg = "Music to reject.";
+    }else if (status == 3) {
+      msg = "Music to delete.";
+    }
+    swal({
+      title: "Are you sure?",
+      text: msg,
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        $.ajax({
+          type: "POST",
+          url: "/music/accept-reject",
+          data: { status: status, id: id },
+          cache: false,
+          success: function (data) {
+            location.reload();
+          },
+        });
+      } else {
+      }
+    });
+  }
+</script>

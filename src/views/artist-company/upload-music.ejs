@@ -1,0 +1,2194 @@
+<%- include('layouts/header') %>
+
+<div class="step-1" id="checkout-progress" data-current-step="1">
+  <div class="progress-bar">
+    <div class="step step-1 active">
+      <span> 1</span>
+      <div class="fa fa-check opaque"></div>
+      <div class="step-label">Track Information</div>
+    </div>
+    <div class="step step-2">
+      <span> 2</span>
+      <div class="fa fa-check opaque"></div>
+      <div class="step-label">Cover Photo</div>
+    </div>
+    <div class="step step-3">
+      <span> 3</span>
+      <div class="fa fa-check opaque"></div>
+      <div class="step-label">Streaming Platform</div>
+    </div>
+    <div class="step step-4">
+      <span> 4</span>
+      <div class="fa fa-check opaque"></div>
+      <div class="step-label">Final Review</div>
+    </div>
+    <div class="step step-5">
+      <span> 5</span>
+      <div class="fa fa-check opaque"></div>
+      <div class="step-label">Payment</div>
+    </div>
+  </div>
+</div>
+
+<!-- /Progressbar -->
+
+<!-- Track Info section -->
+<form
+  id="music-info"
+  action="upload-music"
+  method="post"
+  enctype="multipart/form-data"
+>
+  <section
+    class="track-information-section section1 pt-2"
+    id="section1"
+    style="display: block"
+  >
+    <div class="register-form">
+      <div class="container-fluid">
+        <div class="register-cover-color">
+          <div class="row justify-content-center">
+            <div class="col-md-6">
+              <div class="form-cover">
+                <h2>Track Information</h2>
+                <ul class="trackinfo-form">
+                  <li>
+                    <div class="mb-3 position-relative title_section">
+                      <label for="exampleInputName" class="form-label mx-3"
+                        >Song Title <b>*</b></label
+                      >
+                      <input
+                        type="text"
+                        name="title"
+                        id="title"
+                        class="form-control"
+                        placeholder=""
+                      />
+                      <small></small>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="mb-3 position-relative company_label">
+                      <div class="tracker-tooltip-details">
+                        <label for="exampleInputName" class="form-label mx-3">
+                          Label/Label Company/Self <b>*</b></label
+                        >
+                        <button
+                          type="button"
+                          class="btn"
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="bottom"
+                          data-bs-title="Tooltip on bottom"
+                        >
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g opacity="0.6">
+                              <path
+                                d="M10.0003 18.3334C14.5837 18.3334 18.3337 14.5834 18.3337 10C18.3337 5.41669 14.5837 1.66669 10.0003 1.66669C5.41699 1.66669 1.66699 5.41669 1.66699 10C1.66699 14.5834 5.41699 18.3334 10.0003 18.3334Z"
+                                stroke="black"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M10 6.66669V10.8334"
+                                stroke="black"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M9.99512 13.3333H10.0026"
+                                stroke="black"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </g>
+                          </svg>
+                        </button>
+                      </div>
+                      <input
+                        type="text"
+                        name="label"
+                        id="label"
+                        class="form-control"
+                        placeholder=""
+                      />
+                      <small></small>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="mb-3 position-relative file_upload">
+                      <div class="tracker-tooltip-details">
+                        <label for="exampleInputName" class="form-label mx-3"
+                          >Audio File <b>*</b></label
+                        >
+                        <button
+                          type="button"
+                          class="btn"
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="bottom"
+                          data-bs-title="Tooltip on bottom"
+                        >
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g opacity="0.6">
+                              <path
+                                d="M10.0003 18.3334C14.5837 18.3334 18.3337 14.5834 18.3337 10C18.3337 5.41669 14.5837 1.66669 10.0003 1.66669C5.41699 1.66669 1.66699 5.41669 1.66699 10C1.66699 14.5834 5.41699 18.3334 10.0003 18.3334Z"
+                                stroke="black"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M10 6.66669V10.8334"
+                                stroke="black"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M9.99512 13.3333H10.0026"
+                                stroke="black"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </g>
+                          </svg>
+                        </button>
+                      </div>
+                      <div
+                        id="dropFileForm"
+                        action="http://localhost/upload.php"
+                        method="post"
+                        onsubmit="uploadFiles(event)"
+                      >
+                        <input
+                          type="file"
+                          name="audio_file"
+                          id="fileInput"
+                          onchange="addFiles(event)"
+                        />
+
+                        <label
+                          for="fileInput"
+                          id="fileLabel"
+                          ondragover="overrideDefault(event);fileHover();"
+                          ondragenter="overrideDefault(event);fileHover();"
+                          ondragleave="overrideDefault(event);fileHoverEnd();"
+                          ondrop="overrideDefault(event);fileHoverEnd();
+                                                            addFiles(event);"
+                        >
+                          <svg
+                            width="69"
+                            height="60"
+                            viewBox="0 0 69 60"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M36.028 14.7459L36.1203 14.7734L36.1243 14.7688C36.5619 14.8481 36.9961 14.5861 37.1247 14.152C38.2963 10.2153 41.9874 7.4651 46.0998 7.4651C46.5867 7.4651 46.9816 7.07022 46.9816 6.58336C46.9816 6.09649 46.5867 5.70162 46.0998 5.70162C41.0457 5.70162 36.7985 9.06671 35.4348 13.6494C35.2956 14.1162 35.5615 14.6068 36.028 14.7459Z"
+                              fill="#483EA8"
+                              stroke="#F9FFF9"
+                              stroke-width="0.3"
+                            />
+                            <path
+                              d="M56.3438 42.4384H51.9534C51.5494 42.4384 51.2217 42.1107 51.2217 41.7067C51.2217 41.3027 51.5494 40.9749 51.9534 40.9749H56.3438C62.3956 40.9749 67.3197 36.0509 67.3197 29.999C67.3197 23.9471 62.3956 19.023 56.3438 19.023H56.2382C56.026 19.023 55.8242 18.9311 55.6852 18.7706C55.5462 18.6101 55.4834 18.3974 55.5138 18.1873C55.5791 17.7315 55.612 17.2737 55.612 16.8279C55.612 11.5829 51.3444 7.31531 46.0995 7.31531C44.059 7.31531 42.1131 7.95296 40.4719 9.15978C40.1112 9.42478 39.599 9.30718 39.3905 8.91047C34.7425 0.0596993 22.6023 -1.12887 16.3082 6.57053C13.6568 9.81417 12.615 14.0336 13.4498 18.146C13.5418 18.6002 13.1942 19.0236 12.7327 19.0236H12.4395C6.3876 19.0236 1.46353 23.9477 1.46353 29.9996C1.46353 36.0514 6.3876 40.9755 12.4395 40.9755H16.8298C17.2338 40.9755 17.5615 41.3032 17.5615 41.7072C17.5615 42.1113 17.2338 42.439 16.8298 42.439H12.4395C5.5805 42.439 0 36.8585 0 29.9995C0 23.3329 5.27155 17.8742 11.8651 17.5731C11.2457 13.3066 12.4301 9.00295 15.1751 5.64437C21.9138 -2.5996 34.828 -1.67556 40.2871 7.51707C42.0287 6.42522 44.0215 5.85244 46.0992 5.85244C52.4538 5.85244 57.4892 11.261 57.0486 17.58C63.5813 17.9463 68.7829 23.3763 68.7829 29.999C68.7829 36.8585 63.2024 42.4384 56.3434 42.4384L56.3438 42.4384Z"
+                              fill="#483EA8"
+                            />
+                            <path
+                              d="M15.85 41.2935C15.85 51.4634 24.1237 59.737 34.2935 59.737C44.4634 59.737 52.737 51.4633 52.737 41.2935C52.737 31.1235 44.4634 22.85 34.2935 22.85C24.1235 22.85 15.85 31.1237 15.85 41.2935ZM17.6138 41.2935C17.6138 32.0966 25.0964 24.6138 34.2935 24.6138C43.4904 24.6138 50.9732 32.0964 50.9732 41.2935C50.9732 50.4904 43.4904 57.9732 34.2935 57.9732C25.0966 57.9732 17.6138 50.4905 17.6138 41.2935Z"
+                              fill="#483EA8"
+                              stroke="#F9FFF9"
+                              stroke-width="0.3"
+                            />
+                            <path
+                              d="M33.9428 48.6578C33.9428 49.0364 34.2499 49.3435 34.6285 49.3435C35.0071 49.3435 35.3142 49.0368 35.3142 48.6578V34.7292C35.3142 34.3506 35.0071 34.0435 34.6285 34.0435C34.2498 34.0435 33.9428 34.3506 33.9428 34.7292V48.6578Z"
+                              fill="#483EA8"
+                              stroke="#483EA8"
+                              stroke-width="0.3"
+                            />
+                            <path
+                              d="M34.6281 35.7003L30.8274 39.5009L34.6281 35.7003ZM34.6281 35.7003L38.4289 39.501C38.5626 39.6348 38.7386 39.7018 38.9137 39.7019L34.6281 35.7003ZM29.8576 39.501C30.1254 39.7688 30.5597 39.769 30.8273 39.501L38.9138 39.7019C39.0886 39.7018 39.2647 39.6353 39.3987 39.501C39.6665 39.2331 39.6665 38.7991 39.3986 38.5313L35.113 34.2456C34.8452 33.9778 34.4108 33.9776 34.1432 34.2456C34.1432 34.2456 34.1431 34.2457 34.1431 34.2457L29.8576 38.5313C29.5897 38.7991 29.5897 39.2331 29.8576 39.501Z"
+                              fill="#483EA8"
+                              stroke="#483EA8"
+                              stroke-width="0.3"
+                            />
+                          </svg>
+                          <br />
+                          <span id="fileLabelText">
+                            Drag & Drop Files or Choose Files
+                          </span>
+                          <br />
+                          <span id="uploadStatus"></span>
+                        </label>
+                      </div>
+                      <small></small>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="mb-3 position-relative artist_performer">
+                      <div class="tracker-tooltip-details">
+                        <label for="exampleInputName" class="form-label mx-3">
+                          Artist/Performer <b>*</b></label
+                        >
+                        <button
+                          type="button"
+                          class="btn"
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="bottom"
+                          data-bs-title="Tooltip on bottom"
+                        >
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g opacity="0.6">
+                              <path
+                                d="M10.0003 18.3334C14.5837 18.3334 18.3337 14.5834 18.3337 10C18.3337 5.41669 14.5837 1.66669 10.0003 1.66669C5.41699 1.66669 1.66699 5.41669 1.66699 10C1.66699 14.5834 5.41699 18.3334 10.0003 18.3334Z"
+                                stroke="black"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M10 6.66669V10.8334"
+                                stroke="black"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M9.99512 13.3333H10.0026"
+                                stroke="black"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </g>
+                          </svg>
+                        </button>
+                      </div>
+                      <input
+                        type="text"
+                        name="artist"
+                        id="artist"
+                        class="form-control"
+                        placeholder=""
+                      />
+                      <small></small>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="mb-3 position-relative feature_artist">
+                      <div class="tracker-tooltip-details">
+                        <label for="exampleInputName" class="form-label mx-3">
+                          Featuring Artists/Performers</label
+                        >
+                        <button
+                          type="button"
+                          class="btn"
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="bottom"
+                          data-bs-title="Tooltip on bottom"
+                        >
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g opacity="0.6">
+                              <path
+                                d="M10.0003 18.3334C14.5837 18.3334 18.3337 14.5834 18.3337 10C18.3337 5.41669 14.5837 1.66669 10.0003 1.66669C5.41699 1.66669 1.66699 5.41669 1.66699 10C1.66699 14.5834 5.41699 18.3334 10.0003 18.3334Z"
+                                stroke="black"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M10 6.66669V10.8334"
+                                stroke="black"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M9.99512 13.3333H10.0026"
+                                stroke="black"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </g>
+                          </svg>
+                        </button>
+                      </div>
+                      <input
+                        type="text"
+                        name="featuring"
+                        id="feature"
+                        class="form-control"
+                        placeholder=""
+                      />
+                      <small></small>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="mb-3 position-relative song_type_check">
+                      <label for="exampleInputName" class="form-label mx-3">
+                        Song Type <b>*</b></label
+                      >
+                      <div class="d-flex mx-3">
+                        <div class="form-check my-3 me-3">
+                          <input
+                            class="form-check-input"
+                            name="song_type"
+                            value="1"
+                            type="radio"
+                            name="flexRadioDefault"
+                            id="original"
+                            value="artistmusic"
+                          />
+                          <label
+                            class="light-white form-check-label"
+                            for="original"
+                          >
+                            Original
+                          </label>
+                        </div>
+                        <div class="form-check my-3 me-3">
+                          <input
+                            class="form-check-input"
+                            name="song_type"
+                            value="2"
+                            type="radio"
+                            name="flexRadioDefault"
+                            id="cover"
+                          />
+                          <label
+                            class="light-white form-check-label"
+                            for="cover"
+                          >
+                            Cover
+                          </label>
+                        </div>
+                        <div class="form-check my-3">
+                          <input
+                            class="form-check-input"
+                            name="song_type"
+                            value="3"
+                            type="radio"
+                            name="flexRadioDefault"
+                            id="remix"
+                          />
+                          <label
+                            class="light-white form-check-label"
+                            for="remix"
+                          >
+                            Remix
+                          </label>
+                        </div>
+                      </div>
+                      <small></small>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="row mb-3">
+                      <div class="col-md-12 genre_check">
+                        <label for="company-name" class="form-label mx-3"
+                          >Genre <b>*</b>
+                        </label>
+                        <select
+                          class="form-select"
+                          name="genre"
+                          id="genre"
+                          aria-label="Default select example"
+                        >
+                          <option selected="" disabled="">Genre</option>
+                          <option value="Afrobeats">Afrobeats</option>
+                          <option value="Amapiano">Amapiano</option>
+                          <option value="Coupé Décalé">Coupé Décalé</option>
+                          <option value="Hip Life">Hip Life</option>
+                          <option value="Afropop">Afropop</option>
+                          <option value="Bongo Flava">Bongo Flava</option>
+                          <option value="African HipHop">African HipHop</option>
+                          <option value="West African Music (Frankophonie)">West African Music (Frankophonie)</option>
+
+                        </select>
+                        <small></small>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="row d-flex">
+                      <div class="col-md-6 mb-3 position-relative bpm_check">
+                        <label for="exampleInputName" class="form-label mx-3">
+                          BPM
+                        </label>
+                        <input
+                          type="text"
+                          name="bpm"
+                          id="bpm"
+                          class="form-control"
+                          placeholder=""
+                        />
+                        <small></small>
+                      </div>
+                      <div class="col-md-6 mb-3 position-relative key_check">
+                        <label for="exampleInputName" class="form-label mx-3">
+                          Key
+                        </label>
+
+                        <select
+                          class="form-select"
+                          name="key"
+                          id="key"
+                          aria-label="Default select example"
+                        >
+                          <option selected="" disabled="">Scale</option>
+                          <option value="C">C</option>
+                          <option value="C# / Db">C# / Db</option>
+                          <option value="D">D</option>
+                          <option value="D# / Eb">D# / Eb</option>
+                          <option value="E">E</option>
+                          <option value="F">F</option>
+                          <option value="F# / Gb">F# / Gb</option>
+                          <option value="G">G</option>
+                          <option value="G# / Ab">G# / Ab</option>
+                          <option value="A">A</option>
+                          <option value="A# / Bb">A# / Bb</option>
+                          <option value="B">B</option>
+                        </select>
+                        <!-- <input
+                          type="text"
+                          name="key"
+                          id="key"
+                          class="form-control"
+                          placeholder=""
+                        /> -->
+                        <small></small>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="row mb-3">
+                      <div class="col-md-12 scale_check">
+                        <label for="company-name" class="form-label mx-3"
+                          >Scale
+                        </label>
+                        <select
+                          class="form-select"
+                          name="scale"
+                          id="scale"
+                          aria-label="Default select example"
+                        >
+                          <option selected="" disabled="">Scale</option>
+                          <option value="C Major / A Minor">C Major / A Minor</option>
+                          <option value="C# Major / A# Minor">C# Major / A# Minor</option>
+                          <option value="D Major / B Minor">D Major / B Minor</option>
+                          <option value="D# Major / C Minor">D# Major / C Minor</option>
+                          <option value="E Major / C# Minor">E Major / C# Minor</option>
+                          <option value="F Major / D Minor">F Major / D Minor</option>
+                          <option value="F# Major / D# Minor">F# Major / D# Minor</option>
+                          <option value="G Major / E Minor">G Major / E Minor</option>
+                          <option value="G# Major / F Minor">G# Major / F Minor</option>
+                          <option value="A Major / F# Minor">A Major / F# Minor</option>
+                          <option value="A# Major / G Minor">A# Major / G Minor</option>
+                          <option value="B Major / G# Minor">B Major / G# Minor</option>
+                        </select>
+                        <small></small>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="mb-3 position-relative publish_date_check">
+                      <div class="tracker-tooltip-details">
+                        <label for="exampleInputName" class="form-label mx-3">
+                          Publishing Date <b>*</b></label
+                        >
+                        <button
+                          type="button"
+                          class="btn"
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="bottom"
+                          data-bs-title="Publishing Date when the song should be available for listening an download. On this date, the song would appear on the platform as a new release and notifications would be sent out to the DJ´s.Please note: Publishing date must be minimum of 5 working days after a successful upload."
+                        >
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g opacity="0.6">
+                              <path
+                                d="M10.0003 18.3334C14.5837 18.3334 18.3337 14.5834 18.3337 10C18.3337 5.41669 14.5837 1.66669 10.0003 1.66669C5.41699 1.66669 1.66699 5.41669 1.66699 10C1.66699 14.5834 5.41699 18.3334 10.0003 18.3334Z"
+                                stroke="black"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M10 6.66669V10.8334"
+                                stroke="black"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M9.99512 13.3333H10.0026"
+                                stroke="black"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </g>
+                          </svg>
+                        </button>
+                      </div>
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="publish_date"
+                        name="publish_date"
+                        placeholder=""
+                      />
+                      <small></small>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="mb-3 position-relative release_date_check">
+                      <div class="tracker-tooltip-details">
+                        <label for="exampleInputName" class="form-label mx-3">
+                          Release Date (optional)</label
+                        >
+                        <button
+                          type="button"
+                          class="btn"
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="bottom"
+                          data-bs-title="Release Date is only applicable if a song has been officially been release on the market for sale."
+                        >
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <g opacity="0.6">
+                              <path
+                                d="M10.0003 18.3334C14.5837 18.3334 18.3337 14.5834 18.3337 10C18.3337 5.41669 14.5837 1.66669 10.0003 1.66669C5.41699 1.66669 1.66699 5.41669 1.66699 10C1.66699 14.5834 5.41699 18.3334 10.0003 18.3334Z"
+                                stroke="black"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M10 6.66669V10.8334"
+                                stroke="black"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M9.99512 13.3333H10.0026"
+                                stroke="black"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </g>
+                          </svg>
+                        </button>
+                      </div>
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="release_date"
+                        name="release_date"
+                        placeholder=""
+                      />
+                      <small></small>
+                    </div>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      class="btn btn-next"
+                      onclick="validateForm()"
+                      id="continue-popup"
+                    >
+                      Continue
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M14.4302 5.92993L20.5002 11.9999L14.4302 18.0699"
+                          stroke="white"
+                          stroke-width="2"
+                          stroke-miterlimit="10"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                        <path
+                          d="M3.5 12H20.33"
+                          stroke="white"
+                          stroke-width="2"
+                          stroke-miterlimit="10"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        ></path>
+                      </svg>
+                    </button>
+                  </li>
+                </ul>
+                <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--  -->
+
+  <!-- Uploading Image -->
+
+  <section
+    class="upload-mage-section section2 pt-2"
+    id="section2"
+    style="display: none"
+  >
+    <div class="container">
+      <div class="upload-image-cover mt-5">
+        <div class="input-image-cover">
+          <h2>Cover Photo <b>*</b></h2>
+          <div class="uploaded-image-cover position-relative">
+            <input
+              accept="image/*"
+              name="cover_photo"
+              type="file"
+              id="imgInp"
+            />
+            <img
+              id="blah"
+              src="../images/thumb-Upload Photo.png"
+              alt="your image"
+            />
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-6 col-12 d-flex my-5">
+              <button type="button" class="btn btn-prev">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.56982 18.0699L3.49983 11.9999L9.56983 5.92995"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    d="M20.5 12L3.67 12"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+                Go Back
+              </button>
+              <button
+                type="button"
+                class="btn btn-next"
+                onclick="validateThumb()"
+              >
+                Continue
+                <svg
+                  width=" 24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14.4302 5.92993L20.5002 11.9999L14.4302 18.0699"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    d="M3.5 12H20.33"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--------------------------------------->
+
+  <!-- Streaming Platform Section -->
+
+  <section
+    class="streaming-plateform-section pt- section3"
+    id="section3"
+    style="display: none"
+  >
+    <div class="container">
+      <div class="streaming-cover">
+        <h2>Streaming Platform</h2>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <ul class="streaming-links">
+              <li class="d-flex align-items-center">
+                <span>
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_209_1435)">
+                      <rect
+                        x="2"
+                        y="2"
+                        width="16"
+                        height="16"
+                        rx="8"
+                        fill="white"
+                      />
+                      <path
+                        d="M20 0C8.95455 0 0 8.95364 0 20C0 31.0464 8.95455 40 20 40C31.0455 40 40 31.0464 40 20C40 8.95364 31.0455 0 20 0ZM29.7576 28.8312C29.4363 29.4 28.8455 29.72 28.2364 29.72C27.9515 29.72 27.6576 29.6488 27.3879 29.4988C24.8909 28.0988 22.1697 27.2412 19.294 26.95C16.4121 26.6612 13.5667 26.9536 10.8333 27.8264C9.92121 28.1176 8.93941 27.6136 8.6485 26.7C8.35456 25.7848 8.86061 24.8064 9.77576 24.5136C12.9636 23.4952 16.2879 23.1488 19.6454 23.49C22.997 23.8312 26.1727 24.8312 29.0879 26.4652C29.9273 26.9324 30.2273 27.9924 29.7576 28.8312ZM32.1515 22.7564C31.8424 23.3512 31.2364 23.6924 30.6091 23.6924C30.3364 23.6924 30.0636 23.63 29.8061 23.4952C26.7364 21.8964 23.4212 20.9064 19.9454 20.5536C16.4424 20.1952 12.9727 20.5076 9.62728 21.4724C8.70304 21.7348 7.73941 21.2064 7.47577 20.2824C7.2091 19.36 7.74241 18.3964 8.66363 18.13C12.4394 17.0412 16.3545 16.6924 20.297 17.0924C24.2121 17.4912 27.9515 18.6064 31.4152 20.4112C32.2636 20.8552 32.597 21.9048 32.1515 22.7564ZM33.0182 17.7024C32.7576 17.7024 32.4939 17.6436 32.2424 17.52C28.6 15.7036 24.6818 14.5724 20.5939 14.1576C16.5 13.7388 12.4273 14.0624 8.48485 15.1152C7.55758 15.3612 6.60605 14.8112 6.35757 13.8824C6.10909 12.9548 6.66062 12.0012 7.59092 11.7536C11.9394 10.5924 16.4364 10.2388 20.9485 10.6976C25.4545 11.1536 29.7758 12.4024 33.7939 14.4064C34.6546 14.8348 35.003 15.88 34.5758 16.7388C34.2727 17.35 33.6576 17.7024 33.0182 17.7024Z"
+                        fill="#1ED760"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_209_1435">
+                        <rect width="40" height="40" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </span>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="spotify_link"
+                  id="spotify_link"
+                  placeholder="Spotify Link"
+                />
+              </li>
+              <li class="d-flex align-items-center">
+                <span>
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_209_1438)">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M31.3334 40H8.66668C7.52792 40.0022 6.39992 39.7796 5.3474 39.3449C4.29489 38.9101 3.33858 38.2719 2.53335 37.4666C1.72812 36.6614 1.08983 35.7051 0.655093 34.6526C0.220358 33.6001 -0.0022583 32.4721 1.72707e-05 31.3333V8.66662C-0.0022583 7.52786 0.220358 6.39986 0.655093 5.34734C1.08983 4.29483 1.72812 3.33852 2.53335 2.53329C3.33858 1.72806 4.29489 1.08977 5.3474 0.655032C6.39992 0.220297 7.52792 -0.00231934 8.66668 -4.37645e-05H31.3334C32.4721 -0.00231934 33.6001 0.220297 34.6526 0.655032C35.7051 1.08977 36.6615 1.72806 37.4667 2.53329C38.2719 3.33852 38.9102 4.29483 39.3449 5.34734C39.7797 6.39986 40.0023 7.52786 40 8.66662V31.3333C40.0023 32.4721 39.7797 33.6001 39.3449 34.6526C38.9102 35.7051 38.2719 36.6614 37.4667 37.4666C36.6615 38.2719 35.7051 38.9101 34.6526 39.3449C33.6001 39.7796 32.4721 40.0022 31.3334 40Z"
+                        fill="url(#paint0_linear_209_1438)"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M29.3332 24.1666V25.3333C29.3328 26.0822 29.2659 26.8296 29.1332 27.5666C29.0685 27.9423 28.9289 28.3011 28.7228 28.6218C28.5166 28.9425 28.2481 29.2184 27.9332 29.4333H27.8999C27.2353 29.9376 26.4333 30.2282 25.5999 30.2666L24.9666 30.3333C24.4696 30.3638 23.9723 30.2771 23.5149 30.0802C23.0576 29.8834 22.6528 29.5819 22.3332 29.2C22.0008 28.7972 21.7821 28.3127 21.7001 27.7969C21.618 27.2811 21.6755 26.7527 21.8666 26.2666V26.2333C22.0411 25.7579 22.3301 25.3328 22.708 24.9956C23.0859 24.6584 23.5411 24.4195 24.0332 24.3L26.5332 23.6333C26.8477 23.5584 27.1276 23.3792 27.3273 23.125C27.527 22.8709 27.6348 22.5566 27.6332 22.2333V20.5333V13.3666C27.6355 13.2839 27.6187 13.2017 27.584 13.1266C27.5493 13.0514 27.4977 12.9853 27.4332 12.9333C27.367 12.8844 27.2912 12.8502 27.2107 12.8329C27.1302 12.8157 27.047 12.8158 26.9666 12.8333L16.2999 15C16.1108 15.0302 15.9391 15.1279 15.8166 15.275C15.694 15.4221 15.6289 15.6086 15.6332 15.8V27.2V28.0333C15.6328 28.7822 15.5659 29.5296 15.4332 30.2666C15.3685 30.6423 15.2289 31.0011 15.0228 31.3218C14.8166 31.6425 14.5481 31.9184 14.2332 32.1333H14.1999C13.5353 32.6376 12.7333 32.9282 11.8999 32.9666L11.2999 33C10.8029 33.0304 10.3057 32.9437 9.84827 32.7469C9.39089 32.55 8.98612 32.2485 8.66657 31.8666C8.33409 31.4638 8.11548 30.9794 8.03342 30.4636C7.95135 29.9478 8.00884 29.4194 8.19991 28.9333V28.9C8.37445 28.4245 8.66345 27.9994 9.04135 27.6622C9.41924 27.325 9.8744 27.0861 10.3666 26.9666L12.8666 26.3C13.181 26.225 13.4609 26.0459 13.6606 25.7917C13.8603 25.5375 13.9682 25.2232 13.9666 24.9V23.2V9.96664C13.9703 9.68225 14.0717 9.40778 14.2538 9.18929C14.4358 8.97079 14.6875 8.82157 14.9666 8.76664L28.3332 6.3333C28.5789 6.3045 28.8269 6.36353 29.0332 6.49997C29.1269 6.57686 29.2023 6.67352 29.2542 6.78302C29.3061 6.89252 29.3331 7.01214 29.3332 7.1333V24.1666Z"
+                        fill="#BB58BB"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M29.3332 24.1666V25.3333C29.3328 26.0822 29.2659 26.8296 29.1332 27.5666C29.0685 27.9423 28.9289 28.3011 28.7228 28.6218C28.5166 28.9425 28.2481 29.2184 27.9332 29.4333H27.8999C27.2353 29.9376 26.4333 30.2282 25.5999 30.2666L24.9666 30.3333C24.4696 30.3638 23.9723 30.2771 23.5149 30.0802C23.0576 29.8834 22.6528 29.5819 22.3332 29.2C22.0008 28.7972 21.7821 28.3127 21.7001 27.7969C21.618 27.2811 21.6755 26.7527 21.8666 26.2666V26.2333C22.0411 25.7579 22.3301 25.3328 22.708 24.9956C23.0859 24.6584 23.5411 24.4195 24.0332 24.3L26.5332 23.6333C26.8477 23.5584 27.1276 23.3792 27.3273 23.125C27.527 22.8709 27.6348 22.5566 27.6332 22.2333V20.5333V13.3666C27.6355 13.2839 27.6187 13.2017 27.584 13.1266C27.5493 13.0514 27.4977 12.9853 27.4332 12.9333C27.367 12.8844 27.2912 12.8502 27.2107 12.8329C27.1302 12.8157 27.047 12.8158 26.9666 12.8333L16.2999 15C16.1108 15.0302 15.9391 15.1279 15.8166 15.275C15.694 15.4221 15.6289 15.6086 15.6332 15.8V27.2V28.0333C15.6328 28.7822 15.5659 29.5296 15.4332 30.2666C15.3685 30.6423 15.2289 31.0011 15.0228 31.3218C14.8166 31.6425 14.5481 31.9184 14.2332 32.1333H14.1999C13.5353 32.6376 12.7333 32.9282 11.8999 32.9666L11.2999 33C10.8029 33.0304 10.3057 32.9437 9.84827 32.7469C9.39089 32.55 8.98612 32.2485 8.66657 31.8666C8.33409 31.4638 8.11548 30.9794 8.03342 30.4636C7.95135 29.9478 8.00884 29.4194 8.19991 28.9333V28.9C8.37445 28.4245 8.66345 27.9994 9.04135 27.6622C9.41924 27.325 9.8744 27.0861 10.3666 26.9666L12.8666 26.3C13.181 26.225 13.4609 26.0459 13.6606 25.7917C13.8603 25.5375 13.9682 25.2232 13.9666 24.9V23.2V9.96664C13.9703 9.68225 14.0717 9.40778 14.2538 9.18929C14.4358 8.97079 14.6875 8.82157 14.9666 8.76664L28.3332 6.3333C28.5789 6.3045 28.8269 6.36353 29.0332 6.49997C29.1269 6.57686 29.2023 6.67352 29.2542 6.78302C29.3061 6.89252 29.3331 7.01214 29.3332 7.1333V24.1666Z"
+                        fill="url(#paint1_radial_209_1438)"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M29.3332 24.1666V25.3333C29.3328 26.0822 29.2659 26.8296 29.1332 27.5666C29.0685 27.9423 28.9289 28.3011 28.7228 28.6218C28.5166 28.9425 28.2481 29.2184 27.9332 29.4333H27.8999C27.2353 29.9376 26.4333 30.2282 25.5999 30.2666L24.9666 30.3333C24.4696 30.3638 23.9723 30.2771 23.5149 30.0802C23.0576 29.8834 22.6528 29.5819 22.3332 29.2C22.0008 28.7972 21.7821 28.3127 21.7001 27.7969C21.618 27.2811 21.6755 26.7527 21.8666 26.2666V26.2333C22.0411 25.7579 22.3301 25.3328 22.708 24.9956C23.0859 24.6584 23.5411 24.4195 24.0332 24.3L26.5332 23.6333C26.8477 23.5584 27.1276 23.3792 27.3273 23.125C27.527 22.8709 27.6348 22.5566 27.6332 22.2333V20.5333V13.3666C27.6355 13.2839 27.6187 13.2017 27.584 13.1266C27.5493 13.0514 27.4977 12.9853 27.4332 12.9333C27.367 12.8844 27.2912 12.8502 27.2107 12.8329C27.1302 12.8157 27.047 12.8158 26.9666 12.8333L16.2999 15C16.1108 15.0302 15.9391 15.1279 15.8166 15.275C15.694 15.4221 15.6289 15.6086 15.6332 15.8V27.2V28.0333C15.6328 28.7822 15.5659 29.5296 15.4332 30.2666C15.3685 30.6423 15.2289 31.0011 15.0228 31.3218C14.8166 31.6425 14.5481 31.9184 14.2332 32.1333H14.1999C13.5353 32.6376 12.7333 32.9282 11.8999 32.9666L11.2999 33C10.8029 33.0304 10.3057 32.9437 9.84827 32.7469C9.39089 32.55 8.98612 32.2485 8.66657 31.8666C8.33409 31.4638 8.11548 30.9794 8.03342 30.4636C7.95135 29.9478 8.00884 29.4194 8.19991 28.9333V28.9C8.37445 28.4245 8.66345 27.9994 9.04135 27.6622C9.41924 27.325 9.8744 27.0861 10.3666 26.9666L12.8666 26.3C13.181 26.225 13.4609 26.0459 13.6606 25.7917C13.8603 25.5375 13.9682 25.2232 13.9666 24.9V23.2V9.96664C13.9703 9.68225 14.0717 9.40778 14.2538 9.18929C14.4358 8.97079 14.6875 8.82157 14.9666 8.76664L28.3332 6.3333C28.5789 6.3045 28.8269 6.36353 29.0332 6.49997C29.1269 6.57686 29.2023 6.67352 29.2542 6.78302C29.3061 6.89252 29.3331 7.01214 29.3332 7.1333V24.1666Z"
+                        fill="url(#paint2_radial_209_1438)"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M29.3332 24.1666V25.3333C29.3328 26.0822 29.2659 26.8296 29.1332 27.5666C29.0685 27.9423 28.9289 28.3011 28.7228 28.6218C28.5166 28.9425 28.2481 29.2184 27.9332 29.4333H27.8999C27.2353 29.9376 26.4333 30.2282 25.5999 30.2666L24.9666 30.3333C24.4696 30.3638 23.9723 30.2771 23.5149 30.0802C23.0576 29.8834 22.6528 29.5819 22.3332 29.2C22.0008 28.7972 21.7821 28.3127 21.7001 27.7969C21.618 27.2811 21.6755 26.7527 21.8666 26.2666V26.2333C22.0411 25.7579 22.3301 25.3328 22.708 24.9956C23.0859 24.6584 23.5411 24.4195 24.0332 24.3L26.5332 23.6333C26.8477 23.5584 27.1276 23.3792 27.3273 23.125C27.527 22.8709 27.6348 22.5566 27.6332 22.2333V20.5333V13.3666C27.6355 13.2839 27.6187 13.2017 27.584 13.1266C27.5493 13.0514 27.4977 12.9853 27.4332 12.9333C27.367 12.8844 27.2912 12.8502 27.2107 12.8329C27.1302 12.8157 27.047 12.8158 26.9666 12.8333L16.2999 15C16.1108 15.0302 15.9391 15.1279 15.8166 15.275C15.694 15.4221 15.6289 15.6086 15.6332 15.8V27.2V28.0333C15.6328 28.7822 15.5659 29.5296 15.4332 30.2666C15.3685 30.6423 15.2289 31.0011 15.0228 31.3218C14.8166 31.6425 14.5481 31.9184 14.2332 32.1333H14.1999C13.5353 32.6376 12.7333 32.9282 11.8999 32.9666L11.2999 33C10.8029 33.0304 10.3057 32.9437 9.84827 32.7469C9.39089 32.55 8.98612 32.2485 8.66657 31.8666C8.33409 31.4638 8.11548 30.9794 8.03342 30.4636C7.95135 29.9478 8.00884 29.4194 8.19991 28.9333V28.9C8.37445 28.4245 8.66345 27.9994 9.04135 27.6622C9.41924 27.325 9.8744 27.0861 10.3666 26.9666L12.8666 26.3C13.181 26.225 13.4609 26.0459 13.6606 25.7917C13.8603 25.5375 13.9682 25.2232 13.9666 24.9V23.2V9.96664C13.9703 9.68225 14.0717 9.40778 14.2538 9.18929C14.4358 8.97079 14.6875 8.82157 14.9666 8.76664L28.3332 6.3333C28.5789 6.3045 28.8269 6.36353 29.0332 6.49997C29.1269 6.57686 29.2023 6.67352 29.2542 6.78302C29.3061 6.89252 29.3331 7.01214 29.3332 7.1333V24.1666Z"
+                        fill="url(#paint3_linear_209_1438)"
+                      />
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M29.3332 24.1666V25.3333C29.3328 26.0822 29.2659 26.8296 29.1332 27.5666C29.0685 27.9423 28.9289 28.3011 28.7228 28.6218C28.5166 28.9425 28.2481 29.2184 27.9332 29.4333H27.8999C27.2353 29.9376 26.4333 30.2282 25.5999 30.2666L24.9666 30.3333C24.4696 30.3638 23.9723 30.2771 23.5149 30.0802C23.0576 29.8834 22.6528 29.5819 22.3332 29.2C22.0008 28.7972 21.7821 28.3127 21.7001 27.7969C21.618 27.2811 21.6755 26.7527 21.8666 26.2666V26.2333C22.0411 25.7579 22.3301 25.3328 22.708 24.9956C23.0859 24.6584 23.5411 24.4195 24.0332 24.3L26.5332 23.6333C26.8477 23.5584 27.1276 23.3792 27.3273 23.125C27.527 22.8709 27.6348 22.5566 27.6332 22.2333V20.5333V13.3666C27.6355 13.2839 27.6187 13.2017 27.584 13.1266C27.5493 13.0514 27.4977 12.9853 27.4332 12.9333C27.367 12.8844 27.2912 12.8502 27.2107 12.8329C27.1302 12.8157 27.047 12.8158 26.9666 12.8333L16.2999 15C16.1108 15.0302 15.9391 15.1279 15.8166 15.275C15.694 15.4221 15.6289 15.6086 15.6332 15.8V27.2V28.0333C15.6328 28.7822 15.5659 29.5296 15.4332 30.2666C15.3685 30.6423 15.2289 31.0011 15.0228 31.3218C14.8166 31.6425 14.5481 31.9184 14.2332 32.1333H14.1999C13.5353 32.6376 12.7333 32.9282 11.8999 32.9666L11.2999 33C10.8029 33.0304 10.3057 32.9437 9.84827 32.7469C9.39089 32.55 8.98612 32.2485 8.66657 31.8666C8.33409 31.4638 8.11548 30.9794 8.03342 30.4636C7.95135 29.9478 8.00884 29.4194 8.19991 28.9333V28.9C8.37445 28.4245 8.66345 27.9994 9.04135 27.6622C9.41924 27.325 9.8744 27.0861 10.3666 26.9666L12.8666 26.3C13.181 26.225 13.4609 26.0459 13.6606 25.7917C13.8603 25.5375 13.9682 25.2232 13.9666 24.9V23.2V9.96664C13.9703 9.68225 14.0717 9.40778 14.2538 9.18929C14.4358 8.97079 14.6875 8.82157 14.9666 8.76664L28.3332 6.3333C28.5789 6.3045 28.8269 6.36353 29.0332 6.49997C29.1269 6.57686 29.2023 6.67352 29.2542 6.78302C29.3061 6.89252 29.3331 7.01214 29.3332 7.1333V24.1666Z"
+                        fill="white"
+                      />
+                    </g>
+                    <defs>
+                      <linearGradient
+                        id="paint0_linear_209_1438"
+                        x1="20"
+                        y1="40"
+                        x2="20"
+                        y2="-4.19617e-05"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop stop-color="#FD355A" />
+                        <stop offset="1" stop-color="#FD5163" />
+                      </linearGradient>
+                      <radialGradient
+                        id="paint1_radial_209_1438"
+                        cx="0"
+                        cy="0"
+                        r="1"
+                        gradientUnits="userSpaceOnUse"
+                        gradientTransform="translate(12.5399 30.1294) rotate(90) scale(16.871)"
+                      >
+                        <stop stop-color="#7470F9" />
+                        <stop
+                          offset="1"
+                          stop-color="#7A70FE"
+                          stop-opacity="0"
+                        />
+                      </radialGradient>
+                      <radialGradient
+                        id="paint2_radial_209_1438"
+                        cx="0"
+                        cy="0"
+                        r="1"
+                        gradientUnits="userSpaceOnUse"
+                        gradientTransform="translate(25.8503 26.2786) rotate(-105.538) scale(13.618)"
+                      >
+                        <stop stop-color="#4CA3F8" />
+                        <stop offset="0.362" stop-color="#4CA4F7" />
+                        <stop
+                          offset="1"
+                          stop-color="#4AA2F9"
+                          stop-opacity="0"
+                        />
+                      </radialGradient>
+                      <linearGradient
+                        id="paint3_linear_209_1438"
+                        x1="16.1005"
+                        y1="11.4613"
+                        x2="21.9755"
+                        y2="22.1269"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop stop-color="#FF6380" />
+                        <stop
+                          offset="1"
+                          stop-color="#F65E79"
+                          stop-opacity="0"
+                        />
+                      </linearGradient>
+                      <clipPath id="clip0_209_1438">
+                        <rect width="40" height="40" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </span>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="apple_link"
+                  id="apple_link"
+                  placeholder="Apple Music Link"
+                />
+              </li>
+              <li class="d-flex align-items-center">
+                <span>
+                  <svg
+                    width="40"
+                    height="29"
+                    viewBox="0 0 40 29"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M39.1761 4.38219C38.7148 2.66885 37.3639 1.31795 35.6506 0.856668C32.5205 0 19.9999 0 19.9999 0C19.9999 0 7.47937 0 4.34924 0.82372C2.66885 1.285 1.285 2.66885 0.82372 4.38219C0 7.51232 0 14.0032 0 14.0032C0 14.0032 0 20.5271 0.82372 23.6243C1.285 25.3376 2.6359 26.6885 4.34924 27.1498C7.51232 28.0065 19.9999 28.0065 19.9999 28.0065C19.9999 28.0065 32.5205 28.0065 35.6506 27.1827C37.3639 26.7215 38.7148 25.3706 39.1761 23.6572C39.9998 20.5271 39.9998 14.0362 39.9998 14.0362C39.9998 14.0362 40.0328 7.51232 39.1761 4.38219Z"
+                      fill="#FF0000"
+                    />
+                    <path
+                      d="M16.0132 19.9999L26.425 14.0032L16.0132 8.00653V19.9999Z"
+                      fill="white"
+                    />
+                  </svg>
+                </span>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="youtube_link"
+                  id="youtube_link"
+                  placeholder="Youtube Link"
+                />
+              </li>
+              <li class="d-flex align-items-center">
+                <span>
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_209_1446)">
+                      <path
+                        d="M40 8.88889V13.3333H0V8.88889C0 3.97778 3.97778 0 8.88889 0H31.1111C36.0222 0 40 3.97778 40 8.88889Z"
+                        fill="#4400FF"
+                      />
+                      <path
+                        d="M40 26.6667V31.1111C40 36.0222 36.0222 40 31.1111 40H8.88889C3.97778 40 0 36.0222 0 31.1111V26.6667H40Z"
+                        fill="#331799"
+                      />
+                      <path
+                        d="M40 13.3333H0V26.6666H40V13.3333Z"
+                        fill="#3D09D7"
+                      />
+                      <path
+                        d="M33.3135 25.5555C32.2735 25.5555 31.0379 25.8144 30.1279 26.4633C29.8679 26.6578 29.8679 26.9167 30.1935 26.9167C31.2335 26.7867 33.5746 26.4633 34.029 27.0467C34.419 27.5655 33.5735 29.77 33.1835 30.8067C33.0535 31.1311 33.3135 31.1955 33.5735 31.0011C35.329 29.51 35.7835 26.4622 35.459 26.0733C35.2635 25.75 34.3535 25.5555 33.3135 25.5555Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M4.61118 26.4444C6.62229 27.7033 8.65563 28.9055 10.7901 29.8133C12.9167 30.7189 15.1478 31.3666 17.3901 31.3755C19.6734 31.4366 21.9923 31.1233 24.2423 30.6111C26.5001 30.0911 28.7001 29.3077 30.8612 28.3911C31.1434 28.27 31.4712 28.4022 31.5912 28.6844C31.7023 28.9455 31.5978 29.2455 31.3578 29.3855C29.2612 30.5955 26.9934 31.5333 24.6312 32.1688C22.2623 32.8044 19.8156 33.0822 17.339 33.0422C14.8101 32.91 12.389 32.14 10.2223 31.0189C8.05007 29.8922 6.07785 28.4744 4.27674 26.8889C4.16118 26.7866 4.15007 26.6111 4.25118 26.4955C4.34452 26.3922 4.49785 26.3733 4.61118 26.4444Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M18.3334 23.3334H17.8846C16.6001 23.3334 15.5557 22.2889 15.5557 21.0045V16.6667H16.6668V21.0045C16.6668 21.6756 17.2134 22.2222 17.8846 22.2222H18.3334C19.0034 22.2222 20.0001 21.2256 20.0001 20.5556V19.4445H21.1112V20.5556C21.1112 21.8534 19.6312 23.3334 18.3334 23.3334Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M6.66678 16.6667H5.55566V23.3334H6.66678V16.6667Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M5.98976 19.1221C5.96643 18.581 6.1531 18.1321 6.4031 17.7255C6.5331 17.5221 6.67643 17.3277 6.87865 17.1444C7.1031 16.9544 7.36087 16.8299 7.62532 16.7455C8.71865 16.421 9.85976 17.0844 10.3342 18.0744C10.582 18.5755 10.5587 19.1788 10.5553 19.5455V20.8077V23.3333H9.44421V20.8077V19.5455C9.44643 19.0777 9.4531 18.8077 9.32421 18.5388C9.09199 17.9855 8.40643 17.7399 7.84087 17.7566C7.34532 17.7355 6.68199 18.5233 6.54421 19.1221H5.98976Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M9.72219 19.1221C9.69885 18.581 9.88552 18.1321 10.1355 17.7255C10.2655 17.5221 10.4089 17.3277 10.6111 17.1444C10.8355 16.9544 11.0933 16.8299 11.3577 16.7455C12.4511 16.421 13.5922 17.0844 14.0666 18.0744C14.3144 18.5755 14.2911 19.1788 14.2877 19.5455V20.8077V23.3333H13.1766V20.8077V19.5455C13.1789 19.0777 13.1855 18.8077 13.0566 18.5388C12.8244 17.9855 12.1389 17.7399 11.5733 17.7566C11.0777 17.7355 10.4144 18.5233 10.2766 19.1221H9.72219Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M21.1111 16.6667H20V23.3334H21.1111V16.6667Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M28.8889 16.6667H27.7778V23.3334H28.8889V16.6667Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M28.3333 15.5555C28.9469 15.5555 29.4444 15.0581 29.4444 14.4444C29.4444 13.8308 28.9469 13.3333 28.3333 13.3333C27.7196 13.3333 27.2222 13.8308 27.2222 14.4444C27.2222 15.0581 27.7196 15.5555 28.3333 15.5555Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M31.1111 19.5778V20.4222C31.1111 21.4111 31.9222 22.2222 32.9111 22.2222C33.3889 22.2222 33.8444 22.0334 34.1889 21.7L34.4444 21.4445V22.8889C33.9889 23.1778 33.4667 23.3334 32.9111 23.3334C31.3111 23.3334 30 22.0222 30 20.4222V19.5778C30 17.9778 31.3111 16.6667 32.9111 16.6667C33.4667 16.6667 33.9889 16.8222 34.4444 17.1111V18.5556L34.1889 18.3C33.8444 17.9667 33.3889 17.7778 32.9111 17.7778C31.9222 17.7778 31.1111 18.5889 31.1111 19.5778Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M23.6055 17.7278C23.4944 17.8056 23.3333 18.0334 23.3333 18.3334C23.3333 18.9778 23.6888 19.1667 24.6222 19.4778C25.4888 19.7556 26.6666 20.1556 26.6666 21.6667C26.6666 22.2445 26.4444 22.7223 26.0111 23.0556C25.4666 23.4778 24.6444 23.6111 23.8555 23.6111C23.2555 23.6111 22.6555 23.5334 22.2222 23.4556V22.3223C23.2666 22.5334 24.7555 22.6334 25.3222 22.1778C25.4333 22.1 25.5555 21.9667 25.5555 21.6667C25.5555 21.0223 25.1999 20.8334 24.2666 20.5223C23.3999 20.2445 22.2222 19.8445 22.2222 18.3334C22.2222 17.7556 22.4444 17.2778 22.8777 16.9445C23.8444 16.1889 25.4411 16.39 26.4255 16.7623V17.8956C25.3966 17.3023 24.1722 17.2723 23.6055 17.7278Z"
+                        fill="white"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_209_1446">
+                        <rect width="40" height="40" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </span>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="amazon_link"
+                  id="amazon_link"
+                  placeholder="Amazon Music Link"
+                />
+              </li>
+            </ul>
+            <div class="row justify-content-center">
+              <div class="col-12 d-flex my-5">
+                <button type="button" class="btn btn-prev">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.56982 18.0699L3.49983 11.9999L9.56983 5.92995"
+                      stroke="black"
+                      stroke-width="2"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M20.5 12L3.67 12"
+                      stroke="black"
+                      stroke-width="2"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                  Go Back
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-next"
+                  onclick="previewUpdate()"
+                >
+                  Continue
+                  <svg
+                    width=" 24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M14.4302 5.92993L20.5002 11.9999L14.4302 18.0699"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M3.5 12H20.33"
+                      stroke="white"
+                      stroke-width="2"
+                      stroke-miterlimit="10"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--------------------------------------->
+
+  <!-- Final Review -->
+
+  <section
+    class="album-details section4 pt-2"
+    id="section4"
+    style="display: none"
+  >
+    <div class="container">
+      <div class="details-album-cover final-review">
+        <h2>Final Review</h2>
+        <p class="">DJ Charts</p>
+        <div class="album-profile d-flex">
+          <img id="diplay_image" src="../images/IMAGE.png" alt="" />
+          <div class="album-title position-relative">
+            <h2 class="display_title">Im Good(Blue)</h2>
+            <ul class="d-flex album-plateform">
+              <li>
+                <a id="spotify_link_preview" href="#!">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_213_2302)">
+                      <rect
+                        x="2"
+                        y="2"
+                        width="16"
+                        height="16"
+                        rx="8"
+                        fill="white"
+                      ></rect>
+                      <path
+                        d="M10 0C4.47727 0 0 4.47682 0 10C0 15.5232 4.47727 20 10 20C15.5227 20 20 15.5232 20 10C20 4.47682 15.5227 0 10 0ZM14.8788 14.4156C14.7182 14.7 14.4227 14.86 14.1182 14.86C13.9758 14.86 13.8288 14.8244 13.6939 14.7494C12.4455 14.0494 11.0849 13.6206 9.64698 13.475C8.20607 13.3306 6.78333 13.4768 5.41667 13.9132C4.96061 14.0588 4.4697 13.8068 4.32425 13.35C4.17728 12.8924 4.4303 12.4032 4.88788 12.2568C6.48182 11.7476 8.14393 11.5744 9.82272 11.745C11.4985 11.9156 13.0864 12.4156 14.5439 13.2326C14.9636 13.4662 15.1136 13.9962 14.8788 14.4156ZM16.0758 11.3782C15.9212 11.6756 15.6182 11.8462 15.3045 11.8462C15.1682 11.8462 15.0318 11.815 14.903 11.7476C13.3682 10.9482 11.7106 10.4532 9.97272 10.2768C8.2212 10.0976 6.48637 10.2538 4.81364 10.7362C4.35152 10.8674 3.8697 10.6032 3.73789 10.1412C3.60455 9.68 3.87121 9.19818 4.33181 9.065C6.21969 8.52061 8.17727 8.34621 10.1485 8.54621C12.1061 8.74561 13.9758 9.30318 15.7076 10.2056C16.1318 10.4276 16.2985 10.9524 16.0758 11.3782ZM16.5091 8.85121C16.3788 8.85121 16.247 8.82182 16.1212 8.76C14.3 7.85182 12.3409 7.28621 10.297 7.07879C8.24999 6.86939 6.21364 7.03121 4.24242 7.55758C3.77879 7.68061 3.30303 7.40561 3.17879 6.94121C3.05454 6.47742 3.33031 6.00061 3.79546 5.87682C5.9697 5.29621 8.21818 5.11939 10.4742 5.34879C12.7273 5.57682 14.8879 6.20121 16.897 7.20318C17.3273 7.41742 17.5015 7.94 17.2879 8.3694C17.1364 8.675 16.8288 8.85121 16.5091 8.85121Z"
+                        fill="#1ED760"
+                      ></path>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_213_2302">
+                        <rect width="20" height="20" fill="white"></rect>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a id="apple_link_preview" href="#!">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_213_2305)">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M15.6667 19.9999H4.33334C3.76396 20.0011 3.19996 19.8898 2.6737 19.6724C2.14744 19.455 1.66929 19.1359 1.26668 18.7333C0.864061 18.3307 0.544914 17.8525 0.327547 17.3263C0.110179 16.8 -0.00112915 16.236 8.63533e-06 15.6666V4.33328C-0.00112915 3.7639 0.110179 3.1999 0.327547 2.67364C0.544914 2.14738 0.864061 1.66923 1.26668 1.26661C1.66929 0.864 2.14744 0.544853 2.6737 0.327486C3.19996 0.110118 3.76396 -0.00119019 4.33334 -5.23998e-05H15.6667C16.2361 -0.00119019 16.8001 0.110118 17.3263 0.327486C17.8526 0.544853 18.3307 0.864 18.7333 1.26661C19.136 1.66923 19.4551 2.14738 19.6725 2.67364C19.8898 3.1999 20.0011 3.7639 20 4.33328V15.6666C20.0011 16.236 19.8898 16.8 19.6725 17.3263C19.4551 17.8525 19.136 18.3307 18.7333 18.7333C18.3307 19.1359 17.8526 19.455 17.3263 19.6724C16.8001 19.8898 16.2361 20.0011 15.6667 19.9999Z"
+                        fill="url(#paint0_linear_213_2305)"
+                      ></path>
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M14.6666 12.0833V12.6667C14.6664 13.0411 14.633 13.4148 14.5666 13.7833C14.5343 13.9712 14.4645 14.1506 14.3614 14.3109C14.2583 14.4712 14.1241 14.6092 13.9666 14.7167H13.95C13.6177 14.9688 13.2166 15.1141 12.8 15.1333L12.4833 15.1667C12.2348 15.1819 11.9862 15.1385 11.7575 15.0401C11.5288 14.9417 11.3264 14.7909 11.1666 14.6C11.0004 14.3986 10.8911 14.1564 10.85 13.8985C10.809 13.6406 10.8378 13.3764 10.9333 13.1333V13.1167C11.0206 12.8789 11.1651 12.6664 11.354 12.4978C11.543 12.3292 11.7705 12.2097 12.0166 12.15L13.2666 11.8167C13.4238 11.7792 13.5638 11.6896 13.6636 11.5625C13.7635 11.4354 13.8174 11.2783 13.8166 11.1167V10.2667V6.68332C13.8178 6.64194 13.8093 6.60086 13.792 6.56328C13.7746 6.52569 13.7488 6.49263 13.7166 6.46665C13.6835 6.4422 13.6456 6.42509 13.6053 6.41647C13.5651 6.40785 13.5235 6.40791 13.4833 6.41665L8.14995 7.49999C8.05542 7.5151 7.96957 7.56394 7.90829 7.63749C7.847 7.71103 7.81444 7.80428 7.81662 7.89999V13.6V14.0167C7.81642 14.3911 7.78296 14.7648 7.71662 15.1333C7.68425 15.3212 7.61446 15.5006 7.51139 15.6609C7.40831 15.8212 7.27407 15.9592 7.11662 16.0667H7.09995C6.76767 16.3188 6.36664 16.4641 5.94995 16.4833L5.64995 16.5C5.40144 16.5152 5.15283 16.4719 4.92414 16.3734C4.69544 16.275 4.49306 16.1243 4.33329 15.9333C4.16705 15.7319 4.05774 15.4897 4.01671 15.2318C3.97568 14.9739 4.00442 14.7097 4.09995 14.4667V14.45C4.18723 14.2123 4.33172 13.9997 4.52067 13.8311C4.70962 13.6625 4.9372 13.5431 5.18329 13.4833L6.43329 13.15C6.59052 13.1125 6.73044 13.023 6.8303 12.8959C6.93017 12.7688 6.98408 12.6116 6.98329 12.45V11.6V4.98332C6.98514 4.84112 7.03584 4.70389 7.12688 4.59464C7.21792 4.4854 7.34376 4.41078 7.48329 4.38332L14.1666 3.16665C14.2895 3.15225 14.4134 3.18177 14.5166 3.24999C14.5634 3.28843 14.6012 3.33676 14.6271 3.39151C14.653 3.44626 14.6665 3.50607 14.6666 3.56665V12.0833Z"
+                        fill="#BB58BB"
+                      ></path>
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M14.6666 12.0833V12.6667C14.6664 13.0411 14.633 13.4148 14.5666 13.7833C14.5343 13.9712 14.4645 14.1506 14.3614 14.3109C14.2583 14.4712 14.1241 14.6092 13.9666 14.7167H13.95C13.6177 14.9688 13.2166 15.1141 12.8 15.1333L12.4833 15.1667C12.2348 15.1819 11.9862 15.1385 11.7575 15.0401C11.5288 14.9417 11.3264 14.7909 11.1666 14.6C11.0004 14.3986 10.8911 14.1564 10.85 13.8985C10.809 13.6406 10.8378 13.3764 10.9333 13.1333V13.1167C11.0206 12.8789 11.1651 12.6664 11.354 12.4978C11.543 12.3292 11.7705 12.2097 12.0166 12.15L13.2666 11.8167C13.4238 11.7792 13.5638 11.6896 13.6636 11.5625C13.7635 11.4354 13.8174 11.2783 13.8166 11.1167V10.2667V6.68332C13.8178 6.64194 13.8093 6.60086 13.792 6.56328C13.7746 6.52569 13.7488 6.49263 13.7166 6.46665C13.6835 6.4422 13.6456 6.42509 13.6053 6.41647C13.5651 6.40785 13.5235 6.40791 13.4833 6.41665L8.14995 7.49999C8.05542 7.5151 7.96957 7.56394 7.90829 7.63749C7.847 7.71103 7.81444 7.80428 7.81662 7.89999V13.6V14.0167C7.81642 14.3911 7.78296 14.7648 7.71662 15.1333C7.68425 15.3212 7.61446 15.5006 7.51139 15.6609C7.40831 15.8212 7.27407 15.9592 7.11662 16.0667H7.09995C6.76767 16.3188 6.36664 16.4641 5.94995 16.4833L5.64995 16.5C5.40144 16.5152 5.15283 16.4719 4.92414 16.3734C4.69544 16.275 4.49306 16.1243 4.33329 15.9333C4.16705 15.7319 4.05774 15.4897 4.01671 15.2318C3.97568 14.9739 4.00442 14.7097 4.09995 14.4667V14.45C4.18723 14.2123 4.33172 13.9997 4.52067 13.8311C4.70962 13.6625 4.9372 13.5431 5.18329 13.4833L6.43329 13.15C6.59052 13.1125 6.73044 13.023 6.8303 12.8959C6.93017 12.7688 6.98408 12.6116 6.98329 12.45V11.6V4.98332C6.98514 4.84112 7.03584 4.70389 7.12688 4.59464C7.21792 4.4854 7.34376 4.41078 7.48329 4.38332L14.1666 3.16665C14.2895 3.15225 14.4134 3.18177 14.5166 3.24999C14.5634 3.28843 14.6012 3.33676 14.6271 3.39151C14.653 3.44626 14.6665 3.50607 14.6666 3.56665V12.0833Z"
+                        fill="url(#paint1_radial_213_2305)"
+                      ></path>
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M14.6666 12.0833V12.6667C14.6664 13.0411 14.633 13.4148 14.5666 13.7833C14.5343 13.9712 14.4645 14.1506 14.3614 14.3109C14.2583 14.4712 14.1241 14.6092 13.9666 14.7167H13.95C13.6177 14.9688 13.2166 15.1141 12.8 15.1333L12.4833 15.1667C12.2348 15.1819 11.9862 15.1385 11.7575 15.0401C11.5288 14.9417 11.3264 14.7909 11.1666 14.6C11.0004 14.3986 10.8911 14.1564 10.85 13.8985C10.809 13.6406 10.8378 13.3764 10.9333 13.1333V13.1167C11.0206 12.8789 11.1651 12.6664 11.354 12.4978C11.543 12.3292 11.7705 12.2097 12.0166 12.15L13.2666 11.8167C13.4238 11.7792 13.5638 11.6896 13.6636 11.5625C13.7635 11.4354 13.8174 11.2783 13.8166 11.1167V10.2667V6.68332C13.8178 6.64194 13.8093 6.60086 13.792 6.56328C13.7746 6.52569 13.7488 6.49263 13.7166 6.46665C13.6835 6.4422 13.6456 6.42509 13.6053 6.41647C13.5651 6.40785 13.5235 6.40791 13.4833 6.41665L8.14995 7.49999C8.05542 7.5151 7.96957 7.56394 7.90829 7.63749C7.847 7.71103 7.81444 7.80428 7.81662 7.89999V13.6V14.0167C7.81642 14.3911 7.78296 14.7648 7.71662 15.1333C7.68425 15.3212 7.61446 15.5006 7.51139 15.6609C7.40831 15.8212 7.27407 15.9592 7.11662 16.0667H7.09995C6.76767 16.3188 6.36664 16.4641 5.94995 16.4833L5.64995 16.5C5.40144 16.5152 5.15283 16.4719 4.92414 16.3734C4.69544 16.275 4.49306 16.1243 4.33329 15.9333C4.16705 15.7319 4.05774 15.4897 4.01671 15.2318C3.97568 14.9739 4.00442 14.7097 4.09995 14.4667V14.45C4.18723 14.2123 4.33172 13.9997 4.52067 13.8311C4.70962 13.6625 4.9372 13.5431 5.18329 13.4833L6.43329 13.15C6.59052 13.1125 6.73044 13.023 6.8303 12.8959C6.93017 12.7688 6.98408 12.6116 6.98329 12.45V11.6V4.98332C6.98514 4.84112 7.03584 4.70389 7.12688 4.59464C7.21792 4.4854 7.34376 4.41078 7.48329 4.38332L14.1666 3.16665C14.2895 3.15225 14.4134 3.18177 14.5166 3.24999C14.5634 3.28843 14.6012 3.33676 14.6271 3.39151C14.653 3.44626 14.6665 3.50607 14.6666 3.56665V12.0833Z"
+                        fill="url(#paint2_radial_213_2305)"
+                      ></path>
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M14.6666 12.0833V12.6667C14.6664 13.0411 14.633 13.4148 14.5666 13.7833C14.5343 13.9712 14.4645 14.1506 14.3614 14.3109C14.2583 14.4712 14.1241 14.6092 13.9666 14.7167H13.95C13.6177 14.9688 13.2166 15.1141 12.8 15.1333L12.4833 15.1667C12.2348 15.1819 11.9862 15.1385 11.7575 15.0401C11.5288 14.9417 11.3264 14.7909 11.1666 14.6C11.0004 14.3986 10.8911 14.1564 10.85 13.8985C10.809 13.6406 10.8378 13.3764 10.9333 13.1333V13.1167C11.0206 12.8789 11.1651 12.6664 11.354 12.4978C11.543 12.3292 11.7705 12.2097 12.0166 12.15L13.2666 11.8167C13.4238 11.7792 13.5638 11.6896 13.6636 11.5625C13.7635 11.4354 13.8174 11.2783 13.8166 11.1167V10.2667V6.68332C13.8178 6.64194 13.8093 6.60086 13.792 6.56328C13.7746 6.52569 13.7488 6.49263 13.7166 6.46665C13.6835 6.4422 13.6456 6.42509 13.6053 6.41647C13.5651 6.40785 13.5235 6.40791 13.4833 6.41665L8.14995 7.49999C8.05542 7.5151 7.96957 7.56394 7.90829 7.63749C7.847 7.71103 7.81444 7.80428 7.81662 7.89999V13.6V14.0167C7.81642 14.3911 7.78296 14.7648 7.71662 15.1333C7.68425 15.3212 7.61446 15.5006 7.51139 15.6609C7.40831 15.8212 7.27407 15.9592 7.11662 16.0667H7.09995C6.76767 16.3188 6.36664 16.4641 5.94995 16.4833L5.64995 16.5C5.40144 16.5152 5.15283 16.4719 4.92414 16.3734C4.69544 16.275 4.49306 16.1243 4.33329 15.9333C4.16705 15.7319 4.05774 15.4897 4.01671 15.2318C3.97568 14.9739 4.00442 14.7097 4.09995 14.4667V14.45C4.18723 14.2123 4.33172 13.9997 4.52067 13.8311C4.70962 13.6625 4.9372 13.5431 5.18329 13.4833L6.43329 13.15C6.59052 13.1125 6.73044 13.023 6.8303 12.8959C6.93017 12.7688 6.98408 12.6116 6.98329 12.45V11.6V4.98332C6.98514 4.84112 7.03584 4.70389 7.12688 4.59464C7.21792 4.4854 7.34376 4.41078 7.48329 4.38332L14.1666 3.16665C14.2895 3.15225 14.4134 3.18177 14.5166 3.24999C14.5634 3.28843 14.6012 3.33676 14.6271 3.39151C14.653 3.44626 14.6665 3.50607 14.6666 3.56665V12.0833Z"
+                        fill="url(#paint3_linear_213_2305)"
+                      ></path>
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M14.6666 12.0833V12.6667C14.6664 13.0411 14.633 13.4148 14.5666 13.7833C14.5343 13.9712 14.4645 14.1506 14.3614 14.3109C14.2583 14.4712 14.1241 14.6092 13.9666 14.7167H13.95C13.6177 14.9688 13.2166 15.1141 12.8 15.1333L12.4833 15.1667C12.2348 15.1819 11.9862 15.1385 11.7575 15.0401C11.5288 14.9417 11.3264 14.7909 11.1666 14.6C11.0004 14.3986 10.8911 14.1564 10.85 13.8985C10.809 13.6406 10.8378 13.3764 10.9333 13.1333V13.1167C11.0206 12.8789 11.1651 12.6664 11.354 12.4978C11.543 12.3292 11.7705 12.2097 12.0166 12.15L13.2666 11.8167C13.4238 11.7792 13.5638 11.6896 13.6636 11.5625C13.7635 11.4354 13.8174 11.2783 13.8166 11.1167V10.2667V6.68332C13.8178 6.64194 13.8093 6.60086 13.792 6.56328C13.7746 6.52569 13.7488 6.49263 13.7166 6.46665C13.6835 6.4422 13.6456 6.42509 13.6053 6.41647C13.5651 6.40785 13.5235 6.40791 13.4833 6.41665L8.14995 7.49999C8.05542 7.5151 7.96957 7.56394 7.90829 7.63749C7.847 7.71103 7.81444 7.80428 7.81662 7.89999V13.6V14.0167C7.81642 14.3911 7.78296 14.7648 7.71662 15.1333C7.68425 15.3212 7.61446 15.5006 7.51139 15.6609C7.40831 15.8212 7.27407 15.9592 7.11662 16.0667H7.09995C6.76767 16.3188 6.36664 16.4641 5.94995 16.4833L5.64995 16.5C5.40144 16.5152 5.15283 16.4719 4.92414 16.3734C4.69544 16.275 4.49306 16.1243 4.33329 15.9333C4.16705 15.7319 4.05774 15.4897 4.01671 15.2318C3.97568 14.9739 4.00442 14.7097 4.09995 14.4667V14.45C4.18723 14.2123 4.33172 13.9997 4.52067 13.8311C4.70962 13.6625 4.9372 13.5431 5.18329 13.4833L6.43329 13.15C6.59052 13.1125 6.73044 13.023 6.8303 12.8959C6.93017 12.7688 6.98408 12.6116 6.98329 12.45V11.6V4.98332C6.98514 4.84112 7.03584 4.70389 7.12688 4.59464C7.21792 4.4854 7.34376 4.41078 7.48329 4.38332L14.1666 3.16665C14.2895 3.15225 14.4134 3.18177 14.5166 3.24999C14.5634 3.28843 14.6012 3.33676 14.6271 3.39151C14.653 3.44626 14.6665 3.50607 14.6666 3.56665V12.0833Z"
+                        fill="white"
+                      ></path>
+                    </g>
+                    <defs>
+                      <linearGradient
+                        id="paint0_linear_213_2305"
+                        x1="10"
+                        y1="19.9999"
+                        x2="10"
+                        y2="-5.14984e-05"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop stop-color="#FD355A"></stop>
+                        <stop offset="1" stop-color="#FD5163"></stop>
+                      </linearGradient>
+                      <radialGradient
+                        id="paint1_radial_213_2305"
+                        cx="0"
+                        cy="0"
+                        r="1"
+                        gradientUnits="userSpaceOnUse"
+                        gradientTransform="translate(6.26996 15.0647) rotate(90) scale(8.43551)"
+                      >
+                        <stop stop-color="#7470F9"></stop>
+                        <stop
+                          offset="1"
+                          stop-color="#7A70FE"
+                          stop-opacity="0"
+                        ></stop>
+                      </radialGradient>
+                      <radialGradient
+                        id="paint2_radial_213_2305"
+                        cx="0"
+                        cy="0"
+                        r="1"
+                        gradientUnits="userSpaceOnUse"
+                        gradientTransform="translate(12.9251 13.1393) rotate(-105.538) scale(6.80901)"
+                      >
+                        <stop stop-color="#4CA3F8"></stop>
+                        <stop offset="0.362" stop-color="#4CA4F7"></stop>
+                        <stop
+                          offset="1"
+                          stop-color="#4AA2F9"
+                          stop-opacity="0"
+                        ></stop>
+                      </radialGradient>
+                      <linearGradient
+                        id="paint3_linear_213_2305"
+                        x1="8.05026"
+                        y1="5.73065"
+                        x2="10.9878"
+                        y2="11.0635"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop stop-color="#FF6380"></stop>
+                        <stop
+                          offset="1"
+                          stop-color="#F65E79"
+                          stop-opacity="0"
+                        ></stop>
+                      </linearGradient>
+                      <clipPath id="clip0_213_2305">
+                        <rect width="20" height="20" fill="white"></rect>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a id="youtube_link_preview" href="#!">
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M23.5057 6.22932C23.2289 5.20132 22.4184 4.39078 21.3904 4.11401C19.5123 3.60001 11.9999 3.60001 11.9999 3.60001C11.9999 3.60001 4.48762 3.60001 2.60954 4.09424C1.60131 4.37101 0.771002 5.20132 0.494232 6.22932C0 8.1074 0 12.0019 0 12.0019C0 12.0019 0 15.9163 0.494232 17.7746C0.771002 18.8026 1.58154 19.6131 2.60954 19.8899C4.50739 20.4039 11.9999 20.4039 11.9999 20.4039C11.9999 20.4039 19.5123 20.4039 21.3904 19.9097C22.4184 19.6329 23.2289 18.8223 23.5057 17.7943C23.9999 15.9163 23.9999 12.0217 23.9999 12.0217C23.9999 12.0217 24.0197 8.1074 23.5057 6.22932Z"
+                      fill="#FF0000"
+                    ></path>
+                    <path
+                      d="M9.60791 15.5999L15.855 12.0019L9.60791 8.40393V15.5999Z"
+                      fill="white"
+                    ></path>
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a id="amazon_link_preview" href="#!">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_213_2313)">
+                      <path
+                        d="M20 4.44444V6.66667H0V4.44444C0 1.98889 1.98889 0 4.44444 0H15.5556C18.0111 0 20 1.98889 20 4.44444Z"
+                        fill="#4400FF"
+                      ></path>
+                      <path
+                        d="M20 13.3333V15.5556C20 18.0111 18.0111 20 15.5556 20H4.44444C1.98889 20 0 18.0111 0 15.5556V13.3333H20Z"
+                        fill="#331799"
+                      ></path>
+                      <path
+                        d="M20 6.66666H0V13.3333H20V6.66666Z"
+                        fill="#3D09D7"
+                      ></path>
+                      <path
+                        d="M16.6567 12.7778C16.1367 12.7778 15.519 12.9072 15.064 13.2317C14.934 13.3289 14.934 13.4583 15.0967 13.4583C15.6167 13.3933 16.7873 13.2317 17.0145 13.5233C17.2095 13.7828 16.7867 14.885 16.5917 15.4033C16.5267 15.5655 16.6567 15.5978 16.7867 15.5005C17.6645 14.755 17.8917 13.2311 17.7295 13.0367C17.6317 12.875 17.1767 12.7778 16.6567 12.7778Z"
+                        fill="white"
+                      ></path>
+                      <path
+                        d="M2.30559 13.2222C3.31115 13.8516 4.32781 14.4528 5.39504 14.9066C6.45837 15.3594 7.57392 15.6833 8.69503 15.6878C9.8367 15.7183 10.9961 15.5616 12.1211 15.3055C13.25 15.0455 14.35 14.6539 15.4306 14.1955C15.5717 14.135 15.7356 14.2011 15.7956 14.3422C15.8511 14.4728 15.7989 14.6228 15.6789 14.6928C14.6306 15.2978 13.4967 15.7666 12.3156 16.0844C11.1311 16.4022 9.90781 16.5411 8.66948 16.5211C7.40504 16.455 6.19448 16.07 5.11115 15.5094C4.02504 14.9461 3.03892 14.2372 2.13837 13.4444C2.08059 13.3933 2.07504 13.3055 2.12559 13.2478C2.17226 13.1961 2.24892 13.1866 2.30559 13.2222Z"
+                        fill="white"
+                      ></path>
+                      <path
+                        d="M9.16672 11.6667H8.94228C8.30005 11.6667 7.77783 11.1445 7.77783 10.5022V8.33334H8.33339V10.5022C8.33339 10.8378 8.60672 11.1111 8.94228 11.1111H9.16672C9.50172 11.1111 10.0001 10.6128 10.0001 10.2778V9.72223H10.5556V10.2778C10.5556 10.9267 9.81561 11.6667 9.16672 11.6667Z"
+                        fill="white"
+                      ></path>
+                      <path
+                        d="M3.33339 8.33334H2.77783V11.6667H3.33339V8.33334Z"
+                        fill="white"
+                      ></path>
+                      <path
+                        d="M2.995 9.56107C2.98334 9.29052 3.07667 9.06607 3.20167 8.86274C3.26667 8.76107 3.33834 8.66385 3.43945 8.57218C3.55167 8.47718 3.68056 8.41496 3.81278 8.37274C4.35945 8.21052 4.93 8.54218 5.16723 9.03718C5.29111 9.28774 5.27945 9.58941 5.27778 9.77274V10.4039V11.6666H4.72223V10.4039V9.77274C4.72334 9.53885 4.72667 9.40385 4.66223 9.26941C4.54612 8.99274 4.20334 8.86996 3.92056 8.8783C3.67278 8.86774 3.34112 9.26163 3.27223 9.56107H2.995Z"
+                        fill="white"
+                      ></path>
+                      <path
+                        d="M4.86109 9.56107C4.84943 9.29052 4.94276 9.06607 5.06776 8.86274C5.13276 8.76107 5.20443 8.66385 5.30554 8.57218C5.41776 8.47718 5.54665 8.41496 5.67887 8.37274C6.22554 8.21052 6.79609 8.54218 7.03331 9.03718C7.1572 9.28774 7.14554 9.58941 7.14387 9.77274V10.4039V11.6666H6.58831V10.4039V9.77274C6.58943 9.53885 6.59276 9.40385 6.52831 9.26941C6.4122 8.99274 6.06943 8.86996 5.78665 8.8783C5.53887 8.86774 5.2072 9.26163 5.13831 9.56107H4.86109Z"
+                        fill="white"
+                      ></path>
+                      <path
+                        d="M10.5556 8.33334H10V11.6667H10.5556V8.33334Z"
+                        fill="white"
+                      ></path>
+                      <path
+                        d="M14.4445 8.33334H13.8889V11.6667H14.4445V8.33334Z"
+                        fill="white"
+                      ></path>
+                      <path
+                        d="M14.1666 7.77777C14.4735 7.77777 14.7222 7.52904 14.7222 7.22221C14.7222 6.91539 14.4735 6.66666 14.1666 6.66666C13.8598 6.66666 13.6111 6.91539 13.6111 7.22221C13.6111 7.52904 13.8598 7.77777 14.1666 7.77777Z"
+                        fill="white"
+                      ></path>
+                      <path
+                        d="M15.5556 9.7889V10.2111C15.5556 10.7056 15.9611 11.1111 16.4556 11.1111C16.6944 11.1111 16.9222 11.0167 17.0944 10.85L17.2222 10.7222V11.4445C16.9944 11.5889 16.7333 11.6667 16.4556 11.6667C15.6556 11.6667 15 11.0111 15 10.2111V9.7889C15 8.9889 15.6556 8.33334 16.4556 8.33334C16.7333 8.33334 16.9944 8.41112 17.2222 8.55557V9.27779L17.0944 9.15001C16.9222 8.98334 16.6944 8.8889 16.4556 8.8889C15.9611 8.8889 15.5556 9.29446 15.5556 9.7889Z"
+                        fill="white"
+                      ></path>
+                      <path
+                        d="M11.8028 8.86391C11.7472 8.90279 11.6666 9.01668 11.6666 9.16668C11.6666 9.48891 11.8444 9.58335 12.3111 9.73891C12.7444 9.87779 13.3333 10.0778 13.3333 10.8333C13.3333 11.1222 13.2222 11.3611 13.0055 11.5278C12.7333 11.7389 12.3222 11.8056 11.9278 11.8056C11.6278 11.8056 11.3278 11.7667 11.1111 11.7278V11.1611C11.6333 11.2667 12.3778 11.3167 12.6611 11.0889C12.7166 11.05 12.7778 10.9833 12.7778 10.8333C12.7778 10.5111 12.6 10.4167 12.1333 10.2611C11.7 10.1222 11.1111 9.92224 11.1111 9.16668C11.1111 8.87779 11.2222 8.63891 11.4389 8.47224C11.9222 8.09446 12.7205 8.19502 13.2128 8.38113V8.94779C12.6983 8.65113 12.0861 8.63613 11.8028 8.86391Z"
+                        fill="white"
+                      ></path>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_213_2313">
+                        <rect width="20" height="20" fill="white"></rect>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="album-table">
+          <div class="table-album-cover">
+            <table class="table text-left">
+              <tbody>
+                <tr>
+                  <td width="20%">
+                    <p>Song Title :</p>
+                  </td>
+                  <td width="80%">
+                    <p class="display_title">Im Good(Blue)</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>Label/Label Company/Self :</p>
+                  </td>
+                  <td width="80%">
+                    <p class="display_label">Parlophone Records/Warner Music</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>Artist/Performer :</p>
+                  </td>
+                  <td width="80%">
+                    <p class="display_artist">Robert Fox</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>Featuring Artists/Performers :</p>
+                  </td>
+                  <td width="80%">
+                    <p class="display_feature">
+                      Jane Cooper, Wade Warren, Jenny Wilson
+                    </p>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>Genre :</p>
+                  </td>
+                  <td width="80%">
+                    <p class="display_genre">Classic, Vocal, Remix</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>Song Type :</p>
+                  </td>
+                  <td width="80%">
+                    <p class="display_song_type">Original</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>BPM :</p>
+                  </td>
+                  <td width="80%">
+                    <p class="display_bpm">126</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>Key :</p>
+                  </td>
+                  <td width="80%">
+                    <p class="display_key">D Major</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>Scale :</p>
+                  </td>
+                  <td width="80%">
+                    <p class="display_scale">A#min</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>Publishing Date :</p>
+                  </td>
+                  <td width="80%">
+                    <p class="display_publish_date">12/12/2022</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="20%">
+                    <p>Release Date :</p>
+                  </td>
+                  <td width="80%">
+                    <p class="display_release_date">01/01/2023</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-6 col-12 d-flex my-5">
+              <button type="button" class="btn btn-prev">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.56982 18.0699L3.49983 11.9999L9.56983 5.92995"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    d="M20.5 12L3.67 12"
+                    stroke="black"
+                    stroke-width="2"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+                Go Back
+              </button>
+              <button type="submit" class="btn btn-next">
+                Continue
+                <svg
+                  width=" 24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14.4302 5.92993L20.5002 11.9999L14.4302 18.0699"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                  <path
+                    d="M3.5 12H20.33"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="choose-payment d-none">
+      <div class="popup-video login-step2">
+        <div class="profile-name">
+          <div class="modal-header">
+            <h3 class="d-flex">
+              <span>Select Choose</span>
+            </h3>
+            <a href="#!" class="modal-close"><i class="fa-solid fa-x"></i></a>
+          </div>
+          <div class="modal-body">
+            <div>
+              <div class="form-check my-3 d-flex align-items-center">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="artist_music"
+                  value="artistmusic"
+                />
+                <div class="mx-3">
+                  <label
+                    class="light-white form-check-label"
+                    for="artist_music"
+                  >
+                    Pay Per Song
+                  </label>
+                  <span class="d-block">$10/Song</span>
+                </div>
+              </div>
+              <div class="form-check my-3 d-flex align-items-center">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="djs_music"
+                  value="djs-music"
+                />
+                <div class="mx-3">
+                  <label class="light-white form-check-label" for="djs_music">
+                    Purchase Monthly Subscription
+                  </label>
+                  <span class="d-block">$50/Month</span>
+                  <p>Upload unlimited songs</p>
+                </div>
+              </div>
+              <a href="#!" class="w-100 btn pay_method">Ok</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>
+<!-- ---------------------------------->
+
+<!-- Payment Flow -->
+
+<section class="payment-view section5 pt-2" id="section5" style="display: none">
+  <div class="container">
+    <div class="details-album-cover final-review">
+      <h2>Payment</h2>
+    </div>
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Song</th>
+          <th scope="col">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td id="music_title">1</td>
+          <td class="green-uparrow" id="music_label">Im Good(Blue)</td>
+          <td>$ 10.00</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="total-ammount">
+              <span class="d-block"> Subtotal: $ 10.00 </span>
+              <span class="d-block"> Tax: $ 0.00 </span>
+              <span class="d-block"> Total: $ 10.00 </span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="choose-pay-method">
+      <h3 class="text-center">Choose a payment method</h3>
+      <div class="payment-cover">
+        <div class="row mb-3">
+          <div class="col-lg-6 col-12">
+            <div class="payment-method-wrap mb-2">
+              <div class="form-check mb-0">
+                <input
+                  class="form-check-input checking"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="credit"
+                  value="djs-music"
+                  checked
+                />
+                <label class="light-white form-check-label" for="credit">
+                  Credit / Debit Card
+                </label>
+                <svg
+                  width="42"
+                  height="28"
+                  viewBox="0 0 42 28"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1 3.38168C1 2.06631 2.06631 1 3.38168 1H38.8001C40.1155 1 41.1818 2.06631 41.1818 3.38168V24.6183C41.1818 25.9337 40.1155 27 38.8001 27H3.38168C2.06632 27 1 25.9337 1 24.6183V3.38168Z"
+                    fill="#2666AC"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M3.3814 0.404297H38.7999C40.4441 0.404297 41.777 1.73719 41.777 3.3814V24.618C41.777 26.2623 40.4441 27.5951 38.7999 27.5951H3.3814C1.73719 27.5951 0.404297 26.2623 0.404297 24.618V3.3814C0.404297 1.73719 1.73719 0.404297 3.3814 0.404297ZM3.3814 0.999717C2.06603 0.999717 0.999717 2.06603 0.999717 3.3814V24.618C0.999717 25.9334 2.06603 26.9997 3.3814 26.9997H38.7999C40.1152 26.9997 41.1815 25.9334 41.1815 24.618V3.3814C41.1815 2.06603 40.1152 0.999717 38.7999 0.999717H3.3814Z"
+                    fill="black"
+                    fill-opacity="0.1"
+                  />
+                  <path
+                    d="M7.70508 8.84863H9.3797L11.0109 15.4355L14.54 8.84863H16.3821L11.5009 17.9722H9.96891L7.70508 8.84863Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M17.5357 8.84863H19.2103L17.9513 17.9722H16.3077L17.5357 8.84863Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M25.8158 10.1201L24.5691 11.2241C24.0564 10.5625 23.5788 10.2317 23.1364 10.2317C22.9172 10.2317 22.7353 10.2979 22.5906 10.4302C22.4459 10.5584 22.3735 10.7134 22.3735 10.8954C22.3735 11.0649 22.4397 11.253 22.572 11.4598C22.7043 11.6665 23.1054 12.1234 23.7752 12.8305C24.1308 13.2068 24.3644 13.4735 24.4761 13.6306C24.7448 13.9945 24.9371 14.3356 25.0529 14.654C25.1728 14.9682 25.2327 15.2887 25.2327 15.6153C25.2327 16.3472 24.9723 16.9612 24.4513 17.4574C23.9303 17.9536 23.2625 18.2017 22.4479 18.2017C21.2075 18.2017 20.1965 17.6125 19.415 16.434L20.7299 15.3734C21.2591 16.1797 21.8318 16.5829 22.4479 16.5829C22.7415 16.5829 22.9875 16.4878 23.186 16.2976C23.3886 16.1074 23.4899 15.8779 23.4899 15.6091C23.4899 15.3982 23.4279 15.1832 23.3038 14.9641C23.1839 14.7449 22.8366 14.3314 22.2619 13.7236C21.654 13.0827 21.255 12.5989 21.0648 12.2723C20.8084 11.8299 20.6803 11.3957 20.6803 10.9698C20.6803 10.4075 20.8643 9.90301 21.2323 9.45645C21.6954 8.89824 22.3197 8.61914 23.1054 8.61914C24.1846 8.61914 25.088 9.11946 25.8158 10.1201Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M30.8954 8.84863H32.3406L34.6106 17.9722H32.9484L32.4646 16.0309H28.8611L27.8129 17.9722H25.9708L30.8954 8.84863ZM32.0491 14.4183L31.3172 11.4226L29.7108 14.4183H32.0491Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M4.79688 8.74023H9.32718L9.91809 11.1039L4.79688 8.74023Z"
+                    fill="#EEA84D"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-12">
+            <div class="payment-method-wrap mb-2">
+              <div class="form-check mb-0">
+                <input
+                  class="form-check-input checking"
+                  type="radio"
+                  name="flexRadioDefault"
+                  id="paypal"
+                  value="djs-music"
+                />
+                <label class="light-white form-check-label" for="paypal">
+                  PayPal
+                </label>
+                <svg
+                  width="41"
+                  height="26"
+                  viewBox="0 0 41 26"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect width="40.1818" height="26" rx="3" fill="#478FBE" />
+                  <path
+                    d="M18.6788 7.87891L15.9551 20.8789H20.5959L21.4633 16.22C23.0545 16.6302 26.5815 16.4935 27.9604 12.6648C29.3394 8.83608 26.8555 7.87891 25.4411 7.87891H18.6788Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M14.8398 4.72656L11.8184 18.3175H16.5998L17.7087 13.0677C19.348 13.4779 22.9819 13.3411 24.4027 9.51244C25.8234 5.68374 23.2642 4.72656 21.807 4.72656H14.8398Z"
+                    fill="white"
+                    stroke="#478FBE"
+                    stroke-width="0.549618"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="visacard">
+          <%if(typeof(cardInfo) !="undefined" && cardInfo) { %>
+          <div class="credit-card mb-3">
+            <div class="form-check mb-0">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+              />
+              <input
+                type="hidden"
+                name="payment_mode"
+                id="payment_mode"
+                value="0"
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                <%= cardInfo.card_type %> x-xxx-xxxx-<%= cardInfo.last4 %>
+              </label>
+              <a href="#!">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M13.7471 20.4428H20.9997"
+                    stroke="#130F26"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12.78 3.79479C13.5557 2.86779 14.95 2.73186 15.8962 3.49173C15.9485 3.53296 17.6295 4.83879 17.6295 4.83879C18.669 5.46719 18.992 6.80311 18.3494 7.82259C18.3153 7.87718 8.81195 19.7645 8.81195 19.7645C8.49578 20.1589 8.01583 20.3918 7.50291 20.3973L3.86353 20.443L3.04353 16.9723C2.92866 16.4843 3.04353 15.9718 3.3597 15.5773L12.78 3.79479Z"
+                    stroke="#130F26"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M11.0205 6.00098L16.4728 10.1881"
+                    stroke="#130F26"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <% }else {%>
+          <div class="mb-3">
+            <label for="exampleInputName" class="form-label fw-bold">
+              Card Number</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="card_number"
+              name="card_number"
+              placeholder="Card Number"
+            />
+            <small id="card_number_error"></small>
+            <input
+              type="hidden"
+              name="payment_mode"
+              id="payment_mode"
+              value="1"
+            />
+          </div>
+
+          <div class="row d-flex">
+            <div class="col-md-4 mb-3 position-relative">
+              <label for="exampleInputName" class="form-label fw-bold">
+                Expiry</label
+              >
+              <input
+                type="text"
+                id="expiry_date"
+                name="expiry_date"
+                class="form-control"
+                placeholder="MM/YYYY"
+              />
+              <small id="card_expiry_error"></small>
+            </div>
+            <div class="col-md-4 mb-3 position-relative">
+              <label for="exampleInputName" class="form-label fw-bold">
+                Zipcode</label
+              >
+              <input
+                type="text"
+                name="zipcode"
+                id="zipcode"
+                class="form-control"
+                placeholder="Zipcode"
+              />
+              <small id="card_zip_error"></small>
+            </div>
+            <div class="col-md-4 mb-3 position-relative">
+              <label for="exampleInputName" class="form-label fw-bold">
+                CVV</label
+              >
+              <input
+                type="text"
+                name="cvv"
+                id="cvv"
+                class="form-control"
+                placeholder="***"
+              />
+              <small id="card_cvv_error"></small>
+            </div>
+          </div>
+          <% } %>
+        </div>
+        <%if(typeof(cardInfo) !="undefined" && !cardInfo) { %>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label fw-bold"
+            >Address</label
+          >
+          <textarea
+            class="form-control"
+            name="address"
+            id="address"
+            rows="3"
+            placeholder="Address"
+          ></textarea>
+          <small id="card_address_error"></small>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputName" class="form-label fw-bold">
+            Name (Optional)</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="card_holder_name"
+            name="card_holder_name"
+            placeholder="Name"
+          />
+        </div>
+        <% } %>
+        <div class="row justify-content-center">
+          <div class="col-12 d-flex my-5 mb-200">
+            <!-- <button type="button" class="btn btn-prev">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.56982 18.0699L3.49983 11.9999L9.56983 5.92995" stroke="black"
+                                        stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path d="M20.5 12L3.67 12" stroke="black" stroke-width="2" stroke-miterlimit="10"
+                                        stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                                Go Back
+                            </button> -->
+            <button type="button" class="btn btns-next confirm_payment">
+              Continue
+              <svg
+                width=" 24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.4302 5.92993L20.5002 11.9999L14.4302 18.0699"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+                <path
+                  d="M3.5 12H20.33"
+                  stroke="white"
+                  stroke-width="2"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="payment-popup">
+    <div class="popup-video login-step2">
+      <div class="profile-name">
+        <div class="modal-body">
+          <div class="text-center">
+            <!-- <svg
+              width="162"
+              height="162"
+              viewBox="0 0 162 162"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g filter="url(#filter0_b_689_5131)">
+                <circle cx="80.5547" cy="80.5547" r="80.5547" fill="white" />
+                <circle
+                  cx="80.5547"
+                  cy="80.5547"
+                  r="77.5547"
+                  stroke="#1ED760"
+                  stroke-width="6"
+                />
+              </g>
+              <g clip-path="url(#clip0_689_5131)">
+                <path
+                  d="M66.915 97.5439L48.1189 78.7478L41.8535 85.0132L66.915 110.075L120.618 56.3715L114.353 50.1061L66.915 97.5439Z"
+                  fill="#1ED760"
+                />
+              </g>
+              <defs>
+                <filter
+                  id="filter0_b_689_5131"
+                  x="-35.8021"
+                  y="-35.8021"
+                  width="232.714"
+                  height="232.714"
+                  filterUnits="userSpaceOnUse"
+                  color-interpolation-filters="sRGB"
+                >
+                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feGaussianBlur
+                    in="BackgroundImageFix"
+                    stdDeviation="17.901"
+                  />
+                  <feComposite
+                    in2="SourceAlpha"
+                    operator="in"
+                    result="effect1_backgroundBlur_689_5131"
+                  />
+                  <feBlend
+                    mode="normal"
+                    in="SourceGraphic"
+                    in2="effect1_backgroundBlur_689_5131"
+                    result="shape"
+                  />
+                </filter>
+                <clipPath id="clip0_689_5131">
+                  <rect
+                    x="27"
+                    y="27"
+                    width="107.406"
+                    height="107.406"
+                    fill="white"
+                  />
+                </clipPath>
+              </defs>
+            </svg> -->
+            <img id="payment_img" src="/images/payment_success.svg">
+            <span class="d-block my-3" id="success_status">Done</span>
+            <p class="my-3" id="success_message">
+              Thank you, your payment was successfully completed and your music
+              has been submitted for review.
+            </p>
+            <a href="/dashboard" class="w-100 btn submit-payment-form">Ok</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="/js/validations/music-upload.js?<%= new Date() %>"></script>
+
+<%- include('layouts/footer') %>
+<script>
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+      imgInp.onchange = evt => {
+          const [file] = imgInp.files
+          if (file) {
+              blah.src = URL.createObjectURL(file)
+              $('#diplay_image').attr('src', URL.createObjectURL(file))
+          }
+      }
+      $(document).ready(function () {
+        $('#publish_date').change(function(){
+          $('#release_date').val($(this).val())
+        })
+          //    var info=$("#music-info").serialize();
+          //    console.log(info);
+          // if(localStorage.getItem('formdata')){
+          //     console.log(JSON.parse(localStorage.getItem('formdata')))
+          //      var base64 = localStorage["file"];
+          //     var base64Parts = base64.split(",");
+          //     var fileFormat = base64Parts[0].split(";")[1];
+          //     var fileContent = base64Parts[1];
+          //     var file = new File([fileContent], localStorage['filename'], {type: fileFormat});
+          //     console.log(file);
+          //     $('input[name="files[]"]')[0].file=file
+          // }
+      });
+
+      $('.submit-payment-form').click(function () {
+          var info = $("#music-info").serialize();
+          console.log(info);
+      })
+      $(".confirm_payment").click(function () {
+          var checkcard=ValidateCreditCardNumber();
+          if(!checkcard){
+              return false;
+          }
+          var card_number = $('#card_number').val();
+          var expiry_date = $('#expiry_date').val();
+          var zipcode = $('#zipcode').val();
+          var cvv = $('#cvv').val();
+          var address = $('#address').val();
+          var card_holder_name = $('#card_holder_name').val();
+          <%if (typeof (musicData) != "undefined" && musicData) { %>
+              var musicId = "<%= musicData.id %>";
+          <% } %>
+              if (card_number && card_number != '') {
+              var data = { card_number: card_number, expiry_date: expiry_date, zipcode: zipcode, cvv: cvv, address: address, card_holder_name: card_holder_name, muisc_id: musicId };
+          } else {
+              var data = { muisc_id: musicId };
+          }
+          if($("#paypal").prop("checked")){
+            window.location.href = "/pay?music_id="+musicId;
+            return false;
+          }
+          $.ajax({
+              type: "POST",
+              url: "/music-payment?type=1",
+              dataType: 'json',
+              data: data,
+          }).then((res) => {
+              console.log(res);
+              if (res.status == true) {
+                  $('#payment_img').attr('src','/images/payment_success.svg');
+                  $(".payment-popup").fadeIn();
+                  $(".back-drop").fadeIn();
+                  $("html").css("overflow", "hidden");
+              } else {
+                  $('#success_message').text(res.message);
+                  $('#payment_img').attr('src','/images/payment_failed.svg');
+                  $('#success_status').text('Failed');
+                  $(".payment-popup").fadeIn();
+                  $(".back-drop").fadeIn();
+                  $("html").css("overflow", "hidden");
+
+              }
+              // window.location.href = '/dashboard';
+          });
+          // $(".payment-popup").fadeIn();
+          // $(".back-drop").fadeIn();
+          // $("html").css("overflow", "hidden");
+      });
+
+      function previewUpdate() {
+          // var data = new FormData();
+          // form_data=$('#music-info').serializeArray();
+          // $.each(form_data, function (key, input) {
+          //     data.append(input.name, input.value);
+          // });
+          // console.log($('input[name="files[]"]')[0].files)
+          // var file_data = $('input[name="files[]"]')[0].files;
+          // for (var i = 0; i < file_data.length; i++) {
+          //     file=file_data[i];
+          //      var reader = new FileReader()
+          //     reader.onload = function(base64) {
+          //         localStorage["file"] = base64;
+          //         localStorage['filename']=file.name
+          //     }
+          //     reader.readAsDataURL(file);
+          //     data.append("my_images[]", file_data[i]);
+          // }
+          // var object = {};
+          // form_data.forEach(function(value, key){
+          //     object[key] = value;
+          // });
+          // var json = JSON.stringify(object);
+          // console.log(json)
+          // localStorage.setItem('formdata',JSON.stringify(object));
+          $('.display_title').text($('#title').val());
+          $('.display_label').text($('#label').val());
+          $('.display_artist').text($('#artist').val());
+          $('.display_feature').text($('#feature').val());
+          $('.display_genre').text($('#genre').val());
+          $('.display_song_type').text($('#song_type').val());
+          $('.display_bpm').text($('#bpm').val());
+          $('.display_key').text($('#key').val());
+          $('.display_scale').text($('#scale').val());
+          $('.display_publish_date').text($('#publish_date').val());
+          $('.display_release_date').text($('#release_date').val());
+          if ($('#spotify_link').val() != '') {
+              $('#spotify_link_preview').show();
+              $('#spotify_link_preview').val($('#spotify_link').val());
+          } else {
+              $('#spotify_link_preview').hide();
+          }
+          if ($('#apple_link').val() != '') {
+              $('#apple_link_preview').show();
+              $('#apple_link_preview').val($('#apple_link').val());
+          } else {
+              $('#apple_link_preview').hide();
+          }
+          if ($('#youtube_link').val() != '') {
+              $('#youtube_link_preview').show();
+              $('#youtube_link_preview').val($('#youtube_link').val());
+          } else {
+              $('#youtube_link_preview').hide();
+          }
+          if ($('#amazon_link').val() != '') {
+              $('#amazon_link_preview').show();
+              $('#amazon_link_preview').val($('#amazon_link').val());
+          } else {
+              $('#amazon_link_preview').hide();
+          }
+          progressIncrease();
+      }
+
+  <%if (typeof (musicData) != "undefined" && musicData) { %>
+    <%if (typeof (musicData) != "undefined" && musicData.is_paid==1) { %>
+            $('.container').hide()
+              $('#success_message').text("Thank you, your music has been submitted for review.");
+              $(".payment-popup").fadeIn();
+              $(".back-drop").fadeIn();
+              $("html").css("overflow", "hidden");
+       <% } %>
+          localStorage.setItem('musicId', "<%= musicData.id %>")
+          $('#music_title').text("<%= musicData.title %>")
+          $('#music_label').text("<%= musicData.label %>")
+          for (i = 0; i < 5; i++) {
+              progressBar(i);
+              $('.track-information-section').hide();
+          }
+          
+  <% } %>
+
+          function progressBar(curr_step) {
+              var currentStepNum = curr_step;
+              var nextStepNum = currentStepNum + 1;
+              var currentStep = $(".step.step-" + currentStepNum);
+              var nextStep = $(".step.step-" + nextStepNum);
+              console.log(nextStepNum);
+              var progressBar = $("#checkout-progress");
+              $(".btn-prev").removeClass("disabled");
+              $("#section" + currentStepNum).toggle();
+              $("#section" + nextStepNum).toggle();
+              if (nextStepNum == 5) {
+                  $(this).toggle();
+                  $(".btn-submit").toggle();
+              }
+              /*if(nextStepNum == 5){
+                      $(this).addClass('disabled');
+                  }*/
+              $(".checkout-progress")
+                  .removeClass(".step-" + currentStepNum)
+                  .addClass(".step-" + (currentStepNum + 1));
+
+              currentStep.removeClass("active").addClass("valid");
+              currentStep.find("span").addClass("opaque");
+              currentStep.find(".fa.fa-check").removeClass("opaque");
+
+              nextStep.addClass("active");
+              progressBar
+                  .removeAttr("class")
+                  .addClass("step-" + nextStepNum)
+                  .data("current-step", nextStepNum);
+          }
+</script>

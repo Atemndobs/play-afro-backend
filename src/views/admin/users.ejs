@@ -1,0 +1,51 @@
+<%- include('layouts/header') %>
+
+      <div class="main_content_iner">
+        <div class="container-fluid p-0">
+          <div class="row justify-content-center">
+
+
+            <div class="col-lg-12">
+              <div class="white_card card_height_100 mb_30 padding-25">
+              <table id="table_id" class="display">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <% users.forEach(function(user){ %>
+                    <tr>
+                        <td><%= user.id %></td>
+                        <td> <%= user.fullname %></td>
+                        <td> <%= user.email %></td>
+                        <td>
+                          <% if(user.type==0){ %>
+                              Artist
+                          <% }else if(user.type==1){ %>
+                                Company
+                            <% } else{%>
+                                DJ
+                            <%}%>
+                        </td>
+                    </tr>
+                  <% }); %>
+                </tbody>
+              </table>
+            </div>
+            </div>
+
+            <!-- Data Table end here -->
+          </div>
+        </div>
+      </div>
+
+<%- include('layouts/footer') %>
+<script>
+  $(document).ready( function () {
+    $('#table_id').DataTable();
+  } );
+</script>
