@@ -17,6 +17,7 @@
         "express-async-wrapper": "^0.1.0",
         "express-joi-validation": "^5.0.1",
         "express-session": "^1.17.3",
+        "flutterwave-node-v3": "^1.1.5",
         "joi": "^17.7.0",
         "jsonwebtoken": "^9.0.0",
         "moment": "^2.29.4",
@@ -31,6 +32,7 @@
         "sequelize": "^5.22.5",
         "sequelize-paginate": "^1.1.6",
         "sequelize-transforms": "^2.0.0",
+        "short-uuid": "^4.2.2",
         "stripe": "^11.14.0"
     },
     "devDependencies": {

@@ -6,3 +6,4 @@
 package-lock.json
 /dist
 /media
+yarn.lock
