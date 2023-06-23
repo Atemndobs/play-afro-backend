@@ -216,33 +216,7 @@
                 <div class="profile-name">
                     <div class="modal-body">
                         <div class="text-center">
-                            <svg width="162" height="162" viewBox="0 0 162 162" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <g filter="url(#filter0_b_689_5131)">
-                                    <circle cx="80.5547" cy="80.5547" r="80.5547" fill="white" />
-                                    <circle cx="80.5547" cy="80.5547" r="77.5547" stroke="#1ED760" stroke-width="6" />
-                                </g>
-                                <g clip-path="url(#clip0_689_5131)">
-                                    <path
-                                        d="M66.915 97.5439L48.1189 78.7478L41.8535 85.0132L66.915 110.075L120.618 56.3715L114.353 50.1061L66.915 97.5439Z"
-                                        fill="#1ED760" />
-                                </g>
-                                <defs>
-                                    <filter id="filter0_b_689_5131" x="-35.8021" y="-35.8021" width="232.714"
-                                        height="232.714" filterUnits="userSpaceOnUse"
-                                        color-interpolation-filters="sRGB">
-                                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                                        <feGaussianBlur in="BackgroundImageFix" stdDeviation="17.901" />
-                                        <feComposite in2="SourceAlpha" operator="in"
-                                            result="effect1_backgroundBlur_689_5131" />
-                                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_689_5131"
-                                            result="shape" />
-                                    </filter>
-                                    <clipPath id="clip0_689_5131">
-                                        <rect x="27" y="27" width="107.406" height="107.406" fill="white" />
-                                    </clipPath>
-                                </defs>
-                            </svg>
+                             <img id="payment_img" src="/images/payment_success.svg">
                             <span class="d-block my-3" id="success_status">Done</span>
                             <p class="my-3" id="success_message">Thank you, your subscription payment was successfully completed.</p>
                             <a href="/dashboard" class="w-100 btn submit-payment-form">Ok</a>
@@ -283,16 +257,18 @@ $(".confirm_payment").click(function () {
                     console.log(res);
                     if (res.status == true) {
                         $(".payment-popup").fadeIn();
+                        $('#payment_img').attr('src','/images/payment_success.svg');
                         $(".back-drop").fadeIn();
                         $("html").css("overflow", "hidden");
                     } else {
                         $('#success_message').text(res.message);
+                        $('#payment_img').attr('src','/images/payment_failed.svg');
                         $('#success_status').text('Failed');
                         $(".payment-popup").fadeIn();
                         $(".back-drop").fadeIn();
                         $("html").css("overflow", "hidden");
-
                     }
+                    
                 });
             });
 

@@ -37,9 +37,9 @@ class DjController {
       return res.send({ djId: dj.id });
     } else {
       const data = req.body;
-      data.agency = data.agency.toString();
+      // data.agency = data.agency.toString();
       data.userId = req.query.djId;
-      data.openingDay = data.companyday.toString();
+      // data.openingDay = data.companyday.toString();
       const referenceEvent = data.referenceEvent;
       const residenceClub = data.residenceClub;
       const referenceClub = data.referenceClub;
@@ -279,9 +279,10 @@ class DjController {
    */
   static async getMusicReviews(req, res) {
     const musicId = req.query.musicId;
+    const userId= req.session.userid;
 
     const musicReview = await MusicReviews.findAll({
-      where: { musicId },
+      where: { musicId, userId },
       include: [
         {
           model: User,

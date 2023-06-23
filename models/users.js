@@ -116,6 +116,10 @@ let User = sequelize.define(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    tiktok_link: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   },
   {
     hooks: {

@@ -9,6 +9,7 @@ import session from "express-session";
 import userRoutes from "../routes/userRoutes";
 import handleError from "./common/middleware/error";
 import fs from "fs";
+import seedes from "../seeds/index";
 var moment = require("moment");
 
 const express = require("express");

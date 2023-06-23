@@ -6,7 +6,7 @@ body {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 ul {
@@ -36,7 +36,9 @@ p {
 .btn-outline-success {
   border: none;
 }
-
+.ml-5{
+  margin-left: 15px;
+}
 .form-control:focus {
   border-color: #ced4da;
 }
@@ -227,9 +229,9 @@ input[type="radio"]:checked ~ label {
   display: none;
 }
 
-.navbar-toggler {
+/* .navbar-toggler {
   border: 1px solid #fff;
-}
+} */
 
 .navbar-toggler-icon {
   background-image: url("../images/res2.png");
@@ -253,6 +255,10 @@ input[type="radio"]:checked ~ label {
 .register-form .form-cover form label {
   font-weight: 600;
   font-size: 18px;
+}
+
+.item-3 {
+  margin-bottom: 10px;
 }
 
 .register-form .form-cover form .form-check > label {
@@ -400,7 +406,7 @@ ul.trackinfo-form li .mb-3 label b {
 }
 
 .profile-name .modal-body .form-check label {
-  font-size: 18px;
+  font-size: 14px;
 }
 
 a.modal-close {
@@ -408,6 +414,7 @@ a.modal-close {
 }
 .delese-data-cover {
   margin-bottom: 15% !important;
+  min-height: 37vh;
 }
 .modal-header h3 {
   font-weight: 500;
@@ -468,6 +475,7 @@ small {
   font-size: 18px;
   display: flex;
   align-items: center;
+  width: max-content;
 }
 
 .header-main .user-profile .user-info span img {
@@ -885,7 +893,6 @@ tr:nth-child(even) {
   transition: transform 0.5s ease;
   transition: transform 0.5s ease, -webkit-transform 0.5s ease;
 }
-
 
 .progress-four:after {
   width: 100% !important;
@@ -1445,7 +1452,8 @@ input[type="number"] {
 
 .register .form-check .form-check-label,
 .company .form-check .form-check-label {
-  font-size: 16px;
+  font-size: 14px;
+
   font-weight: 500;
 }
 
@@ -2334,15 +2342,17 @@ ul.trackinfo-form li .mb-3 .file-cover {
   .form-cover form {
     margin: 0;
   }
+
+  .release-data-table > .delese-data-cover {
+    overflow-x: scroll;
+  }
+
+
 }
 
 @media (max-width: 991px) {
   .release-data-table {
     overflow: scroll;
-  }
-
-  .release-data-table > .delese-data-cover {
-    overflow-x: scroll;
   }
 
   .releasetable-heading {
@@ -2371,12 +2381,16 @@ ul.trackinfo-form li .mb-3 .file-cover {
   }
 
   .upload-files {
-    justify-content: center;
+    justify-content: right;
   }
+
+  .navbar-collapse .d-flex.justify-content-center {
+    justify-content: right !important;
+}
 
   .user-profile {
     display: flex;
-    justify-content: center;
+    justify-content: right !important;
   }
 
   .user-profile ul.profile-menu {
@@ -2389,6 +2403,21 @@ ul.trackinfo-form li .mb-3 .file-cover {
     text-align: center;
     background: linear-gradient(98.88deg, #4157e9 0%, #6d11b8 100%);
   }
+/* Footer css */
+    .footer-main ul.pagelink li a {
+      font-size: 12px;
+      padding: 0 15px !important;
+    }
+  
+    .footer-bottom p {
+      font-size: 12px;
+    }
+  
+    .footer-bottom span {
+      font-size: 12px;
+    }
+
+        /* Footer css ended */
 }
 
 @media (max-width: 767px) {
@@ -2467,7 +2496,7 @@ ul.trackinfo-form li .mb-3 .file-cover {
   }
 
   .register-form .form-cover form button {
-    font-size: 14px;
+    font-size: 14px !important;
   }
 
   .popup-info {
@@ -2477,8 +2506,8 @@ ul.trackinfo-form li .mb-3 .file-cover {
   }
 
   .log_out .popup-info .btn {
-    padding: 20px 15px;
-    font-size: 20px;
+    padding: 5px px 15px;
+    font-size: 16px;
   }
 
   .log_out .popup-info p {
@@ -2534,7 +2563,7 @@ ul.trackinfo-form li .mb-3 .file-cover {
   }
 
   .download-popup {
-    width: 400px;
+    width: 320px;
     padding: 20px 30px;
   }
 
@@ -2625,6 +2654,56 @@ ul.trackinfo-form li .mb-3 .file-cover {
     width: 35px;
     height: 35px;
   }
+
+  .loginform {
+    height: auto;
+  }
+
+  .in-review a#header-back-redirect {
+    position: absolute;
+    top: -100px;
+  }
+
+  #checkout-progress {
+    width: 80%;
+  }
+
+  .upload-files a.dashboard-btn {
+    padding: 7px 0px;
+  }
+
+  .header-main .user-profile .user-info span {
+    font-size: 12px;
+  }
+
+  a.notify-icon {
+    margin: 15px 10px !important;
+  }
+
+  /* Footer css */
+    .footer-inner {
+      flex-direction: column;
+    }
+  
+    ul.pagelink {
+      padding: 15px 0 25px;
+    }
+  
+    .footer-bottom span {
+      position: static !important;
+    }
+  
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .footer-bottom span {
+      position: static;
+    }
+
+
+    /* Footer css ended */
 }
 
 @media (max-width: 425px) {
@@ -2635,6 +2714,35 @@ ul.trackinfo-form li .mb-3 .file-cover {
   .release-data-table table thead tr th {
     font-size: 12px;
   }
+    .invoice-table table tbody tr td a {
+      font-size: 10px !important;
+      padding: 6px 3px !important;
+    }
+  
+    .invoice-table table tbody tr td {
+      width: 20% !important;
+      padding: 5px !important;
+    }
+  
+    .invoice-cover {
+      padding: 0px !important;
+    }
+  
+    .invoice-table table.table thead tr th {
+      font-size: 12px !important;
+    }
+  
+    .invoice-title {
+      margin-top: 10px;
+    }
+  
+    .invoice-title h2 {
+      font-size: 22px;
+    }
+  
+    .invoice-title .back-btn {
+      font-size: 18px;
+    }
 }
 
 /* Media Query */
@@ -2648,19 +2756,19 @@ ul.trackinfo-form li .mb-3 .file-cover {
   text-overflow: ellipsis;
 }
 
-.is_premium_card{
+.is_premium_card {
   border-color: #ffcc71;
-    border-width: 5px;
+  border-width: 5px;
 }
 .is_premium_buttnon {
   background: #ffcc71 !important;
   pointer-events: none;
 }
 
-.profile-icon{
+.profile-icon {
   position: absolute;
-    top: -15px;
-    left: -15px;
+  top: -15px;
+  left: -15px;
 }
 
 /* notifcation count above icon */
@@ -2678,7 +2786,6 @@ a.notify-icon p {
   display: block;
 }
 
-
 /* New design changes css */
 label.header-button {
   color: #000;
@@ -2689,22 +2796,91 @@ label.header-button {
 }
 
 label.header-button.yellow {
-  background: #FFFF00;
+  background: #ffff00;
 }
 
 label.header-button.magento {
-  background: #A020F0;
+  background: #a020f0;
   color: #fff;
 }
 
 label.header-button.blue {
-  background: #0000FF;
+  background: #0000ff;
   color: #fff;
 }
-.stats-detail{
+.stats-detail {
   background: linear-gradient(98.88deg, #4157e9 0%, #6d11b8 100%);
-    border-radius: 10px;
-    color: #fff !important;
-    padding: 7px 15px;
+  border-radius: 10px;
+  color: #fff !important;
+  padding: 7px 15px;
 }
 /* New design changes css ended */
+
+
+/* Footer */
+
+.footer-main {
+  background: #000;
+  /* position: fixed; */
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-main ul.pagelink li a {
+  color: #fff;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 0 30px;
+}
+
+.footer-main ul.social-icons li a {
+  padding: 10px 10px;
+  display: block;
+  background: #383838;
+  margin-right: 15px;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  line-height: 30px;
+  transition: 0.3s;
+  border: 1px solid #000;
+  text-align: center;
+}
+
+.footer-main ul.social-icons li a:hover {
+  border: 1px solid #fff;
+}
+
+.footer-bottom {
+  border-top: 1px solid #fff;
+  padding: 15px 0;
+  font-weight: 400;
+  font-size: 14px;
+  position: relative;
+}
+
+.footer-inner {
+  padding: 30px 0;
+}
+
+.footer-bottom p {
+  color: #fff;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.footer-bottom span {
+  color: #8d8d8d;
+  font-weight: 400;
+  font-size: 14px;
+  display: block;
+  position: absolute;
+  right: 0;
+}
+
+.footer-bottom span>a {
+  color: #fff;
+}
+
+
+/* Footer End */

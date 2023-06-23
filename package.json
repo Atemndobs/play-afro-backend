@@ -17,7 +17,6 @@
         "express-async-wrapper": "^0.1.0",
         "express-joi-validation": "^5.0.1",
         "express-session": "^1.17.3",
-        "flutterwave-node-v3": "^1.1.5",
         "joi": "^17.7.0",
         "jsonwebtoken": "^9.0.0",
         "moment": "^2.29.4",
@@ -32,7 +31,6 @@
         "sequelize": "^5.22.5",
         "sequelize-paginate": "^1.1.6",
         "sequelize-transforms": "^2.0.0",
-        "short-uuid": "^4.2.2",
         "stripe": "^11.14.0"
     },
     "devDependencies": {
@@ -45,6 +43,7 @@
     "scripts": {
         "build": "babel src -d dist",
         "test": "echo \"Error: no test specified\" && exit 1",
+        "seed": "npm run build && nodemon --exec babel-node seeds/index.js",
         "start": "npm run build && nodemon --exec babel-node dist/app.js",
         "start:dev": "pm2 start --interpreter babel-node dist/app.js -n djchart-3000",
         "pwa": "create-pwa --icon=\"public/images/app_icon.png\" --launch=\"public/images/app_icon.png\"",

@@ -40,6 +40,8 @@ router.get("/logout", authenticateWeb, AuthController.logout);
 router.get("/dashboard", authenticateWeb, DashboardController.artistDashboard);
 router.get("/stats", authenticateWeb, DashboardController.stats);
 router.post("/dashboard", authenticateWeb, DashboardController.artistDashboard);
+router.get("/trends", authenticateWeb, DashboardController.djDashboard);
+router.post("/trends", authenticateWeb, DashboardController.djDashboard);
 router.get("/subscription", authenticateWeb, DashboardController.subscription);
 router.get(
   "/in-review",

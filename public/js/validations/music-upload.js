@@ -79,6 +79,9 @@ function validateForm(){
   if (genre == "Genre" || genre == null || genre == "") {
     $(".genre_check small").text("Please select a scale");
     validated = 0;
+  }else if(genre.length>3){
+    $(".genre_check small").text("Maximum three genre is allowed to select");
+    validated = 0;
   } else {
     $(".genre_check small").text("");
   }

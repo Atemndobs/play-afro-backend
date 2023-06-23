@@ -4,7 +4,7 @@ import adminData from "./admin"
 import Admin from "../models/admin";
 
 module.exports.seeder = async () => {
-  
+    console.log("seeder main file called");
   const appversions = await AppVersions.findAll({});
   if (appversions.length === 0) {
     AppVersions.bulkCreate(versionData).then(() =>
