@@ -15,7 +15,7 @@ import { badRequest } from "../utils/response/responseCode";
 import Notification from "../models/notification";
 import User from "../models/users";
 import Subscription from "../models/subscription";
-import { Op } from "sequelize";
+import { Op, Sequelize } from "sequelize";
 import Plan from "../models/plans";
 import moment from "moment";
 import MusicReviews from "../models/music-review";
@@ -110,8 +110,15 @@ class DashboardController {
     var where;
     if (req.session.role >= 0) {
       if (req.session.role == 2) {
-         where = search
+        const musicIds = await MusicReviews.findAll({
+          where: { userId: req.session.userid },
+          attributes: ["musicId"],
+          raw: true,
+        });
+        const musicIdsArray = musicIds.map((review) => review.musicId);
+        where = search
           ? {
+              id: musicIdsArray,
               is_approved: APPROVED_STATUS.ACCEPT,
               [Op.or]: [
                 {
@@ -133,10 +140,11 @@ class DashboardController {
               ],
             }
           : {
+              id: musicIdsArray,
               is_approved: APPROVED_STATUS.ACCEPT,
             };
       } else {
-         where = search
+        where = search
           ? {
               is_approved: APPROVED_STATUS.ACCEPT,
               userId: req.session.userid,
@@ -178,8 +186,86 @@ class DashboardController {
     }
     res.send({ message: "success" });
   }
+  /**
+   * djDashboard
+   * @param {*} req
+   * @param {*} res
+   * @param {*} next
+   */
+  static async djDashboard(req, res, next) {
+    const search = req.body.search || null;
+    var where;
+    if (req.session.role >= 0) {
+      if (req.session.role == 2) {
+        where = search
+          ? {
+              is_approved: APPROVED_STATUS.ACCEPT,
+              [Op.or]: [
+                {
+                  title: {
+                    [Op.like]: `%${search}%`,
+                  },
+                },
+                {
+                  artist: {
+                    [Op.like]: `%${search}%`,
+                  },
+                },
+                {
+                  label: {
+                    [Op.like]: `%${search}%`,
+                  },
+                },
+                ,
+              ],
+            }
+          : {
+              is_approved: APPROVED_STATUS.ACCEPT,
+            };
+      } else {
+        where = search
+          ? {
+              is_approved: APPROVED_STATUS.ACCEPT,
+              userId: req.session.userid,
+              [Op.or]: [
+                {
+                  title: {
+                    [Op.like]: `%${search}%`,
+                  },
+                },
+                {
+                  artist: {
+                    [Op.like]: `%${search}%`,
+                  },
+                },
+                {
+                  label: {
+                    [Op.like]: `%${search}%`,
+                  },
+                },
+                ,
+              ],
+            }
+          : {
+              is_approved: APPROVED_STATUS.ACCEPT,
+              userId: req.session.userid,
+            };
+      }
 
-  static async stats(req,res){
+      const musicList = await commonService.findAllRecords(Music, where, {
+        order: [["score", "DESC"]],
+      });
+
+      return res.render("artist-company/trends", {
+        current_role: req.session.role,
+        data: musicList,
+      });
+    } else {
+      return res.redirect("/");
+    }
+    res.send({ message: "success" });
+  }
+  static async stats(req, res) {
     const musicDetail = await commonService.findOne(Music, {
       id: req.query.musicId,
     });
@@ -250,8 +336,8 @@ class DashboardController {
         },
       },
     });
-     var AverageRating = 0;
-    const avgRating=await MusicReviews.findOne({
+    var AverageRating = 0;
+    const avgRating = await MusicReviews.findOne({
       attributes: [[sequelize.fn("AVG", sequelize.col("star")), "avgStar"]],
       where: {
         musicId: {
@@ -259,9 +345,9 @@ class DashboardController {
         },
       },
     });
-    if (avgRating!=null){
+    if (avgRating != null) {
       AverageRating = avgRating.avgStar == null ? 0 : avgRating.avgStar;
-    } 
+    }
     var ratingData = {
       Stars0: Stars0,
       Stars1: Stars1,
@@ -295,6 +381,23 @@ class DashboardController {
     const musicDetail = await commonService.findOne(Music, {
       id: req.query.musicId,
     });
+    if (!musicDetail) {
+      if (userId) {
+        const musicNotification = await commonService.findOne(Notification, {
+          userId,
+          referenceId: req.query.musicId,
+          type: NOTIFICATION_TYPE.MUSIC,
+        });
+        if (musicNotification && !musicNotification.readAt) {
+          await commonService.updateByQuery(
+            Notification,
+            { id: musicNotification.id },
+            { readAt: new Date() }
+          );
+        }
+      }
+      return res.redirect("/dashboard");
+    }
     const total = await MusicReviews.count({
       where: {
         musicId: {
@@ -302,13 +405,13 @@ class DashboardController {
         },
       },
     });
-     const totalStars = await MusicReviews.sum("star", {
-       where: {
-         musicId: {
-           [Op.eq]: req.query.musicId,
-         },
-       },
-     });
+    const totalStars = await MusicReviews.sum("star", {
+      where: {
+        musicId: {
+          [Op.eq]: req.query.musicId,
+        },
+      },
+    });
     var score = total + totalStars + musicDetail.views + musicDetail.plays;
     if (musicDetail) {
       Music.increment({ views: +1 }, { where: { id: req.query.musicId } });
@@ -406,6 +509,7 @@ class DashboardController {
         data.is_paid = 1;
       }
     }
+    data.genre = data.genre.join(",");
     const music = await commonService.createOne(Music, data);
     const cardInfo = await commonService.findOne(
       Card,
@@ -495,11 +599,11 @@ class DashboardController {
     const notification = await Notification.findAll({
       where: {
         userId,
+        readAt: null,
       },
-      offset: Number(offset),
-      limit: Number(limit),
+      // offset: Number(offset),
+      // limit: Number(limit),
     });
-
     return res.send({ data: notification });
   }
 

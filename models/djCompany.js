@@ -35,7 +35,7 @@ let Djcomapny = sequelize.define("dj_company", {
   },
   country: {
     type: DataTypes.BIGINT,
-    allowNull: false,
+    allowNull: true,
   },
   contact: {
     type: DataTypes.STRING,
@@ -78,6 +78,10 @@ let Djcomapny = sequelize.define("dj_company", {
     allowNull: true,
   },
   company_twitter_link: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
+  company_tiktok_link: {
     type: DataTypes.STRING,
     allowNull: true,
   },

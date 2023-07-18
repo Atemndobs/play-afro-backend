@@ -10,6 +10,7 @@ import userRoutes from "../routes/userRoutes";
 import flutterWaveRoutes from "../routes/flutterWaveRoutes"
 import handleError from "./common/middleware/error";
 import fs from "fs";
+import seedes from "../seeds/index";
 var moment = require("moment");
 
 const express = require("express");

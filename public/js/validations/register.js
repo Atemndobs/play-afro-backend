@@ -136,8 +136,14 @@ const checkUsername = () => {
   }
 
   if (!isRequired(username)) {
-    showError(usernameEl, "Name cannot be blank.");
-    valid = false;
+    if ($("#lableselect").prop("checked")){
+        showSuccess(usernameEl);
+        valid = true;
+    }else{
+      showError(usernameEl, "Name cannot be blank.");
+      valid = false;
+    }
+      
   } else if (!isBetween(username.length, min, max)) {
     showError(
       usernameEl,

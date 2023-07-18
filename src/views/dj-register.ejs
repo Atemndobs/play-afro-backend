@@ -7,7 +7,7 @@
     color: #de0000;
   }
 
-  .refrence-cover .form-check label {
+  .refrence-cover .form-check label { 
     word-wrap: break-word !important;
     display: inline !important;
 }
@@ -45,6 +45,9 @@
     color: #fff;
     margin-right: 10px;
   }
+  .item-close a{
+    color: #fff !important;
+  }
 
   .list-3,
   .list-2,
@@ -53,7 +56,7 @@
     margin-bottom: 15px;
   }
 
-  .item-close:after {
+  .club-3 .item-close:after {
     background: transparent;
     color: #fff;
     border-radius: 10px;
@@ -323,6 +326,25 @@
                   />
                 </div>
                 <div class="line"></div>
+                <div class="d-flex align-items-center">
+                  <span>
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="40" height="40" rx="20" fill="black"/>
+                      <path d="M25.5774 16.1075C27.378 17.3992 29.5838 18.1592 31.9661 18.1592V13.5585C31.5153 13.5586 31.0656 13.5115 30.6245 13.4177V17.0391C28.2423 17.0391 26.0368 16.2791 24.2357 14.9875V24.3762C24.2357 29.0729 20.4418 32.88 15.7621 32.88C14.016 32.88 12.393 32.3503 11.0449 31.4417C12.5836 33.0206 14.7295 34.0001 17.1035 34.0001C21.7835 34.0001 25.5776 30.193 25.5776 25.4961V16.1075H25.5774ZM27.2325 11.466C26.3123 10.4571 25.7082 9.15328 25.5774 7.71187V7.12012H24.306C24.626 8.95216 25.7176 10.5173 27.2325 11.466ZM14.0048 27.8376C13.4907 27.1611 13.2128 26.3335 13.2141 25.4826C13.2141 23.3345 14.9494 21.5928 17.0903 21.5928C17.4893 21.5927 17.8859 21.654 18.2661 21.7751V17.0716C17.8218 17.0104 17.3733 16.9845 16.925 16.994V20.655C16.5445 20.5339 16.1477 20.4724 15.7486 20.4728C13.6077 20.4728 11.8725 22.2143 11.8725 24.3627C11.8725 25.8818 12.7399 27.1969 14.0048 27.8376Z" fill="#FF004F"/>
+                      <path d="M24.2357 14.9874C26.0367 16.279 28.2422 17.039 30.6244 17.039V13.4176C29.2947 13.1333 28.1175 12.436 27.2325 11.466C25.7175 10.5172 24.626 8.95206 24.3059 7.12012H20.9662V25.4959C20.9587 27.6381 19.2263 29.3727 17.09 29.3727C15.8311 29.3727 14.7127 28.7705 14.0044 27.8376C12.7396 27.1969 11.8722 25.8817 11.8722 24.3628C11.8722 22.2146 13.6075 20.4729 15.7484 20.4729C16.1585 20.4729 16.5539 20.537 16.9248 20.6551V16.9941C12.3272 17.0894 8.6297 20.8594 8.6297 25.496C8.6297 27.8105 9.55047 29.9087 11.0449 31.4418C12.3931 32.3503 14.016 32.8801 15.7621 32.8801C20.442 32.8801 24.2358 29.0728 24.2358 24.3762V14.9874H24.2357Z" fill="white"/>
+                      <path d="M30.6244 13.4174V12.4382C29.4253 12.4401 28.2498 12.1031 27.2325 11.4658C28.1331 12.4552 29.3189 13.1375 30.6244 13.4174ZM24.3059 7.11998C24.2754 6.9449 24.252 6.76866 24.2357 6.59175V6H19.6245V24.3759C19.6171 26.5179 17.8849 28.2525 15.7484 28.2525C15.1211 28.2525 14.5289 28.1031 14.0045 27.8375C14.7128 28.7703 15.8312 29.3725 17.0901 29.3725C19.2262 29.3725 20.9588 27.6381 20.9663 25.4958V7.11998H24.3059ZM16.925 16.994V15.9515C16.5397 15.8987 16.1512 15.8722 15.7623 15.8724C11.082 15.8723 7.28815 19.6796 7.28815 24.3759C7.28815 27.3203 8.77922 29.9151 11.045 31.4415C9.55059 29.9085 8.62982 27.8102 8.62982 25.4957C8.62982 20.8593 12.3273 17.0893 16.925 16.994Z" fill="#00F2EA"/>
+                    </svg>
+
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control ml-5"
+                    name="tiktok_link"
+                    id="tiktok_link"
+                    placeholder="TikTok Link"
+                  />
+                </div>
+                <div class="line"></div>
               </div>
               <div class="row">
                 <label for="exampleInputName" class="form-label mb-0"
@@ -520,9 +542,21 @@
               </div>
               <div class="row">
                 <label for="exampleInputName" class="form-label"
-                  >What kind of music do you Play? <b>*</b></label
+                  >What genre do you want to be notified about ?<b>*</b></label
                 >
                 <div class="col-xl-4 col-lg-6">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      name="checkall"
+                      id="checkAll"
+                    />
+                    <label class="form-check-label" for="flexCheckDefault14">
+                      Check All
+                    </label>
+                  </div>
                   <div class="form-check">
                     <input
                       class="form-check-input"
@@ -731,7 +765,7 @@
               >Verification page
             </h2>
             <form method="post" action="" id="dj-company">
-              <div class="row">
+              <!-- <div class="row">
                 <label for="exampleInputName" class="form-label"
                   >Disco or booking agency data <b>*</b></label
                 >
@@ -1052,7 +1086,7 @@
                 />
                 <small></small>
                 <div class="line"></div>
-              </div>
+              </div> -->
               <div class="mb-3">
                 <label for="exampleInputName" class="form-label"
                   >Social Media <b>*</b>
@@ -1117,6 +1151,25 @@
                     name="company_twitter_link"
                     id="company_twitter_link"
                     placeholder="Twitter Link"
+                  />
+                </div>
+                <div class="line"></div>
+                <div class="d-flex align-items-center">
+                  <span>
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="40" height="40" rx="20" fill="black"/>
+                      <path d="M25.5774 16.1075C27.378 17.3992 29.5838 18.1592 31.9661 18.1592V13.5585C31.5153 13.5586 31.0656 13.5115 30.6245 13.4177V17.0391C28.2423 17.0391 26.0368 16.2791 24.2357 14.9875V24.3762C24.2357 29.0729 20.4418 32.88 15.7621 32.88C14.016 32.88 12.393 32.3503 11.0449 31.4417C12.5836 33.0206 14.7295 34.0001 17.1035 34.0001C21.7835 34.0001 25.5776 30.193 25.5776 25.4961V16.1075H25.5774ZM27.2325 11.466C26.3123 10.4571 25.7082 9.15328 25.5774 7.71187V7.12012H24.306C24.626 8.95216 25.7176 10.5173 27.2325 11.466ZM14.0048 27.8376C13.4907 27.1611 13.2128 26.3335 13.2141 25.4826C13.2141 23.3345 14.9494 21.5928 17.0903 21.5928C17.4893 21.5927 17.8859 21.654 18.2661 21.7751V17.0716C17.8218 17.0104 17.3733 16.9845 16.925 16.994V20.655C16.5445 20.5339 16.1477 20.4724 15.7486 20.4728C13.6077 20.4728 11.8725 22.2143 11.8725 24.3627C11.8725 25.8818 12.7399 27.1969 14.0048 27.8376Z" fill="#FF004F"/>
+                      <path d="M24.2357 14.9874C26.0367 16.279 28.2422 17.039 30.6244 17.039V13.4176C29.2947 13.1333 28.1175 12.436 27.2325 11.466C25.7175 10.5172 24.626 8.95206 24.3059 7.12012H20.9662V25.4959C20.9587 27.6381 19.2263 29.3727 17.09 29.3727C15.8311 29.3727 14.7127 28.7705 14.0044 27.8376C12.7396 27.1969 11.8722 25.8817 11.8722 24.3628C11.8722 22.2146 13.6075 20.4729 15.7484 20.4729C16.1585 20.4729 16.5539 20.537 16.9248 20.6551V16.9941C12.3272 17.0894 8.6297 20.8594 8.6297 25.496C8.6297 27.8105 9.55047 29.9087 11.0449 31.4418C12.3931 32.3503 14.016 32.8801 15.7621 32.8801C20.442 32.8801 24.2358 29.0728 24.2358 24.3762V14.9874H24.2357Z" fill="white"/>
+                      <path d="M30.6244 13.4174V12.4382C29.4253 12.4401 28.2498 12.1031 27.2325 11.4658C28.1331 12.4552 29.3189 13.1375 30.6244 13.4174ZM24.3059 7.11998C24.2754 6.9449 24.252 6.76866 24.2357 6.59175V6H19.6245V24.3759C19.6171 26.5179 17.8849 28.2525 15.7484 28.2525C15.1211 28.2525 14.5289 28.1031 14.0045 27.8375C14.7128 28.7703 15.8312 29.3725 17.0901 29.3725C19.2262 29.3725 20.9588 27.6381 20.9663 25.4958V7.11998H24.3059ZM16.925 16.994V15.9515C16.5397 15.8987 16.1512 15.8722 15.7623 15.8724C11.082 15.8723 7.28815 19.6796 7.28815 24.3759C7.28815 27.3203 8.77922 29.9151 11.045 31.4415C9.55059 29.9085 8.62982 27.8102 8.62982 25.4957C8.62982 20.8593 12.3273 17.0893 16.925 16.994Z" fill="#00F2EA"/>
+                    </svg>
+
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control ml-5"
+                    name="company_tiktok_link"
+                    id="company_tiktok_link"
+                    placeholder="TikTok Link"
                   />
                 </div>
                 <div class="line"></div>
@@ -1229,7 +1282,7 @@
                     </button>
                     <br />
                   </div>
-                  <div id="note"></div>
+                  <div id="note2" style="color: #de0000;"></div>
                   <div class="list d-flex mt-3"></div>
                 </div>
                 <div class="events-clubs club-2 mb-3">
@@ -1256,7 +1309,7 @@
                     </button>
                     <br />
                   </div>
-                  <div id="note"></div>
+                  <div id="note3" style="color: #de0000;"></div>
                   <div class="list-2 d-flex mt-3"></div>
                 </div>
               </div>
@@ -1322,13 +1375,20 @@
       return true;
     }
     var $toAdd = $("input[name=checkListClub]").val();
+    
+    if(!isValidHttpUrl($toAdd)){
+      $('#note2').text('Only URL allowed, URL must contain http or https')
+      return true;
+    }else{
+      $('#note2').text('')
+    }
     $(".list").append(
-      '<div class="item"><div class="item-close">' + $toAdd + "</div></div>"
+      '<div class="item"><div class="item-close"><a target="_blank" href="'+$toAdd+'">' + $toAdd + "</a><i class='fa-solid fa-xmark ms-3'></i></div></div>"
     );
     var $toAdd = $("input[name=checkListClub]").val("");
   });
-  $(document).on("click", ".item", function () {
-    $(this).remove();
+  $(document).on("click", ".item .fa-solid", function () {
+    $(this).parent().remove();
   });
 
   $(".c2").click(function () {
@@ -1336,15 +1396,18 @@
       return true;
     }
     var $toAddmore = $("input[name=checkListEvents]").val();
+    if(isValidHttpUrl($toAddmore)){
+      $toAddmore=`<a href="${$toAddmore}" target="_blank">${$toAddmore}</a>`;
+    }
     $(".list-2").append(
       '<div class="item-2"><div class="item-close">' +
         $toAddmore +
-        "</div></div>"
+        "<i class='fa-solid fa-xmark ms-3'></i></div></div>"
     );
     $("input[name=checkListEvents]").val("");
   });
-  $(document).on("click", ".item-2", function () {
-    $(this).remove();
+  $(document).on("click", ".item-2 .fa-solid", function () {
+    $(this).parent().remove();
   });
 
   $(".c3").click(function () {
@@ -1359,6 +1422,17 @@
     );
     $("input[name=RecidenceClub]").val("");
   });
+  function isValidHttpUrl(string) {
+    let url;
+    
+    try {
+      url = new URL(string);
+    } catch (_) {
+      return false;  
+    }
+
+    return url.protocol === "http:" || url.protocol === "https:";
+  }
   $(document).on("click", ".item-3", function () {
     $(this).remove();
   });
@@ -1383,6 +1457,9 @@
   });
 
   $(document).ready(function () {
+    $('#checkAll').click(function () {
+        $('input[name="music"]').prop('checked', this.checked);
+    });
     const radio = $('input[name="club-1"]:checked').val();
     if (radio == "c1") {
       $(".club-1").show();
