@@ -43,6 +43,7 @@
     "scripts": {
         "build": "babel src -d dist",
         "test": "echo \"Error: no test specified\" && exit 1",
+        "seed": "npm run build && nodemon --exec babel-node seeds/index.js",
         "start": "npm run build && nodemon --exec babel-node dist/app.js",
         "start:dev": "pm2 start --interpreter babel-node dist/app.js -n djchart-3000",
         "pwa": "create-pwa --icon=\"public/images/app_icon.png\" --launch=\"public/images/app_icon.png\"",

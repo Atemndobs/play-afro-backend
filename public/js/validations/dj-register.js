@@ -687,36 +687,36 @@ form2.addEventListener("submit", function (e) {
   e.preventDefault();
 
   // validate fields
-  let isCompanynameValid = checkCompanyname(),
-    isCompanystreetValid = checkComanystreet(),
-    isCompanypostcodeValid = companyCompanypostcode(),
-    isCompanylocationValid = checkCompanylocation(),
-    isCompanycountryValid = checkComapanycountry(),
-    isCompanycontactnumberValid = checkCompanyConatctNumber(),
-    isCompanyemailValid = checkCompanyemail(),
+  // let isCompanynameValid = checkCompanyname(),
+  //   isCompanystreetValid = checkComanystreet(),
+  //   isCompanypostcodeValid = companyCompanypostcode(),
+  //   isCompanylocationValid = checkCompanylocation(),
+  //   isCompanycountryValid = checkComapanycountry(),
+  //   isCompanycontactnumberValid = checkCompanyConatctNumber(),
+  //   isCompanyemailValid = checkCompanyemail(),
     // isCompanybookerValid = checkComapnybooker(),
-    isCompanypersonValid = checkComapnycontactperson(),
-    isCompanyCheckInstaLinkValid = companyCheckInstaLink(),
+  // let isCompanypersonValid = checkComapnycontactperson(),
+  let  isCompanyCheckInstaLinkValid = companyCheckInstaLink(),
     // isCompanydirectorValid = checkComapnydirector(),
-    isCheckReferenceClubs = checkReferenceClubs(),
-    isComapnyagency = checkComapnyagency(),
-    isCompanyday = checkCompanyday();
+    isCheckReferenceClubs = checkReferenceClubs();
+    // isComapnyagency = checkComapnyagency(),
+    // isCompanyday = checkCompanyday();
 
   let isFormValid =
-    isCompanynameValid &&
-    isCompanystreetValid &&
-    isCompanypostcodeValid &&
-    isCompanylocationValid &&
-    isCompanycountryValid &&
-    isCompanycontactnumberValid &&
-    isCompanyemailValid &&
+    // isCompanynameValid &&
+    // isCompanystreetValid &&
+    // isCompanypostcodeValid &&
+    // isCompanylocationValid &&
+    // isCompanycountryValid &&
+    // isCompanycontactnumberValid &&
+    // isCompanyemailValid &&
     isCompanyCheckInstaLinkValid &&
     // isCompanybookerValid &&
-    isCompanypersonValid &&
-    isCheckReferenceClubs &&
+    // isCompanypersonValid &&
+    isCheckReferenceClubs;
     // isCompanydirectorValid &&
-    isComapnyagency &&
-    isCompanyday;
+    // isComapnyagency &&
+    // isCompanyday;
 
   // submit to the server if the form is valid
   if (isFormValid) {

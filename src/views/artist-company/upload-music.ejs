@@ -1,5 +1,81 @@
 <%- include('layouts/header') %>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+<style>
+  .select2-container {
+  min-width: auto;
+}
 
+.select2-results__option {
+  padding-right: 20px;
+  vertical-align: middle;
+}
+.select2-results__option:before {
+  content: "";
+  display: inline-block;
+  position: relative;
+  height: 20px;
+  width: 20px;
+  border: 2px solid #e9e9e9;
+  border-radius: 4px;
+  background-color: #fff;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+.select2-results__option[aria-selected=true]:before {
+  font-family:fontAwesome;
+  content: "\f00c";
+  color: #fff;
+  background-color: #ced4da;
+  border: 0;
+  display: inline-block;
+  padding-left: 3px;
+}
+.select2-container--default .select2-results__option[aria-selected=true] {
+	background-color: #fff;
+}
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+	background-color: #eaeaeb;
+	color: #272727;
+}
+.select2-container--default .select2-selection--multiple {
+	margin-bottom: 10px;
+}
+.select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple {
+	border-radius: 4px;
+}
+.select2-container--default.select2-container--focus .select2-selection--multiple {
+	border-color: #ced4da;
+	border-width: 2px;
+  border-radius: 10px;
+}
+.select2-container--default .select2-selection--multiple {
+	border-width: 2px;
+}
+.select2-container--open .select2-dropdown--below {
+	
+	border-radius: 6px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+}
+.select2-selection .select2-selection--multiple:after {
+	content: 'hhghgh';
+}
+/* select with icons badges single*/
+.select-icon .select2-selection__placeholder .badge {
+	display: none;
+}
+.select-icon .placeholder {
+	display: none;
+}
+.select-icon .select2-results__option:before,
+.select-icon .select2-results__option[aria-selected=true]:before {
+	display: none !important;
+	/* content: "" !important; */
+}
+.select-icon  .select2-search--dropdown {
+	display: none;
+}
+</style>
 <div class="step-1" id="checkout-progress" data-current-step="1">
   <div class="progress-bar">
     <div class="step step-1 active">
@@ -416,12 +492,12 @@
                           >Genre <b>*</b>
                         </label>
                         <select
-                          class="form-select"
+                          class="form-select js-select2"
                           name="genre"
                           id="genre"
-                          aria-label="Default select example"
+                          aria-label="Default select example" multiple="multiple"
                         >
-                          <option selected="" disabled="">Genre</option>
+                          <!-- <option selected="" disabled="">Genre</option> -->
                           <option value="Afrobeats">Afrobeats</option>
                           <option value="Amapiano">Amapiano</option>
                           <option value="Coupé Décalé">Coupé Décalé</option>
@@ -1996,6 +2072,7 @@
 <script src="/js/validations/music-upload.js?<%= new Date() %>"></script>
 
 <%- include('layouts/footer') %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
 <script>
       const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
       const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
@@ -2007,6 +2084,14 @@
           }
       }
       $(document).ready(function () {
+
+        $(".js-select2").select2({
+			closeOnSelect : false,
+			placeholder : "Select Genre",
+			allowHtml: true,
+			allowClear: true,
+			tags: true // создает новые опции на лету
+		});
         $('#publish_date').change(function(){
           $('#release_date').val($(this).val())
         })

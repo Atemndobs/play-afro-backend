@@ -26,11 +26,11 @@ import MusicQuestions from "./music-question";
 const db = {};
 db.sequelize = dbConnection;
 
-users.hasOne(Country, {
-  sourceKey: "country",
-  as: "country_data",
-  foreignKey: "id",
-});
+// users.hasOne(Country, {
+//   sourceKey: "country",
+//   as: "country_data",
+//   foreignKey: "id",
+// });
 // Subscription.hasOne(Plans, { foreignKey: "plan_id", as: "plan_data" });
 Subscription.belongsTo(users, {
   sourceKey: "id",
@@ -147,6 +147,12 @@ Notification.belongsTo(users, {
   onDelete: "CASCADE",
 });
 
+Notification.belongsTo(Music, {
+  foreignKey: "musicId",
+  as: "music_data",
+  targetKey: "id",
+  onDelete: "CASCADE",
+});
 users.hasMany(Notification, {
   foreignKey: "userId",
   sourceKey: "id",

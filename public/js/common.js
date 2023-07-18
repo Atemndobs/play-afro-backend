@@ -187,10 +187,12 @@ $(document).ready(function () {
     $(".companys-name").fadeIn();
     $(".contact-person").fadeIn();
     $(".companys-website").fadeIn();
+    $("#fullname").siblings("label").children('b').text('');
   });
   //click on Solo
   $("#soloselect").on("click", function () {
     check = $(this).prop("checked");
+    $("#fullname").siblings("label").children("b").text("*");
     $(".companys-name").fadeOut();
     $(".contact-person").fadeOut();
     $(".companys-website").fadeOut();
