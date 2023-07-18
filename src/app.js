@@ -7,6 +7,7 @@ import AuthController from "../controllers/AuthController";
 import AdminRoutes from "../routes/admin";
 import session from "express-session";
 import userRoutes from "../routes/userRoutes";
+import flutterWaveRoutes from "../routes/flutterWaveRoutes"
 import handleError from "./common/middleware/error";
 import fs from "fs";
 var moment = require("moment");
@@ -50,6 +51,9 @@ app.use("/", ProfileRoutes);
 app.use("/", AdminRoutes);
 app.use("/dj", DjRoutes);
 app.use("/user", userRoutes);
+//============= FLUTTER WAVE =======
+app.use("/flutter-wave", flutterWaveRoutes)
+
 app.use(handleError);
 import DashboardController from "../controllers/DashboardController";
 const isSecure = process.env.isSSLEnable === "true";
